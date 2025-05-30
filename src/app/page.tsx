@@ -145,39 +145,59 @@ export default function Home() {
         </section>
 
         {/* Backed By Section */}
-        <section className="py-20 bg-black">
-          <div className="container px-4 md:px-6 mx-auto max-w-5xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Backed by{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
-                  Red Beard Ventures
-                </span>
-              </h2>
-              <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-                Denarii Labs is proud to be backed by Red Beard Ventures — one
-                of Web3's most active and respected early-stage investment
-                firms. With a global presence and deep operator experience, RBV
-                empowers the next generation of decentralized innovation.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {[
-                { value: "80M+", label: "Capital Deployed" },
-                { value: "200+", label: "Portfolio Companies" },
-                { value: "5000+", label: "LPs Worldwide" },
-              ].map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1"
-                >
-                  <div className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-3">
-                    {stat.value}
+        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+          <div className="container px-4 md:px-6 mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - RBV Illustration */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative w-full max-w-md">
+                  <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-900/20 to-pink-900/10 border border-gray-800/50 p-8 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="mx-auto w-48 h-48 rounded-full bg-gradient-to-br from-purple-600/10 to-pink-600/20 border-2 border-purple-500/20 flex items-center justify-center mb-6">
+                        <span className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+                          RBV
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">Red Beard Ventures</h3>
+                      <p className="text-purple-300/80 text-sm">Early-Stage Web3 Investment Firm</p>
+                    </div>
                   </div>
-                  <div className="text-gray-300 text-lg">{stat.label}</div>
                 </div>
-              ))}
+              </div>
+              
+              {/* Right Column - Content */}
+              <div className="max-w-2xl mx-auto lg:mx-0 lg:pl-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-left">
+                  Backed by{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+                    Red Beard Ventures
+                  </span>
+                </h2>
+                <p className="text-gray-300 text-lg mb-8 text-left">
+                  Denarii Labs is proud to be backed by Red Beard Ventures — one of Web3's most active and respected early-stage investment firms. With a global presence and deep operator experience, RBV empowers the next generation of decentralized innovation.
+                </p>
+                
+                {/* Stats Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {[
+                    { value: "80M+", label: "Capital Deployed" },
+                    { value: "200+", label: "Portfolio Companies" },
+                    { value: "5K+", label: "LPs Worldwide" }
+                  ].map((stat) => (
+                    <div 
+                      key={stat.label}
+                      className="bg-gray-900/50 rounded-xl p-5 border border-gray-800 hover:border-purple-500/30 transition-all duration-300"
+                    >
+                      <div className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-gray-400 text-sm font-medium">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -55,9 +55,9 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/50 bg-background/90 py-10 text-foreground/80">
-      <div className="flex justify-center w-full">
-        <div className="w-full max-w-4xl px-4 md:px-6 mx-auto">
-          <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 gap-x-4 lg:grid-cols-4 lg:gap-x-6 justify-items-center">
+      <div className="w-full max-w-4xl px-4 md:px-6 mx-auto">
+        <div className="w-full">
+          <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 gap-x-4 lg:grid-cols-4 lg:gap-x-6">
             {/* Column 1: Brand */}
             <div className="flex flex-col space-y-5">
               <Link
@@ -201,8 +201,8 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="w-full max-w-4xl px-4 md:px-6 mx-auto">
-            <div className="mt-10 border-t border-border/50 pt-8 text-center text-sm text-foreground/60">
+          <div className="w-full">
+            <div className="mt-10 border-t border-border/50 pt-8 text-sm text-foreground/60 text-center">
               <p>
                 &copy; {currentYear} {SITE_NAME}. All rights reserved.
               </p>
