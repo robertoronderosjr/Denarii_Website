@@ -84,7 +84,7 @@ const partners = [
 export default function Home() {
   return (
     <ScrollBackground>
-      <main>
+      <main className="bg-black">
         {/* Hero Section */}
         <section className="py-24 md:py-32 w-full relative overflow-hidden min-h-[90vh] flex items-center">
           <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">
@@ -101,26 +101,26 @@ export default function Home() {
                 backed by Red Beard Ventures
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 w-full max-w-xl mx-auto">
                 <Button
+                  className="flex-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
                   size="lg"
-                  className="group bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-6 text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
                   asChild
                 >
-                  <Link href="/accelerator">
-                    Apply for Acceleration
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <Link href="/accelerator" className="flex items-center justify-center gap-3">
+                    <Zap className="h-6 w-6" />
+                    Apply to Accelerator
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
+                  className="flex-1 bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
                   size="lg"
-                  className="bg-transparent border-gray-600 text-white hover:bg-gray-800 hover:text-white px-8 py-6 text-lg font-semibold group"
                   asChild
                 >
-                  <Link href="/consulting">
-                    Explore Consulting
-                    <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <Link href="/consulting" className="flex items-center justify-center gap-3">
+                    <LineChart className="h-6 w-6" />
+                    Tokenomics Consulting
                   </Link>
                 </Button>
               </div>
@@ -145,7 +145,7 @@ export default function Home() {
         </section>
 
         {/* Backed By Section */}
-        <section className="relative py-20 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
+        <section className="py-20 bg-black">
           <div className="container px-4 md:px-6 mx-auto max-w-5xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -170,7 +170,7 @@ export default function Home() {
               ].map((stat, index) => (
                 <div
                   key={stat.label}
-                  className="bg-gradient-to-br from-gray-800/50 to-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1"
+                  className="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1"
                 >
                   <div className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 mb-3">
                     {stat.value}
@@ -179,9 +179,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="absolute inset-0 -z-10 opacity-20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent" />
           </div>
         </section>
 
