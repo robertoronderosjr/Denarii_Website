@@ -83,31 +83,31 @@ export function Navbar() {
                     <div className="absolute h-4 w-full left-0 bottom-0 translate-y-full"></div>
 
                     {/* Dropdown menu */}
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-0 z-50 rounded-xl bg-black/30 backdrop-blur-md ring-1 ring-white/5 px-2 py-2 shadow-md transition-all duration-200 ease-out origin-top scale-y-95 opacity-0 group-hover:opacity-100 group-hover:scale-y-100 hidden group-hover:flex hover:flex flex-col pointer-events-auto w-[180px]">
+                    <div className="absolute top-full left-0 mt-4 z-50 bg-black w-56 rounded-xl shadow-md py-1 border border-white/10 transition-all duration-200 ease-out origin-top scale-y-95 opacity-0 group-hover:opacity-100 group-hover:scale-y-100 hidden group-hover:flex hover:flex flex-col pointer-events-auto">
                       <Link
                         href="/accelerator/wire-network"
-                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        className="block px-4 py-3 text-base font-medium text-white hover:bg-purple-600 cursor-pointer transition-colors rounded-lg mx-1 my-0.5 whitespace-nowrap"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Wire Network
                       </Link>
                       <Link
                         href="/accelerator/avalanche"
-                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        className="block px-4 py-3 text-base font-medium text-white hover:bg-purple-600 cursor-pointer transition-colors rounded-lg mx-1 my-0.5 whitespace-nowrap"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         Avalanche
                       </Link>
                       <Link
                         href="/accelerator/xion"
-                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        className="block px-4 py-3 text-base font-medium text-white hover:bg-purple-600 cursor-pointer transition-colors rounded-lg mx-1 my-0.5 whitespace-nowrap"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         XION
                       </Link>
                       <Link
                         href="/accelerator/f-ecosystem"
-                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        className="block px-4 py-3 text-base font-medium text-white hover:bg-purple-600 cursor-pointer transition-colors rounded-lg mx-1 my-0.5 whitespace-nowrap"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         F-Ecosystem
@@ -179,9 +179,6 @@ export function Navbar() {
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {link.label}
-                          <span className="text-xs text-gray-400">
-                            (has submenu)
-                          </span>
                         </Link>
 
                         {/* Mobile submenu items */}
