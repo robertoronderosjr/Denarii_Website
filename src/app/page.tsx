@@ -113,13 +113,12 @@ export default function Home() {
               <span className="text-white">of Tokenized Startups</span>
             </h1>
             <p className="max-w-2xl text-gray-300 md:text-xl font-medium mb-4">
-              Scaling Web3 startups with capital, tokenomics, and backed by Red
-              Beard Ventures
+              Scaling Web3 startups with capital, tokenomics, <br /> and backed by Red Beard Ventures
             </p>
 
             <div className="flex flex-col gap-5 sm:flex-row sm:gap-8 w-full max-w-xl mx-auto">
               <Button
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-lg py-6 px-8 animate-pulse-subtle"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-lg py-6 px-8"
                 size="lg"
                 asChild
               >
