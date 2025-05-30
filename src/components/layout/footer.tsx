@@ -36,9 +36,21 @@ export function Footer() {
 
   const socialLinks = [
     { icon: XIcon, href: "https://twitter.com/denariilabs", label: "X" },
-    { icon: Linkedin, href: "https://linkedin.com/company/denariilabs", label: "LinkedIn" },
-    { icon: MediumIcon, href: "https://denariilabs.medium.com/", label: "Medium" },
-    { icon: Youtube, href: "https://www.youtube.com/channel/UCw-77WSWOmUh6Q_3oTTHhLQ", label: "YouTube" },
+    {
+      icon: Linkedin,
+      href: "https://linkedin.com/company/denariilabs",
+      label: "LinkedIn",
+    },
+    {
+      icon: MediumIcon,
+      href: "https://denariilabs.medium.com/",
+      label: "Medium",
+    },
+    {
+      icon: Youtube,
+      href: "https://www.youtube.com/channel/UCw-77WSWOmUh6Q_3oTTHhLQ",
+      label: "YouTube",
+    },
   ];
 
   return (
@@ -48,20 +60,26 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 gap-x-4 lg:grid-cols-4 lg:gap-x-6 justify-items-center">
             {/* Column 1: Brand */}
             <div className="flex flex-col space-y-5">
-              <Link href="/" className="inline-flex items-center gap-3" aria-label={`${SITE_NAME} homepage`}>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-3"
+                aria-label={`${SITE_NAME} homepage`}
+              >
                 <div className="relative h-10 w-10 overflow-hidden">
-                  <Image 
-                    src="/D_Logo.svg" 
-                    alt="Denarii Labs Logo" 
-                    width={40} 
-                    height={40} 
-                    className="h-full w-full object-contain filter brightness-0 invert" 
+                  <Image
+                    src="/D_Logo.svg"
+                    alt="Denarii Labs Logo"
+                    width={40}
+                    height={40}
+                    className="h-full w-full object-contain filter brightness-0 invert"
                     quality={100}
                   />
                 </div>
-                <span className="text-xl font-bold text-foreground">{SITE_NAME}</span>
+                <span className="text-xl font-bold text-foreground">
+                  {SITE_NAME}
+                </span>
               </Link>
-              
+
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <Link
@@ -77,7 +95,7 @@ export function Footer() {
                   </Link>
                 ))}
               </div>
-              
+
               <p className="text-sm text-foreground/70">
                 Pioneering the future of decentralized technologies.
               </p>
@@ -85,20 +103,31 @@ export function Footer() {
 
             {/* Column 2: Services */}
             <div>
-              <h3 className="mb-4 text-base font-semibold text-foreground">Services</h3>
+              <h3 className="mb-4 text-base font-semibold text-foreground">
+                Services
+              </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/accelerator" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/accelerator"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Accelerator
                   </Link>
                 </li>
                 <li>
-                  <Link href="/consulting" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/consulting"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Consulting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/partners" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/partners"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Partners
                   </Link>
                 </li>
@@ -107,20 +136,31 @@ export function Footer() {
 
             {/* Column 3: Company */}
             <div>
-              <h3 className="mb-4 text-base font-semibold text-foreground">Company</h3>
+              <h3 className="mb-4 text-base font-semibold text-foreground">
+                Company
+              </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/about" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/about"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/team" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/team"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Team
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/blog"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Blog
                   </Link>
                 </li>
@@ -129,20 +169,31 @@ export function Footer() {
 
             {/* Column 4: Legal */}
             <div>
-              <h3 className="mb-4 text-base font-semibold text-foreground">Legal</h3>
+              <h3 className="mb-4 text-base font-semibold text-foreground">
+                Legal
+              </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/privacy" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/privacy"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/terms"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link href="/security" className="text-sm text-foreground/70 transition-colors hover:text-primary">
+                  <Link
+                    href="/security"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
                     Security Procedures
                   </Link>
                 </li>
@@ -152,7 +203,9 @@ export function Footer() {
 
           <div className="w-full max-w-4xl px-4 md:px-6 mx-auto">
             <div className="mt-10 border-t border-border/50 pt-8 text-center text-sm text-foreground/60">
-              <p>&copy; {currentYear} {SITE_NAME}. All rights reserved.</p>
+              <p>
+                &copy; {currentYear} {SITE_NAME}. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
