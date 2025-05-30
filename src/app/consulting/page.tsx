@@ -98,40 +98,41 @@ export default function ConsultingPage() {
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text */}
-            <div className="flex flex-col space-y-6">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+            <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-8">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 animate-sparkle">
                   Tokenomics Consulting Services
                 </span>
               </h1>
-              <ul className="space-y-3 my-4">
-                <li className="flex items-start gap-3">
-                  <div className="rounded-full bg-purple-600/20 p-1 mt-1">
-                    <CheckCircle className="h-5 w-5 text-purple-400" />
+              <ul className="space-y-6 mb-4">
+                <li className="flex items-start gap-4 group transition-all duration-300 cursor-pointer">
+                  <div className="rounded-full bg-purple-600/20 p-1.5 mt-1.5 group-hover:bg-purple-600/40 group-hover:scale-110 transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-purple-400 group-hover:text-purple-300" />
                   </div>
-                  <span className="text-xl text-gray-300 font-medium">Customized tokenomics designs tailored to your project's unique goals</span>
+                  <span className="text-2xl text-gray-300 font-medium leading-tight group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Customized tokenomics designs tailored to your project's unique goals</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="rounded-full bg-purple-600/20 p-1 mt-1">
-                    <CheckCircle className="h-5 w-5 text-purple-400" />
+                <li className="flex items-start gap-4 group transition-all duration-300 cursor-pointer">
+                  <div className="rounded-full bg-purple-600/20 p-1.5 mt-1.5 group-hover:bg-purple-600/40 group-hover:scale-110 transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-purple-400 group-hover:text-purple-300" />
                   </div>
-                  <span className="text-xl text-gray-300 font-medium">Strategic expertise from Web3 veterans with proven success</span>
+                  <span className="text-2xl text-gray-300 font-medium leading-tight group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Strategic expertise from Web3 veterans with proven success</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="rounded-full bg-purple-600/20 p-1 mt-1">
-                    <CheckCircle className="h-5 w-5 text-purple-400" />
+                <li className="flex items-start gap-4 group transition-all duration-300 cursor-pointer">
+                  <div className="rounded-full bg-purple-600/20 p-1.5 mt-1.5 group-hover:bg-purple-600/40 group-hover:scale-110 transition-all duration-300">
+                    <CheckCircle className="h-6 w-6 text-purple-400 group-hover:text-purple-300" />
                   </div>
-                  <span className="text-xl text-gray-300 font-medium">Sustainable frameworks that drive long-term value and adoption</span>
+                  <span className="text-2xl text-gray-300 font-medium leading-tight group-hover:text-white group-hover:translate-x-1 transition-all duration-300">Sustainable frameworks that drive long-term value and adoption</span>
                 </li>
               </ul>
-              <div className="pt-4">
+              <div className="mt-8">
                 <Button 
-                  className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white hover:from-purple-600 hover:to-indigo-600 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
+                  className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
                   size="lg"
                   asChild
                 >
-                  <Link href="#contact">
-                    Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="#contact" className="flex items-center justify-center gap-3">
+                    <Lightbulb className="h-6 w-6" />
+                    Book a Consultation
                   </Link>
                 </Button>
               </div>
