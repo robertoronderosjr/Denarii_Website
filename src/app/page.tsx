@@ -152,7 +152,7 @@ export default function Home() {
         </section>
 
         {/* Backed By Section */}
-        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <section className="py-24 bg-black">
           <div className="container px-4 md:px-6 mx-auto max-w-7xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               {/* Left Column - RBV Card */}
