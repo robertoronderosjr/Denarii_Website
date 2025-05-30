@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Marquee Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 20s linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover for better UX */
+.group:hover .animate-marquee,
+.group:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
 @layer base {
   :root {
     --background: 0 0% 0%; /* Black */

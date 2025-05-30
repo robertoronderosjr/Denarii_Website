@@ -34,14 +34,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="flex min-h-screen flex-col bg-background text-foreground relative">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-foreground`}>
+        <div className="min-h-screen flex flex-col">
           {/* Background grid pattern */}
           <div className="fixed inset-0 bg-[url('/grid.svg')] bg-[length:60px_60px] bg-fixed bg-top bg-repeat opacity-10 pointer-events-none z-0"></div>
           
           <div className="relative z-10 flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow bg-gray-950">{children}</main>
             <Footer />
           </div>
           
