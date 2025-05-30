@@ -4,13 +4,21 @@
 
 /* Marquee Animations */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 @keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .animate-marquee {
@@ -100,7 +108,7 @@
     --border: 0 0% 20%;
     --input: 0 0% 15%;
     --ring: 278 87% 60%;
-    
+
     --chart-1: 278 87% 53%;
     --chart-2: 278 87% 63%;
     --chart-3: 278 87% 73%;

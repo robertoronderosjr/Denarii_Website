@@ -150,7 +150,7 @@ export default function ConsultingPage() {
             </div>
 
             {/* Right Column - Tokenomics Illustration */}
-            <div className="bg-gradient-to-br from-gray-900 to-gray-950 p-8 rounded-lg border border-gray-800 shadow-xl">
+            <div className="p-8 bg-transparent">
               <div className="aspect-square relative flex items-center justify-center">
                 <div className="relative w-full h-full flex items-center justify-center">
                   {/* Central token circle */}
@@ -158,8 +158,20 @@ export default function ConsultingPage() {
                     <span className="text-3xl font-bold text-white">TOKEN</span>
                   </div>
 
-                  {/* Connecting lines */}
+                  {/* Connecting lines and orbit */}
                   <div className="absolute inset-0 flex items-center justify-center">
+                    {/* Static connecting lines to corners */}
+                    <div className="absolute w-full h-full">
+                      {/* Line to top-left */}
+                      <div className="absolute top-0 left-0 w-1/3 h-1/3 border-t-2 border-l-2 border-blue-500/30 rounded-tl-xl"></div>
+                      {/* Line to top-right */}
+                      <div className="absolute top-0 right-0 w-1/3 h-1/3 border-t-2 border-r-2 border-indigo-500/30 rounded-tr-xl"></div>
+                      {/* Line to bottom-left */}
+                      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 border-b-2 border-l-2 border-pink-500/30 rounded-bl-xl"></div>
+                      {/* Line to bottom-right */}
+                      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 border-b-2 border-r-2 border-purple-500/30 rounded-br-xl"></div>
+                    </div>
+                    
                     <div className="w-64 h-64 rounded-full border-2 border-dashed border-purple-500/30 animate-[spin_30s_linear_infinite]">
                       {/* Orbit elements */}
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 p-2 rounded-full shadow-lg shadow-blue-500/30">
@@ -177,17 +189,17 @@ export default function ConsultingPage() {
                     </div>
                   </div>
 
-                  {/* Labels */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 text-blue-400 text-sm font-medium">
+                  {/* Enhanced Labels positioned closer to orbit */}
+                  <div className="absolute top-[15%] left-[15%] px-4 py-2 bg-blue-500/90 text-white text-base font-medium rounded-full border border-blue-300/30 shadow-md shadow-blue-500/30">
                     Supply
                   </div>
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-purple-400 text-sm font-medium">
+                  <div className="absolute bottom-[15%] right-[15%] px-4 py-2 bg-purple-500/90 text-white text-base font-medium rounded-full border border-purple-300/30 shadow-md shadow-purple-500/30">
                     Utility
                   </div>
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 text-sm font-medium">
+                  <div className="absolute top-[15%] right-[15%] px-4 py-2 bg-indigo-500/90 text-white text-base font-medium rounded-full border border-indigo-300/30 shadow-md shadow-indigo-500/30">
                     Governance
                   </div>
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 text-pink-400 text-sm font-medium">
+                  <div className="absolute bottom-[15%] left-[15%] px-4 py-2 bg-pink-500/90 text-white text-base font-medium rounded-full border border-pink-300/30 shadow-md shadow-pink-500/30">
                     Distribution
                   </div>
                 </div>
@@ -429,10 +441,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* CTA Section with Credibility Tagline */}
-      <section
-        id="contact"
-        className="py-24"
-      >
+      <section id="contact" className="py-24">
         <div className="container px-4 md:px-6 mx-auto text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold md:text-4xl mb-6 text-white">
