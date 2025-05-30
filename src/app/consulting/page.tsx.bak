@@ -12,6 +12,7 @@ import {
   Zap,
   Building,
 } from "lucide-react";
+import { ScrollBackground } from "@/components/ui/scroll-background";
 import {
   Card,
   CardContent,
@@ -94,7 +95,7 @@ export default function ConsultingPage() {
   return (
     <>
       {/* Split-Section Intro */}
-      <section className="py-24 md:py-32 bg-black">
+      <section className="py-24 md:py-32">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text */}
@@ -198,7 +199,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* Visual Services Grid */}
-      <section className="py-24 relative overflow-hidden bg-gray-950">
+      <section className="py-24">
         {/* Background gradient elements */}
         <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-purple-900/20 rounded-full blur-[100px] -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-indigo-900/20 rounded-full blur-[100px] translate-y-1/2"></div>
@@ -301,7 +302,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* Conceptual Diagram Section */}
-      <section className="py-24 bg-gray-950">
+      <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold md:text-4xl text-white mb-4">
@@ -434,10 +435,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* CTA Section with Credibility Tagline */}
-      <section
-        id="contact"
-        className="py-24 bg-gradient-to-br from-purple-950 to-black"
-      >
+      <section id="contact" className="py-24">
         <div className="container px-4 md:px-6 mx-auto text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold md:text-4xl mb-6 text-white">

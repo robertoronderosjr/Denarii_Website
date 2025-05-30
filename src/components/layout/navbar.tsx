@@ -44,17 +44,19 @@ export function Navbar() {
           aria-label={`${SITE_NAME} homepage`}
         >
           <div className="relative h-14 w-14 overflow-hidden">
-            <Image 
-              src="/D_Logo.svg" 
-              alt="Denarii Labs Logo" 
-              width={56} 
-              height={56} 
-              className="h-full w-full object-contain filter brightness-0 invert" 
+            <Image
+              src="/D_Logo.svg"
+              alt="Denarii Labs Logo"
+              width={56}
+              height={56}
+              className="h-full w-full object-contain filter brightness-0 invert"
               priority
               quality={100}
             />
           </div>
-          <span className="text-2xl font-extrabold tracking-tight">{SITE_NAME}</span>
+          <span className="text-2xl font-extrabold tracking-tight">
+            {SITE_NAME}
+          </span>
         </Link>
 
         {/* Navigation links and CTA button on the right */}
