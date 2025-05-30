@@ -236,13 +236,14 @@ export default function Home() {
 
 
         {/* Logo Rows Section */}
-        <section className="py-12">
+        <section className="py-16">
           <div className="w-full overflow-hidden">
             {/* Top Row - Scrolls right */}
-            <div className="mb-8 group">
+            <div className="mb-12 group">
               <LogoMarquee 
                 direction="right"
-                count={10}
+                count={12}
+                className="py-6"
               />
             </div>
             
@@ -250,7 +251,8 @@ export default function Home() {
             <div className="group">
               <LogoMarquee 
                 direction="left"
-                count={10}
+                count={12}
+                className="py-6"
               />
             </div>
           </div>
