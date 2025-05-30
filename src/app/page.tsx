@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-black py-32 w-full relative overflow-hidden min-h-[100vh] flex items-center">
+      <section className="bg-black py-24 md:py-32 w-full relative overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-[-1] will-change-transform">
           <div className="absolute inset-0 bg-black/90"></div>
           {/* Parallax SVG grid background */}
@@ -103,55 +103,56 @@ export default function Home() {
             }}
           ></div>
         </div>
-        <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
-          <div className="flex flex-col items-center justify-center space-y-8">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+        <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">
+          <div className="flex flex-col items-center justify-center space-y-10">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-2">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">
                 Backing the Next Generation
               </span>
               <br />
               <span className="text-white">of Tokenized Startups</span>
             </h1>
-            <p className="max-w-2xl text-gray-300 md:text-xl font-medium">
+            <p className="max-w-2xl text-gray-300 md:text-xl font-medium mb-4">
               Scaling Web3 startups with capital, tokenomics, and backed by Red
-              Beard Ventures.
+              Beard Ventures
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 w-full max-w-md mx-auto">
+            <div className="flex flex-col gap-5 sm:flex-row sm:gap-8 w-full max-w-xl mx-auto">
               <Button
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-105 hover:shadow-lg transition-all duration-300"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-lg py-6 px-8 animate-pulse-subtle"
                 size="lg"
                 asChild
               >
-                <Link href="/accelerator" className="flex items-center gap-2">
-                  <Zap className="h-5 w-5" />
+                <Link href="/accelerator" className="flex items-center gap-3">
+                  <Zap className="h-6 w-6" />
                   Apply to Accelerator
-                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button
                 variant="outline"
-                className="bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white transition-all duration-300"
+                className="bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-lg py-6 px-8"
                 size="lg"
                 asChild
               >
-                <Link href="/consulting" className="flex items-center gap-2">
-                  <ArrowUpRight className="h-5 w-5" />
+                <Link href="/consulting" className="flex items-center gap-3">
+                  <LineChart className="h-6 w-6" />
                   Tokenomics Consulting
                 </Link>
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mt-16">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center space-y-2 p-6 rounded-xl bg-gradient-to-b from-gray-900 to-gray-950 shadow-lg transition-all duration-300 hover:shadow-purple-900/20 hover:shadow-lg hover:border-purple-500/30 border border-transparent"
+                  className="flex flex-col items-center justify-center h-28 p-4 rounded-xl bg-gradient-to-b from-gray-900 to-gray-950 shadow-lg transition-all duration-300 hover:shadow-purple-900/30 hover:shadow-xl hover:border-purple-500/40 border border-transparent hover:scale-105"
                 >
-                  <span className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500">
+                  <span className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500 whitespace-nowrap">
                     {stat.value}
                   </span>
-                  <span className="text-sm text-gray-400">{stat.label}</span>
+                  <span className="text-sm text-gray-300 font-medium whitespace-nowrap mt-2">
+                    {stat.label}
+                  </span>
                 </div>
               ))}
             </div>
