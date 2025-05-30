@@ -1,175 +1,209 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Zap, Users, Handshake, BookOpen, Lightbulb, Users2, Target, ShieldCheck, LineChart } from 'lucide-react';
+import { ArrowRight, Zap, Users, Handshake, BookOpen, Lightbulb, Target, Shield, LineChart, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { SectionWrapper } from '@/components/common/section-wrapper';
-import { CtaButton } from '@/components/common/cta-button';
 
-const productSuite = [
+const stats = [
+  { label: "Projects Accelerated", value: "50+" },
+  { label: "Total Value Locked", value: "$100M+" },
+  { label: "Partner Network", value: "200+" },
+  { label: "Success Rate", value: "85%" },
+];
+
+const features = [
   {
     icon: Zap,
     title: "Accelerator Program",
-    description: "Fueling the next generation of Web3 innovators with mentorship, resources, and funding.",
+    description: "12-week intensive program to transform your Web3 project from concept to market-ready.",
     link: "/accelerator",
-    dataAiHint: "innovation tech"
   },
   {
-    icon: Lightbulb,
-    title: "Tokenomics Consulting",
-    description: "Expert guidance in designing sustainable and robust token economies for your project.",
+    icon: Shield,
+    title: "Tokenomics Design",
+    description: "Expert guidance in crafting sustainable token economies and incentive mechanisms.",
     link: "/consulting",
-    dataAiHint: "finance strategy"
   },
   {
-    icon: BookOpen,
-    title: "Research & Insights",
-    description: "Deep dives into market trends, protocol analysis, and emerging blockchain technologies.",
-    link: "/insights",
-    dataAiHint: "analysis data"
+    icon: LineChart,
+    title: "Market Strategy",
+    description: "Data-driven insights to position your project for success in the Web3 ecosystem.",
+    link: "/consulting",
   },
 ];
 
-const cohortProjects = [
-  { name: "Project Alpha", description: "Revolutionizing DeFi with AI-powered yield optimization.", logoUrl: "https://placehold.co/100x100.png", dataAiHint: "abstract tech" },
-  { name: "Nexus Gaming", description: "Building the next-gen metaverse gaming platform on a decentralized L2.", logoUrl: "https://placehold.co/100x100.png", dataAiHint: "gaming future" },
-  { name: "InfraSecure", description: "Providing cutting-edge security solutions for blockchain infrastructure.", logoUrl: "https://placehold.co/100x100.png", dataAiHint: "security shield" },
+const testimonials = [
+  {
+    quote: "Denarii Labs transformed our vision into a thriving protocol with over $50M TVL.",
+    author: "Sarah Chen",
+    role: "Founder, DeFi Protocol",
+    avatar: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
+  },
+  {
+    quote: "Their tokenomics expertise helped us create a sustainable economic model that actually works.",
+    author: "Michael Roberts",
+    role: "CEO, GameFi Platform",
+    avatar: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+  },
+  {
+    quote: "The network and mentorship we gained were invaluable for our growth and market presence.",
+    author: "Elena Martinez",
+    role: "CTO, Web3 Infrastructure",
+    avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+  },
 ];
 
-const partnerLogos = [
-  { name: "Partner One", logoUrl: "https://placehold.co/150x60.png", dataAiHint: "logo brand" },
-  { name: "Partner Two", logoUrl: "https://placehold.co/150x60.png", dataAiHint: "logo company" },
-  { name: "Partner Three", logoUrl: "https://placehold.co/150x60.png", dataAiHint: "logo tech" },
-  { name: "Partner Four", logoUrl: "https://placehold.co/150x60.png", dataAiHint: "logo business" },
-];
-
-const blogPosts = [
-  { title: "The Future of Tokenization", snippet: "Exploring how tokenization is reshaping industries beyond finance...", imageUrl: "https://placehold.co/600x400.png", link: "/insights/future-of-tokenization", dataAiHint: "future technology" },
-  { title: "Navigating Web3 Regulation", snippet: "A guide for startups on understanding the evolving regulatory landscape.", imageUrl: "https://placehold.co/600x400.png", link: "/insights/web3-regulation", dataAiHint: "law business" },
-  { title: "Deep Dive: Layer 2 Scaling Solutions", snippet: "Comparing and contrasting the leading L2 solutions for Ethereum.", imageUrl: "https://placehold.co/600x400.png", link: "/insights/layer-2-scaling", dataAiHint: "network chart" },
+const partners = [
+  { name: "Ethereum Foundation", logo: "https://placehold.co/200x80.png" },
+  { name: "Polygon", logo: "https://placehold.co/200x80.png" },
+  { name: "Chainlink", logo: "https://placehold.co/200x80.png" },
+  { name: "Arbitrum", logo: "https://placehold.co/200x80.png" },
+  { name: "Optimism", logo: "https://placehold.co/200x80.png" },
+  { name: "Avalanche", logo: "https://placehold.co/200x80.png" },
 ];
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-background to-primary/20">
-        <SectionWrapper className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            Build the Future of <span className="text-primary">Decentralization</span>
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg text-foreground/80 md:text-xl">
-            Denarii Labs empowers visionary founders and projects with the tools, expertise, and network to thrive in the Web3 ecosystem.
-          </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <CtaButton href="/accelerator">
-              Join Our Accelerator <ArrowRight className="ml-2 h-5 w-5" />
-            </CtaButton>
-            <CtaButton href="/consulting" variant="outline">
-              Consulting Services
-            </CtaButton>
+      <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-primary/5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,_rgba(120,_58,_240,_0.05),_transparent_25%),radial-gradient(circle_at_70%_70%,_rgba(120,_58,_240,_0.05),_transparent_25%)]" />
+        <SectionWrapper className="relative flex flex-col items-center text-center gap-8">
+          <div className="animate-fade-in space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
+              Building the Future of<br />Web3 Innovation
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-foreground/80 md:text-xl">
+              Empowering visionary founders with the expertise, resources, and network to build transformative decentralized technologies.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <Button size="lg" className="text-lg px-8 py-6" asChild>
+              <Link href="/accelerator">
+                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6" asChild>
+              <Link href="/consulting">
+                Our Services <ArrowUpRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+          
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
+                <div className="text-sm text-foreground/70">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </SectionWrapper>
       </div>
 
-      {/* Product Suite Section */}
-      <SectionWrapper>
-        <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">Our Product Suite</h2>
+      {/* Features Section */}
+      <SectionWrapper className="relative">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold md:text-4xl mb-4">Comprehensive Support</h2>
+          <p className="text-foreground/80 max-w-2xl mx-auto">
+            End-to-end support for Web3 projects, from ideation to market leadership.
+          </p>
+        </div>
         <div className="grid gap-8 md:grid-cols-3">
-          {productSuite.map((product) => (
-            <Card key={product.title} className="flex transform flex-col overflow-hidden bg-card transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1">
-              <CardHeader className="items-center p-6">
-                <div className="mb-4 rounded-full bg-primary/10 p-4 text-primary">
-                  <product.icon className="h-10 w-10" />
+          {features.map((feature) => (
+            <Card key={feature.title} className="bg-card/50 backdrop-blur border-primary/10 hover:border-primary/20 transition-all duration-300">
+              <CardHeader>
+                <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                  <feature.icon className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-center text-2xl">{product.title}</CardTitle>
+                <CardTitle className="text-xl">{feature.title}</CardTitle>
               </CardHeader>
-              <CardContent className="flex-grow p-6 pt-0">
-                <CardDescription className="text-center text-base">{product.description}</CardDescription>
+              <CardContent>
+                <p className="text-foreground/70">{feature.description}</p>
               </CardContent>
-              <CardFooter className="p-6 pt-0">
-                 <Button variant="link" asChild className="mx-auto text-primary">
-                   <Link href={product.link}>Learn More <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                 </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
-      
-      {/* Cohort Showcase Section */}
-      <SectionWrapper className="bg-secondary/30">
-        <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">Cohort Showcase</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {cohortProjects.map((project) => (
-            <Card key={project.name} className="overflow-hidden bg-card transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20">
-              <CardHeader className="flex flex-row items-center gap-4 p-6">
-                <Image src={project.logoUrl} alt={`${project.name} logo`} width={60} height={60} className="rounded-full" data-ai-hint={project.dataAiHint} />
-                <div>
-                  <CardTitle className="text-xl">{project.name}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <CardDescription>{project.description}</CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <CtaButton href="/accelerator#past-cohorts" variant="outline">
-            View All Cohorts <Users className="ml-2 h-5 w-5" />
-          </CtaButton>
-        </div>
-      </SectionWrapper>
-
-      {/* Partner Logos Section */}
-      <SectionWrapper>
-        <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">Our Partners</h2>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-          {partnerLogos.map((partner, index) => (
-            <div key={index} className="grayscale transition-all duration-300 hover:grayscale-0 hover:scale-105">
-              <Image src={partner.logoUrl} alt={`${partner.name} logo`} width={150} height={60} className="object-contain" data-ai-hint={partner.dataAiHint}/>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <CtaButton href="/partners">
-            Become a Partner <Handshake className="ml-2 h-5 w-5" />
-          </CtaButton>
-        </div>
-      </SectionWrapper>
-
-      {/* Blog Preview Section */}
-      <SectionWrapper className="bg-secondary/30">
-        <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">Latest Insights</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {blogPosts.map((post) => (
-            <Card key={post.title} className="flex transform flex-col overflow-hidden bg-card transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1">
-              <CardContent className="p-0">
-                <Link href={post.link} aria-label={`Read more about ${post.title}`}>
-                  <Image src={post.imageUrl} alt={post.title} width={600} height={400} className="aspect-[3/2] w-full object-cover" data-ai-hint={post.dataAiHint}/>
-                </Link>
-              </CardContent>
-              <CardHeader className="p-6">
-                <CardTitle className="text-xl leading-tight">
-                  <Link href={post.link} className="hover:text-primary transition-colors">{post.title}</Link>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow p-6 pt-0">
-                <CardDescription>{post.snippet}</CardDescription>
-              </CardContent>
-              <CardFooter className="p-6 pt-0">
-                <Button variant="link" asChild className="text-primary">
-                  <Link href={post.link}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <CardFooter>
+                <Button variant="ghost" className="text-primary" asChild>
+                  <Link href={feature.link}>
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>
           ))}
         </div>
-        <div className="mt-12 text-center">
-          <CtaButton href="/insights" variant="outline">
-            Explore All Insights <BookOpen className="ml-2 h-5 w-5" />
-          </CtaButton>
+      </SectionWrapper>
+
+      {/* Testimonials Section */}
+      <SectionWrapper className="bg-secondary/30">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold md:text-4xl mb-4">Success Stories</h2>
+          <p className="text-foreground/80 max-w-2xl mx-auto">
+            Join the ranks of successful projects that have grown with our support.
+          </p>
+        </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <Card key={testimonial.author} className="bg-card/50 backdrop-blur">
+              <CardContent className="pt-6">
+                <div className="mb-4">
+                  <Image
+                    src={testimonial.avatar}
+                    alt={testimonial.author}
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
+                </div>
+                <blockquote className="text-foreground/80 mb-4">
+                  "{testimonial.quote}"
+                </blockquote>
+                <div>
+                  <div className="font-semibold">{testimonial.author}</div>
+                  <div className="text-sm text-foreground/70">{testimonial.role}</div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* Partners Section */}
+      <SectionWrapper>
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold md:text-4xl mb-4">Trusted Partners</h2>
+          <p className="text-foreground/80 max-w-2xl mx-auto">
+            Working with leading protocols and platforms in the Web3 ecosystem.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+          {partners.map((partner) => (
+            <div key={partner.name} className="flex items-center justify-center p-4">
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={200}
+                height={80}
+                className="opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* CTA Section */}
+      <SectionWrapper className="bg-gradient-to-t from-primary/5 to-background text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold md:text-4xl mb-4">Ready to Build the Future?</h2>
+          <p className="text-foreground/80 mb-8">
+            Join our next cohort and get the support you need to succeed in Web3.
+          </p>
+          <Button size="lg" className="text-lg px-8 py-6" asChild>
+            <Link href="/accelerator">
+              Apply to Accelerator <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </SectionWrapper>
     </>
