@@ -8,11 +8,11 @@ import { useState, useEffect } from "react";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 export function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,74 +22,230 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-transparent"
-      )}
-    >
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2" aria-label={`${SITE_NAME} homepage`}>
+    <header className="sticky top-4 z-50 w-full transition-all duration-300 px-4">
+      <div
+        className={cn(
+          "w-full max-w-7xl mx-auto flex items-center justify-between rounded-full px-6 py-4 backdrop-blur-md border border-white/10 ring-1 ring-white/10 shadow-md shadow-white/5 transition-all duration-300",
+          isScrolled
+            ? "bg-gradient-to-r from-black/50 to-black/30"
+            : "bg-black/30"
+        )}
+      >
+        {/* Logo on the left */}
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          aria-label={`${SITE_NAME} homepage`}
+        >
           <Coins className="h-8 w-8 text-primary" />
           <span className="text-xl font-bold">{SITE_NAME}</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === link.href ? "text-primary" : "text-foreground/80"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] bg-background p-6">
-              <div className="mb-6 flex items-center justify-between">
-                 <Link href="/" className="flex items-center gap-2" aria-label={`${SITE_NAME} homepage`}>
-                    <Coins className="h-8 w-8 text-primary" />
-                    <span className="text-xl font-bold">{SITE_NAME}</span>
-                </Link>
-                <SheetClose asChild>
-                    <Button variant="ghost" size="icon">
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Close navigation menu</span>
-                    </Button>
-                </SheetClose>
-              </div>
-              <nav className="flex flex-col gap-4">
-                {NAV_LINKS.map((link) => (
-                  <SheetClose asChild key={link.href}>
+        {/* Navigation links and CTA button on the right */}
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center gap-8">
+            {NAV_LINKS.map((link) => {
+              // Special handling for Accelerator dropdown
+              if (link.label === "Accelerator") {
+                return (
+                  <div key={link.href} className="relative group py-2">
                     <Link
                       href={link.href}
                       className={cn(
-                        "rounded-md px-3 py-2 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
+                        "text-lg font-medium transition-colors hover:text-primary flex items-center",
                         pathname === link.href
-                          ? "bg-accent text-accent-foreground"
-                          : "text-foreground/80"
+                          ? "text-primary"
+                          : "text-gray-100"
                       )}
                     >
                       {link.label}
+                      <svg
+                        className="ml-1 h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
                     </Link>
-                  </SheetClose>
-                ))}
+
+                    {/* Invisible bridge to ensure continuous hover area */}
+                    <div className="absolute h-4 w-full left-0 bottom-0 translate-y-full"></div>
+
+                    {/* Dropdown menu */}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-0 z-50 rounded-xl bg-black/30 backdrop-blur-md ring-1 ring-white/5 px-2 py-2 shadow-md transition-all duration-200 ease-out origin-top scale-y-95 opacity-0 group-hover:opacity-100 group-hover:scale-y-100 hidden group-hover:flex hover:flex flex-col pointer-events-auto w-[180px]">
+                      <Link
+                        href="/accelerator/wire-network"
+                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Wire Network
+                      </Link>
+                      <Link
+                        href="/accelerator/avalanche"
+                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Avalanche
+                      </Link>
+                      <Link
+                        href="/accelerator/xion"
+                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        XION
+                      </Link>
+                      <Link
+                        href="/accelerator/f-ecosystem"
+                        className="block px-4 py-2 text-lg font-medium text-gray-100 hover:text-primary transition whitespace-nowrap"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        F-Ecosystem
+                      </Link>
+                    </div>
+                  </div>
+                );
+              }
+
+              // Regular nav links
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "text-lg font-medium transition-colors hover:text-primary",
+                    pathname === link.href ? "text-primary" : "text-gray-100"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <Button
+            asChild
+            className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold rounded-full px-6 py-2.5 shadow-md hover:scale-105 transition-all duration-300 ease-in-out text-lg"
+          >
+            <Link href="/apply">Apply Now</Link>
+          </Button>
+        </div>
+
+        <div className="md:hidden relative">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMobileMenu}
+            className="text-white"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+            <span className="sr-only">
+              {isMobileMenuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"}
+            </span>
+          </Button>
+
+          {isMobileMenuOpen && (
+            <div className="absolute top-16 right-4 bg-gradient-to-r from-black/50 to-black/30 backdrop-blur-md rounded-lg p-4 space-y-4 shadow-md shadow-white/5 border border-white/10 ring-1 ring-white/10 z-50 min-w-[200px]">
+              <nav className="flex flex-col space-y-4">
+                {NAV_LINKS.map((link) => {
+                  // Special handling for Accelerator in mobile menu
+                  if (link.label === "Accelerator") {
+                    return (
+                      <div key={link.href} className="space-y-2">
+                        <Link
+                          href={link.href}
+                          className={cn(
+                            "px-3 py-2 text-base font-medium transition-colors hover:text-primary rounded-md flex items-center justify-between",
+                            pathname === link.href
+                              ? "text-primary"
+                              : "text-gray-100"
+                          )}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                          <span className="text-xs text-gray-400">
+                            (has submenu)
+                          </span>
+                        </Link>
+
+                        {/* Mobile submenu items */}
+                        <div className="pl-4 space-y-2 border-l border-white/10">
+                          <Link
+                            href="/accelerator/wire-network"
+                            className="px-3 py-1 text-sm text-gray-300 hover:bg-purple-600 hover:text-white rounded-md transition-colors block"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            Wire Network
+                          </Link>
+                          <Link
+                            href="/accelerator/avalanche"
+                            className="px-3 py-1 text-sm text-gray-300 hover:bg-purple-600 hover:text-white rounded-md transition-colors block"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            Avalanche
+                          </Link>
+                          <Link
+                            href="/accelerator/xion"
+                            className="px-3 py-1 text-sm text-gray-300 hover:bg-purple-600 hover:text-white rounded-md transition-colors block"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            XION
+                          </Link>
+                          <Link
+                            href="/accelerator/f-ecosystem"
+                            className="px-3 py-1 text-sm text-gray-300 hover:bg-purple-600 hover:text-white rounded-md transition-colors block"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            F-Ecosystem
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // Regular mobile nav links
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={cn(
+                        "px-3 py-2 text-base font-medium transition-colors hover:text-primary rounded-md",
+                        pathname === link.href
+                          ? "text-primary"
+                          : "text-gray-100"
+                      )}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+                <Link
+                  href="/apply"
+                  className="rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-2.5 text-base font-semibold text-white shadow-md hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Apply Now
+                </Link>
               </nav>
-            </SheetContent>
-          </Sheet>
+            </div>
+          )}
         </div>
       </div>
     </header>

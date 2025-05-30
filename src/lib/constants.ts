@@ -7,11 +7,10 @@ export type NavLink = {
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { href: "/", label: "Home" },
   { href: "/accelerator", label: "Accelerator" },
   { href: "/consulting", label: "Consulting" },
   { href: "/partners", label: "Partners" },
-  { href: "/insights", label: "Insights" },
+  { href: "/about", label: "About Us" },
 ];
 
 export const SITE_NAME = "Denarii Labs";
