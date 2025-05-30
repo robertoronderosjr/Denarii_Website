@@ -46,7 +46,7 @@ export const ScrollBackground: React.FC<ScrollBackgroundProps> = ({
       {/* Fixed background elements that change with scroll */}
       <div className="fixed inset-0 z-[-2]">
         {/* Base dark background */}
-        <div className="absolute inset-0 bg-black"></div>
+        <div className="absolute inset-0 bg-gray-950"></div>
 
         {/* SVG grid background */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat bg-fixed opacity-10"></div>

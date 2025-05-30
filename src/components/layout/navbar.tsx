@@ -31,10 +31,10 @@ export function Navbar() {
     <header className="sticky top-4 z-50 w-full transition-all duration-300 px-4">
       <div
         className={cn(
-          "w-full max-w-7xl mx-auto flex items-center justify-between rounded-full px-6 py-3 backdrop-blur-md border border-white/10 ring-1 ring-white/10 shadow-md shadow-white/5 transition-all duration-300",
+          "w-full max-w-7xl mx-auto flex items-center justify-between rounded-full px-6 py-3 backdrop-blur-lg border border-white/10 ring-1 ring-white/5 shadow-lg shadow-purple-900/5 transition-all duration-300",
           isScrolled
-            ? "bg-gradient-to-r from-black/50 to-black/30"
-            : "bg-black/30"
+            ? "bg-black/80 backdrop-blur-xl backdrop-saturate-150"
+            : "bg-black/80 backdrop-blur-xl backdrop-saturate-150"
         )}
       >
         {/* Logo on the left */}

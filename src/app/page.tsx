@@ -85,7 +85,7 @@ const partners = [
 export default function Home() {
   return (
     <ScrollBackground>
-      <main className="bg-black">
+      <main>
         {/* Hero Section */}
         <section className="py-24 md:py-32 w-full relative overflow-hidden min-h-[90vh] flex items-center">
           <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">

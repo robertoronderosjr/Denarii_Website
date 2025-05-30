@@ -94,7 +94,7 @@ export default function ConsultingPage() {
   return (
     <>
       {/* Split-Section Intro */}
-      <section className="py-24 md:py-32 bg-black">
+      <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text */}
@@ -198,11 +198,8 @@ export default function ConsultingPage() {
       </section>
 
       {/* Visual Services Grid */}
-      <section className="py-24 relative overflow-hidden bg-gray-950">
+      <section className="py-24">
         {/* Background gradient elements */}
-        <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-purple-900/20 rounded-full blur-[100px] -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-indigo-900/20 rounded-full blur-[100px] translate-y-1/2"></div>
-
         <div className="container px-4 md:px-6 mx-auto relative z-10">
           <h2 className="mb-16 text-center text-3xl font-bold md:text-4xl text-white">
             Our Expertise
@@ -232,15 +229,13 @@ export default function ConsultingPage() {
       </section>
 
       {/* Consulting Timeline Section */}
-      <section className="py-24 bg-black relative">
+      <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <h2 className="mb-16 text-center text-3xl font-bold md:text-4xl text-white">
             Our Consulting Process
           </h2>
 
           {/* Vertical Timeline Line */}
-          <div className="absolute left-1/2 top-[12rem] bottom-24 w-0.5 bg-gradient-to-b from-purple-600 via-indigo-600 to-purple-600 transform -translate-x-1/2 hidden md:block"></div>
-
           <div className="relative z-10">
             {timelineSteps.map((step, index) => (
               <div key={step.id} className="mb-20 last:mb-0">
@@ -301,7 +296,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* Conceptual Diagram Section */}
-      <section className="py-24 bg-gray-950">
+      <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold md:text-4xl text-white mb-4">
@@ -436,7 +431,7 @@ export default function ConsultingPage() {
       {/* CTA Section with Credibility Tagline */}
       <section
         id="contact"
-        className="py-24 bg-gradient-to-br from-purple-950 to-black"
+        className="py-24"
       >
         <div className="container px-4 md:px-6 mx-auto text-center">
           <div className="max-w-2xl mx-auto">
