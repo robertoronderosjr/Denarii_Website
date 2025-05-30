@@ -296,48 +296,6 @@ export default function Home() {
           </div>
         </SectionWrapper>
 
-        {/* Testimonials Section */}
-        <SectionWrapper className="bg-secondary/30">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold md:text-4xl mb-4">
-              Success Stories
-            </h2>
-            <p className="text-foreground/80 max-w-2xl mx-auto">
-              Join the ranks of successful projects that have grown with our
-              support.
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <Card
-                key={testimonial.author}
-                className="bg-card/50 backdrop-blur"
-              >
-                <CardContent className="pt-6">
-                  <div className="mb-4">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={testimonial.author}
-                      width={48}
-                      height={48}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <blockquote className="text-foreground/80 mb-4">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <div>
-                    <div className="font-semibold">{testimonial.author}</div>
-                    <div className="text-sm text-foreground/70">
-                      {testimonial.role}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </SectionWrapper>
-
         {/* Partners Section */}
         <SectionWrapper>
           <div className="mb-12 text-center">
@@ -364,24 +322,6 @@ export default function Home() {
                 />
               </div>
             ))}
-          </div>
-        </SectionWrapper>
-
-        {/* CTA Section */}
-        <SectionWrapper className="bg-gradient-to-t from-primary/5 to-background text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold md:text-4xl mb-4">
-              Ready to Build the Future?
-            </h2>
-            <p className="text-foreground/80 mb-8">
-              Join our next cohort and get the support you need to succeed in
-              Web3.
-            </p>
-            <Button size="lg" className="text-lg px-8 py-6" asChild>
-              <Link href="/accelerator">
-                Apply to Accelerator <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
           </div>
         </SectionWrapper>
       </main>
