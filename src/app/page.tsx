@@ -15,7 +15,7 @@ import { SectionWrapper } from "@/components/common/section-wrapper";
 const stats = [
   { label: "Companies Graduated", value: "15+" },
   { label: "Capital Supported", value: "$3M+" },
-  { label: "Total Applicants", value: "1000+" },
+  { label: "Total Applicants", value: "1200+" },
   { label: "Ecosystem Partners", value: "50+" },
 ];
 
@@ -113,27 +113,34 @@ export default function Home() {
               <span className="text-white">of Tokenized Startups</span>
             </h1>
             <p className="max-w-2xl text-gray-300 md:text-xl font-medium mb-4">
-              Scaling Web3 startups with capital, tokenomics, <br /> and backed by Red Beard Ventures
+              Scaling Web3 startups with capital, tokenomics, <br /> and backed
+              by Red Beard Ventures
             </p>
 
             <div className="flex flex-col gap-5 sm:flex-row sm:gap-8 w-full max-w-xl mx-auto">
               <Button
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-lg py-6 px-8"
+                className="flex-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
                 size="lg"
                 asChild
               >
-                <Link href="/accelerator" className="flex items-center gap-3">
+                <Link
+                  href="/accelerator"
+                  className="flex items-center justify-center gap-3"
+                >
                   <Zap className="h-6 w-6" />
                   Apply to Accelerator
                 </Link>
               </Button>
               <Button
                 variant="outline"
-                className="bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-lg py-6 px-8"
+                className="flex-1 bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
                 size="lg"
                 asChild
               >
-                <Link href="/consulting" className="flex items-center gap-3">
+                <Link
+                  href="/consulting"
+                  className="flex items-center justify-center gap-3"
+                >
                   <LineChart className="h-6 w-6" />
                   Tokenomics Consulting
                 </Link>
@@ -144,7 +151,7 @@ export default function Home() {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center justify-center h-28 p-4 rounded-xl bg-gradient-to-b from-gray-900 to-gray-950 shadow-lg transition-all duration-300 hover:shadow-purple-900/30 hover:shadow-xl hover:border-purple-500/40 border border-transparent hover:scale-105"
+                  className="flex flex-col items-center justify-center h-28 p-4 rounded-xl bg-gradient-to-b from-gray-900 to-gray-950 shadow-lg transition-all duration-300 hover:shadow-purple-900/30 hover:shadow-xl hover:border-purple-500/40 border border-transparent"
                 >
                   <span className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500 whitespace-nowrap">
                     {stat.value}
