@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Coins, Linkedin, Twitter, Github } from "lucide-react";
+import Image from "next/image";
+import { Linkedin, Twitter, Github } from "lucide-react";
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
@@ -15,10 +16,19 @@ export function Footer() {
     <footer className="border-t border-border/50 bg-background/90 py-12 text-foreground/80">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div>
-            <Link href="/" className="mb-4 inline-flex items-center gap-2" aria-label={`${SITE_NAME} homepage`}>
-              <Coins className="h-8 w-8 text-primary" />
-              <span className="text-xl font-semibold text-foreground">{SITE_NAME}</span>
+          <div className="flex flex-col space-y-4">
+            <Link href="/" className="inline-flex items-center gap-4" aria-label={`${SITE_NAME} homepage`}>
+              <div className="relative h-14 w-14 overflow-hidden">
+                <Image 
+                  src="/D_Logo.svg" 
+                  alt="Denarii Labs Logo" 
+                  width={56} 
+                  height={56} 
+                  className="h-full w-full object-contain filter brightness-0 invert" 
+                  quality={100}
+                />
+              </div>
+              <span className="text-2xl font-bold text-foreground">{SITE_NAME}</span>
             </Link>
             <p className="text-sm">
               Pioneering the future of decentralized technologies.

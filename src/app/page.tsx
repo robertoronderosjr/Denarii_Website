@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, LineChart, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SparkleText } from "@/components/ui/sparkle-text";
+import { ScrollBackground } from "@/components/ui/scroll-background";
 import {
   Card,
   CardContent,
@@ -81,32 +83,14 @@ const partners = [
 
 export default function Home() {
   return (
-    <main>
+    <ScrollBackground>
+      <main>
       {/* Hero Section */}
-      <section className="bg-black py-24 md:py-32 w-full relative overflow-hidden min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 z-[-1] will-change-transform">
-          <div className="absolute inset-0 bg-black/90"></div>
-          {/* Parallax SVG grid background */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat bg-fixed opacity-10"></div>
-          <div
-            className="absolute inset-0 opacity-50 animate-pulse-slow"
-            style={{
-              background:
-                "radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(30, 27, 75, 0.1) 25%, rgba(0, 0, 0, 0) 50%)",
-            }}
-          ></div>
-          <div
-            className="absolute inset-0 opacity-30 animate-float-bg"
-            style={{
-              background:
-                "radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.2) 0%, rgba(0, 0, 0, 0) 40%)",
-            }}
-          ></div>
-        </div>
+      <section className="py-24 md:py-32 w-full relative overflow-hidden min-h-[90vh] flex items-center">
         <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">
           <div className="flex flex-col items-center justify-center space-y-10">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-2">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-indigo-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 animate-sparkle">
                 Backing the Next Generation
               </span>
               <br />
@@ -289,5 +273,6 @@ export default function Home() {
         </div>
       </SectionWrapper>
     </main>
+    </ScrollBackground>
   );
 }

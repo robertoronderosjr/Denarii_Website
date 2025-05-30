@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Coins, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
@@ -30,7 +31,7 @@ export function Navbar() {
     <header className="sticky top-4 z-50 w-full transition-all duration-300 px-4">
       <div
         className={cn(
-          "w-full max-w-7xl mx-auto flex items-center justify-between rounded-full px-6 py-4 backdrop-blur-md border border-white/10 ring-1 ring-white/10 shadow-md shadow-white/5 transition-all duration-300",
+          "w-full max-w-7xl mx-auto flex items-center justify-between rounded-full px-6 py-3 backdrop-blur-md border border-white/10 ring-1 ring-white/10 shadow-md shadow-white/5 transition-all duration-300",
           isScrolled
             ? "bg-gradient-to-r from-black/50 to-black/30"
             : "bg-black/30"
@@ -39,11 +40,21 @@ export function Navbar() {
         {/* Logo on the left */}
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-4"
           aria-label={`${SITE_NAME} homepage`}
         >
-          <Coins className="h-8 w-8 text-primary" />
-          <span className="text-xl font-bold">{SITE_NAME}</span>
+          <div className="relative h-14 w-14 overflow-hidden">
+            <Image 
+              src="/D_Logo.svg" 
+              alt="Denarii Labs Logo" 
+              width={56} 
+              height={56} 
+              className="h-full w-full object-contain filter brightness-0 invert" 
+              priority
+              quality={100}
+            />
+          </div>
+          <span className="text-2xl font-extrabold tracking-tight">{SITE_NAME}</span>
         </Link>
 
         {/* Navigation links and CTA button on the right */}
