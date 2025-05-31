@@ -39,6 +39,20 @@
   animation-play-state: paused;
 }
 
+/* Extremely subtle breathing animation - just a tiny scale change */
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Subtle Pulse Animation */
+@keyframes pulse {
+  0% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.9; transform: scale(1); }
+}
+
 @layer base {
   :root {
     --background: 0 0% 0%; /* Black */

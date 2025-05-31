@@ -153,9 +153,9 @@ export default function ConsultingPage() {
             <div className="p-8 bg-transparent">
               <div className="aspect-square relative flex items-center justify-center">
                 <div className="relative w-full h-full flex items-center justify-center">
-                  {/* Central token circle */}
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-purple-900/80 to-indigo-900/80 flex items-center justify-center z-20 shadow-lg shadow-purple-900/30">
-                    <span className="text-3xl font-bold text-white">TOKEN</span>
+                  {/* Central token circle - increased size */}
+                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-900/80 to-indigo-900/80 flex items-center justify-center z-20 shadow-lg shadow-purple-900/30 animate-[pulse_8s_ease-in-out_infinite]">
+                    <span className="text-4xl font-bold text-white">TOKEN</span>
                   </div>
 
                   {/* Connecting lines and orbit */}
@@ -171,35 +171,36 @@ export default function ConsultingPage() {
                       {/* Line to bottom-right */}
                       <div className="absolute bottom-0 right-0 w-1/3 h-1/3 border-b-2 border-r-2 border-purple-500/30 rounded-br-xl"></div>
                     </div>
-                    
-                    <div className="w-64 h-64 rounded-full border-2 border-dashed border-purple-500/30 animate-[spin_30s_linear_infinite]">
-                      {/* Orbit elements */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 p-2 rounded-full shadow-lg shadow-blue-500/30">
-                        <BarChart3 className="h-5 w-5 text-white" />
+
+                    {/* Increased orbit size */}
+                    <div className="w-80 h-80 rounded-full border-2 border-dashed border-purple-500/30 animate-[spin_30s_linear_infinite]">
+                      {/* Orbit elements - larger and more prominent with slower animation */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-500 p-3 rounded-full shadow-lg shadow-blue-500/30 hover:scale-110 transition-all duration-300">
+                        <BarChart3 className="h-6 w-6 text-white" />
                       </div>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-purple-500 p-2 rounded-full shadow-lg shadow-purple-500/30">
-                        <Network className="h-5 w-5 text-white" />
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-purple-500 p-3 rounded-full shadow-lg shadow-purple-500/30 hover:scale-110 transition-all duration-300">
+                        <Network className="h-6 w-6 text-white" />
                       </div>
-                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 p-2 rounded-full shadow-lg shadow-indigo-500/30">
-                        <Building className="h-5 w-5 text-white" />
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-indigo-500 p-3 rounded-full shadow-lg shadow-indigo-500/30 hover:scale-110 transition-all duration-300">
+                        <Building className="h-6 w-6 text-white" />
                       </div>
-                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 bg-pink-500 p-2 rounded-full shadow-lg shadow-pink-500/30">
-                        <Zap className="h-5 w-5 text-white" />
+                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 bg-pink-500 p-3 rounded-full shadow-lg shadow-pink-500/30 hover:scale-110 transition-all duration-300">
+                        <Zap className="h-6 w-6 text-white" />
                       </div>
                     </div>
                   </div>
 
-                  {/* Enhanced Labels positioned closer to orbit */}
-                  <div className="absolute top-[15%] left-[15%] px-4 py-2 bg-blue-500/90 text-white text-base font-medium rounded-full border border-blue-300/30 shadow-md shadow-blue-500/30">
+                  {/* Extremely slow and subtle breathing effect on labels */}
+                  <div className="absolute top-[10%] left-[10%] px-4 py-2 bg-blue-500/90 text-white text-base font-medium rounded-full border border-blue-300/30 shadow-md shadow-blue-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_20s_ease-in-out_infinite]">
                     Supply
                   </div>
-                  <div className="absolute bottom-[15%] right-[15%] px-4 py-2 bg-purple-500/90 text-white text-base font-medium rounded-full border border-purple-300/30 shadow-md shadow-purple-500/30">
+                  <div className="absolute bottom-[10%] right-[10%] px-4 py-2 bg-purple-500/90 text-white text-base font-medium rounded-full border border-purple-300/30 shadow-md shadow-purple-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_24s_ease-in-out_infinite_5s]">
                     Utility
                   </div>
-                  <div className="absolute top-[15%] right-[15%] px-4 py-2 bg-indigo-500/90 text-white text-base font-medium rounded-full border border-indigo-300/30 shadow-md shadow-indigo-500/30">
+                  <div className="absolute top-[10%] right-[10%] px-4 py-2 bg-indigo-500/90 text-white text-base font-medium rounded-full border border-indigo-300/30 shadow-md shadow-indigo-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_22s_ease-in-out_infinite_8s]">
                     Governance
                   </div>
-                  <div className="absolute bottom-[15%] left-[15%] px-4 py-2 bg-pink-500/90 text-white text-base font-medium rounded-full border border-pink-300/30 shadow-md shadow-pink-500/30">
+                  <div className="absolute bottom-[10%] left-[10%] px-4 py-2 bg-pink-500/90 text-white text-base font-medium rounded-full border border-pink-300/30 shadow-md shadow-pink-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_26s_ease-in-out_infinite_12s]">
                     Distribution
                   </div>
                 </div>
@@ -209,33 +210,118 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* Visual Services Grid */}
-      <section className="py-24">
-        {/* Background gradient elements */}
-        <div className="container px-4 md:px-6 mx-auto relative z-10">
-          <h2 className="mb-16 text-center text-3xl font-bold md:text-4xl text-white">
-            Our Expertise
+      {/* Core Consulting Categories */}
+      <section className="py-20">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl text-white">
+            Core Consulting Services
           </h2>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl border border-gray-800/50 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 group"
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
-                    <service.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                </div>
-                <p className="text-gray-400 pl-[calc(3rem+0.5rem)] group-hover:text-gray-300 transition-colors duration-300">
-                  {service.description}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Token Design */}
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
+              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  className="h-8 w-8 text-purple-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v12"></path>
+                  <path d="M8 12h8"></path>
+                </svg>
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                Product & Token Design
+              </h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                Creating sustainable token economies aligned with your project's
+                vision and goals.
+              </p>
+            </div>
+
+            {/* Growth & Volume */}
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
+              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  className="h-8 w-8 text-purple-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                Growth & Volume
+              </h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                Strategic approaches to drive adoption, liquidity, and
+                sustainable trading volume.
+              </p>
+            </div>
+
+            {/* Brand & Content */}
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
+              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  className="h-8 w-8 text-purple-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 20.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z"></path>
+                  <path d="M12 8v8"></path>
+                  <path d="M8 12h8"></path>
+                  <path d="M20 4v.01"></path>
+                  <path d="M4 4v.01"></path>
+                  <path d="M20 20v.01"></path>
+                  <path d="M4 20v.01"></path>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                Brand & Content
+              </h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                Developing compelling narratives and content strategies for
+                token projects.
+              </p>
+            </div>
+
+            {/* Token Financial Management */}
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
+              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  className="h-8 w-8 text-purple-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                Token Financial Management
+              </h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                Optimizing treasury operations and financial strategies for
+                long-term sustainability.
+              </p>
+            </div>
           </div>
         </div>
       </section>
