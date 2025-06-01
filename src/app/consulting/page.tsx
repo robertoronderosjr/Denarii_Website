@@ -112,12 +112,21 @@ export default function ConsultingPage() {
     financialManagement: false,
   });
 
+  // State for expanded timeline step
+  const [expandedTimelineStep, setExpandedTimelineStep] = useState<
+    number | null
+  >(null);
+
   // Toggle card expansion
   const toggleCard = (cardId: string) => {
     setExpandedCards((prev) => ({
       ...prev,
       [cardId]: !prev[cardId],
     }));
+  };
+
+  const handleExpandTimelineStep = (stepId: number) => {
+    setExpandedTimelineStep(expandedTimelineStep === stepId ? null : stepId);
   };
 
   return (
@@ -726,71 +735,211 @@ export default function ConsultingPage() {
           </div>
 
           {/* Desktop Timeline (hidden on mobile) */}
-          <div className="hidden md:block relative">
-            {/* Continuous Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-600/80 to-indigo-600/80 rounded-full z-10"></div>
-
-            {timelineSteps.map((step, index) => (
-              <div key={step.id} className="relative mb-24 last:mb-0">
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg shadow-purple-900/30 border-2 border-gray-900 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-xl font-bold">
-                      {step.id}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Grid */}
-                <div className="grid grid-cols-2 gap-16 items-center">
-                  {/* Left Content - For odd steps */}
-                  <div
-                    className={
-                      index % 2 === 0
-                        ? "pr-16"
-                        : "opacity-0 pointer-events-none"
-                    }
-                  >
-                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300 group">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
-                          <step.icon className="h-6 w-6" />
+          <div className="hidden md:block relative min-h-[1000px]">
+            {/* Timeline Line - absolutely positioned, static, covers full section height, with animated shine */}
+            <div className="pointer-events-none absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-600/80 to-indigo-600/80 rounded-full z-10 overflow-hidden">
+              {/* Animated shine overlay */}
+              <div
+                className="absolute top-0 left-0 w-full h-full z-20 animate-timeline-shine pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(120deg, transparent 60%, rgba(255,255,255,0.25) 80%, transparent 100%)",
+                  backgroundSize: "100% 200%",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <style jsx>{`
+                @keyframes timeline-shine {
+                  0% {
+                    background-position-y: -100%;
+                  }
+                  100% {
+                    background-position-y: 200%;
+                  }
+                }
+                .animate-timeline-shine {
+                  animation: timeline-shine 3.5s linear infinite;
+                }
+              `}</style>
+            </div>
+            <div className="relative z-20">
+              {timelineSteps.map((step, index) => {
+                const isExpanded = expandedTimelineStep === step.id;
+                return (
+                  <div key={step.id} className="relative mb-24 last:mb-0">
+                    {/* Timeline Node */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20">
+                      <div
+                        className={`relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg border-2 group-hover:scale-110 transition-transform duration-300
+                        ${
+                          isExpanded
+                            ? "shadow-purple-400/60 border-purple-400/60"
+                            : "shadow-purple-900/30 border-gray-900"
+                        }`}
+                      >
+                        {/* Animated shine overlay for the number circle */}
+                        <div className="absolute inset-0 rounded-full pointer-events-none overflow-hidden z-10">
+                          <div
+                            className="absolute inset-0 w-full h-full animate-circle-shine"
+                            style={{
+                              background:
+                                "linear-gradient(120deg, transparent 60%, rgba(255,255,255,0.35) 80%, transparent 100%)",
+                              backgroundSize: "200% 100%",
+                              backgroundRepeat: "no-repeat",
+                            }}
+                          ></div>
                         </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
-                          {step.title}
-                        </h3>
+                        <span className="relative z-20 text-white text-xl font-bold drop-shadow-lg">
+                          {step.id}
+                        </span>
+                        <style jsx>{`
+                          @keyframes circle-shine {
+                            0% {
+                              background-position-x: -100%;
+                            }
+                            100% {
+                              background-position-x: 200%;
+                            }
+                          }
+                          .animate-circle-shine {
+                            animation: circle-shine 2.5s linear infinite;
+                          }
+                        `}</style>
                       </div>
-                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                        {step.description}
-                      </p>
+                    </div>
+                    {/* Content Grid */}
+                    <div className="grid grid-cols-2 gap-16 items-center">
+                      {/* Left Content - For odd steps */}
+                      <div
+                        className={
+                          index % 2 === 0
+                            ? "pr-16"
+                            : "opacity-0 pointer-events-none"
+                        }
+                      >
+                        <div
+                          className={`relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 shadow-lg transition-all duration-300 group cursor-pointer ${
+                            isExpanded
+                              ? "shadow-purple-900/20 border-purple-500/30"
+                              : "hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30"
+                          }`}
+                          tabIndex={0}
+                          role="button"
+                          aria-expanded={isExpanded}
+                          aria-controls={`timeline-step-${step.id}`}
+                          onClick={() => handleExpandTimelineStep(step.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ")
+                              handleExpandTimelineStep(step.id);
+                          }}
+                        >
+                          <div className="flex items-center gap-4 mb-4">
+                            <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                              <step.icon className="h-6 w-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
+                              {step.title}
+                            </h3>
+                            <span
+                              className={`ml-auto transition-transform duration-300 ${
+                                isExpanded
+                                  ? "rotate-90 text-purple-300"
+                                  : "text-gray-500"
+                              }`}
+                            >
+                              <ChevronDown className="h-6 w-6" />
+                            </span>
+                          </div>
+                          <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                            {step.description}
+                          </p>
+                          {/* Expanded Content (seamless, no box) */}
+                          <div
+                            id={`timeline-step-${step.id}`}
+                            className={`overflow-hidden transition-all duration-500 ${
+                              isExpanded
+                                ? "max-h-40 opacity-100 mt-4"
+                                : "max-h-0 opacity-0 mt-0"
+                            }`}
+                            aria-hidden={!isExpanded}
+                          >
+                            <div className="text-gray-300 text-base leading-relaxed">
+                              Additional detail or insight about this step. Key
+                              considerations, deliverables, or outcomes.
+                              Optional: add images, links, or custom content
+                              here.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Right Content - For even steps */}
+                      <div
+                        className={
+                          index % 2 === 1
+                            ? "pl-16"
+                            : "opacity-0 pointer-events-none"
+                        }
+                      >
+                        <div
+                          className={`relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 shadow-lg transition-all duration-300 group cursor-pointer ${
+                            isExpanded
+                              ? "shadow-purple-900/20 border-purple-500/30"
+                              : "hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30"
+                          }`}
+                          tabIndex={0}
+                          role="button"
+                          aria-expanded={isExpanded}
+                          aria-controls={`timeline-step-${step.id}`}
+                          onClick={() => handleExpandTimelineStep(step.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ")
+                              handleExpandTimelineStep(step.id);
+                          }}
+                        >
+                          <div className="flex items-center gap-4 mb-4">
+                            <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                              <step.icon className="h-6 w-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
+                              {step.title}
+                            </h3>
+                            <span
+                              className={`ml-auto transition-transform duration-300 ${
+                                isExpanded
+                                  ? "rotate-90 text-purple-300"
+                                  : "text-gray-500"
+                              }`}
+                            >
+                              <ChevronDown className="h-6 w-6" />
+                            </span>
+                          </div>
+                          <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                            {step.description}
+                          </p>
+                          {/* Expanded Content (seamless, no box) */}
+                          <div
+                            id={`timeline-step-${step.id}`}
+                            className={`overflow-hidden transition-all duration-500 ${
+                              isExpanded
+                                ? "max-h-40 opacity-100 mt-4"
+                                : "max-h-0 opacity-0 mt-0"
+                            }`}
+                            aria-hidden={!isExpanded}
+                          >
+                            <div className="text-gray-300 text-base leading-relaxed">
+                              Additional detail or insight about this step. Key
+                              considerations, deliverables, or outcomes.
+                              Optional: add images, links, or custom content
+                              here.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Right Content - For even steps */}
-                  <div
-                    className={
-                      index % 2 === 1
-                        ? "pl-16"
-                        : "opacity-0 pointer-events-none"
-                    }
-                  >
-                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300 group">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
-                          <step.icon className="h-6 w-6" />
-                        </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
 
           {/* Mobile Timeline (visible only on mobile) */}
