@@ -69,32 +69,34 @@ const preTgeTimeline = [
   {
     id: 1,
     icon: Milestone,
-    title: "Discovery & Assessment",
-    description: "Pre-TGE: Understand project vision, goals, and market.",
+    title: "Audit & Research",
+    description:
+      "Comprehensive project and market analysis to set a strong foundation.",
   },
   {
     id: 2,
     icon: Users,
-    title: "Strategic Workshop",
-    description: "Pre-TGE: Define token utility, incentives, and KPIs.",
+    title: "Token Utility & Incentive Design",
+    description: "Designing core token functions and incentive mechanisms.",
   },
   {
     id: 3,
     icon: Lightbulb,
-    title: "Token Model Design",
-    description: "Pre-TGE: Develop tokenomics, distribution, and governance.",
+    title: "Partnerships & Exchange Strategy",
+    description:
+      "Strategic outreach and exchange planning for launch readiness.",
   },
   {
     id: 4,
     icon: FileText,
-    title: "Documentation & Review",
-    description: "Pre-TGE: Prepare docs, refine messaging, and iterate.",
+    title: "Documentation & Visual Collateral",
+    description: "Crafting clear documentation and compelling visuals.",
   },
   {
     id: 5,
     icon: CheckCircle,
-    title: "Implementation & Launch",
-    description: "Pre-TGE: Support deployment, launch, and listings.",
+    title: "Launch Planning & Execution",
+    description: "Coordinating all elements for a successful TGE.",
   },
 ];
 
@@ -263,20 +265,6 @@ export default function ConsultingPage() {
                         <Zap className="h-6 w-6 text-white" />
                       </div>
                     </div>
-                  </div>
-
-                  {/* Extremely slow and subtle breathing effect on labels */}
-                  <div className="absolute top-[10%] left-[10%] px-4 py-2 bg-blue-500/90 text-white text-base font-medium rounded-full border border-blue-300/30 shadow-md shadow-blue-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_20s_ease-in-out_infinite]">
-                    Supply
-                  </div>
-                  <div className="absolute bottom-[10%] right-[10%] px-4 py-2 bg-purple-500/90 text-white text-base font-medium rounded-full border border-purple-300/30 shadow-md shadow-purple-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_24s_ease-in-out_infinite_5s]">
-                    Utility
-                  </div>
-                  <div className="absolute top-[10%] right-[10%] px-4 py-2 bg-indigo-500/90 text-white text-base font-medium rounded-full border border-indigo-300/30 shadow-md shadow-indigo-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_22s_ease-in-out_infinite_8s]">
-                    Governance
-                  </div>
-                  <div className="absolute bottom-[10%] left-[10%] px-4 py-2 bg-pink-500/90 text-white text-base font-medium rounded-full border border-pink-300/30 shadow-md shadow-pink-500/30 hover:scale-110 transition-all duration-300 animate-[breathe_26s_ease-in-out_infinite_12s]">
-                    Distribution
                   </div>
                 </div>
               </div>
@@ -928,7 +916,7 @@ export default function ConsultingPage() {
                             id={`timeline-step-${step.id}`}
                             className={`overflow-hidden transition-all duration-500 ${
                               isExpanded
-                                ? "max-h-40 opacity-100 mt-4"
+                                ? "max-h-80 opacity-100 mt-4"
                                 : "max-h-0 opacity-0 mt-0"
                             }`}
                             aria-hidden={!isExpanded}
@@ -936,43 +924,60 @@ export default function ConsultingPage() {
                             <ul className="text-gray-300 text-base leading-relaxed space-y-2 pl-4 list-disc">
                               {timelineType === "pre" && step.id === 1 && (
                                 <>
-                                  <li>Stakeholder analysis</li>
+                                  <li>Stakeholder mapping and analysis</li>
                                   <li>Competitive and landscape research</li>
-                                  <li>Set TGE goal setting and benchmarks</li>
+                                  <li>Define token generation benchmarks</li>
+                                  <li>
+                                    Align internal goals and success metrics
+                                  </li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 2 && (
                                 <>
-                                  <li>Define community incentive programs</li>
-                                  <li>Develop token utility</li>
                                   <li>
-                                    Start facilitating partnership and exchange
-                                    introductions
+                                    Define core token utility and functions
+                                  </li>
+                                  <li>
+                                    Structure community incentive mechanisms
+                                  </li>
+                                  <li>Align token roles with user behaviors</li>
+                                  <li>
+                                    Validate utility assumptions through
+                                    workshops
                                   </li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 3 && (
                                 <>
+                                  <li>Begin partnership and BD outreach</li>
+                                  <li>Identify relevant exchange listings</li>
                                   <li>
-                                    Start modeling token distribution and unlock
-                                    schedule
+                                    Initiate unlock modeling and vesting
+                                    strategy
                                   </li>
+                                  <li>Map partner value-add and timing</li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 4 && (
                                 <>
-                                  <li>Prepare Light-Paper & documentation</li>
+                                  <li>
+                                    Draft and refine Lightpaper / Whitepaper
+                                  </li>
+                                  <li>Develop token distribution schedules</li>
+                                  <li>Create token branding and iconography</li>
+                                  <li>Design supporting visuals and memes</li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 5 && (
                                 <>
+                                  <li>Finalize GTM (go-to-market) strategy</li>
                                   <li>
-                                    Start creating token illustrations and memes
+                                    Coordinate vesting + unlock smart contracts
                                   </li>
                                   <li>
-                                    Coordinate vesting and unlocks contracts
+                                    Align launch timelines across stakeholders
                                   </li>
-                                  <li>GTM (Go-To-Market) campaign</li>
+                                  <li>Prep materials for TGE announcements</li>
                                 </>
                               )}
                               {/* Placeholder for Post-TGE, to be updated later */}
@@ -1032,7 +1037,7 @@ export default function ConsultingPage() {
                             id={`timeline-step-${step.id}`}
                             className={`overflow-hidden transition-all duration-500 ${
                               isExpanded
-                                ? "max-h-40 opacity-100 mt-4"
+                                ? "max-h-80 opacity-100 mt-4"
                                 : "max-h-0 opacity-0 mt-0"
                             }`}
                             aria-hidden={!isExpanded}
@@ -1040,43 +1045,60 @@ export default function ConsultingPage() {
                             <ul className="text-gray-300 text-base leading-relaxed space-y-2 pl-4 list-disc">
                               {timelineType === "pre" && step.id === 1 && (
                                 <>
-                                  <li>Stakeholder analysis</li>
+                                  <li>Stakeholder mapping and analysis</li>
                                   <li>Competitive and landscape research</li>
-                                  <li>Set TGE goal setting and benchmarks</li>
+                                  <li>Define token generation benchmarks</li>
+                                  <li>
+                                    Align internal goals and success metrics
+                                  </li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 2 && (
                                 <>
-                                  <li>Define community incentive programs</li>
-                                  <li>Develop token utility</li>
                                   <li>
-                                    Start facilitating partnership and exchange
-                                    introductions
+                                    Define core token utility and functions
+                                  </li>
+                                  <li>
+                                    Structure community incentive mechanisms
+                                  </li>
+                                  <li>Align token roles with user behaviors</li>
+                                  <li>
+                                    Validate utility assumptions through
+                                    workshops
                                   </li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 3 && (
                                 <>
+                                  <li>Begin partnership and BD outreach</li>
+                                  <li>Identify relevant exchange listings</li>
                                   <li>
-                                    Start modeling token distribution and unlock
-                                    schedule
+                                    Initiate unlock modeling and vesting
+                                    strategy
                                   </li>
+                                  <li>Map partner value-add and timing</li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 4 && (
                                 <>
-                                  <li>Prepare Light-Paper & documentation</li>
+                                  <li>
+                                    Draft and refine Lightpaper / Whitepaper
+                                  </li>
+                                  <li>Develop token distribution schedules</li>
+                                  <li>Create token branding and iconography</li>
+                                  <li>Design supporting visuals and memes</li>
                                 </>
                               )}
                               {timelineType === "pre" && step.id === 5 && (
                                 <>
+                                  <li>Finalize GTM (go-to-market) strategy</li>
                                   <li>
-                                    Start creating token illustrations and memes
+                                    Coordinate vesting + unlock smart contracts
                                   </li>
                                   <li>
-                                    Coordinate vesting and unlocks contracts
+                                    Align launch timelines across stakeholders
                                   </li>
-                                  <li>GTM (Go-To-Market) campaign</li>
+                                  <li>Prep materials for TGE announcements</li>
                                 </>
                               )}
                               {/* Placeholder for Post-TGE, to be updated later */}
