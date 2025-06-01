@@ -1569,11 +1569,6 @@ export default function ConsultingPage() {
                   Book a Consultation <Lightbulb className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-
-              <p className="mt-8 text-gray-400 text-sm font-medium">
-                Trusted by protocols across 4+ ecosystems and backed by Red
-                Beard Ventures
-              </p>
             </div>
           </div>
         </div>
