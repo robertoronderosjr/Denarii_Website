@@ -266,7 +266,7 @@ export default function ConsultingPage() {
                   }
                 `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/10 via-indigo-900/5 to-purple-800/10 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -298,7 +298,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-xs">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -308,7 +308,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Research & Analysis:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Monitor on-chain growth metrics and analyze comparable
                           tokens.
                         </span>
@@ -322,7 +322,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Utility:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Design features that incentivize participation and
                           create value.
                         </span>
@@ -336,7 +336,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Token Model:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Optimize token structures for sustainability and
                           utility.
                         </span>
@@ -350,7 +350,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Governance:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Empower communities with governance models and
                           decision-making tools.
                         </span>
@@ -381,7 +381,7 @@ export default function ConsultingPage() {
                   }
                 `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/10 via-indigo-900/5 to-purple-800/10 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -413,7 +413,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-xs">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -423,7 +423,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Market Making:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Liquidity strategies and implementation for healthy
                           trading and price stability.
                         </span>
@@ -437,7 +437,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Exchange Relations:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Listing strategy and management to maximize token
                           accessibility.
                         </span>
@@ -451,7 +451,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Community Growth:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Engagement and retention programs to foster a loyal
                           user base.
                         </span>
@@ -465,7 +465,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Volume Generation:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Sustainable trading strategies to drive consistent
                           token volume.
                         </span>
@@ -496,7 +496,7 @@ export default function ConsultingPage() {
                   }
                 `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/10 via-indigo-900/5 to-purple-800/10 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -528,7 +528,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-xs">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -538,7 +538,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Brand Identity:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Positioning and visual strategy to create a memorable
                           brand.
                         </span>
@@ -552,7 +552,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Content Strategy:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Creation and distribution planning to engage your
                           audience.
                         </span>
@@ -566,7 +566,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Narrative:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Messaging and story frameworks to communicate your
                           vision.
                         </span>
@@ -580,7 +580,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Community:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Engagement and educational content to build a strong
                           community.
                         </span>
@@ -613,7 +613,7 @@ export default function ConsultingPage() {
                   }
                 `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/10 via-indigo-900/5 to-purple-800/10 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -645,7 +645,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-xs">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -655,7 +655,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Treasury:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Diversification and optimization of treasury assets
                           for sustainability.
                         </span>
@@ -667,7 +667,7 @@ export default function ConsultingPage() {
                       </span>
                       <div>
                         <span className="font-bold text-purple-200">Risk:</span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Mitigation strategies and planning to safeguard assets
                           and operations.
                         </span>
@@ -681,7 +681,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Modeling:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Scenario planning and analysis to inform strategic
                           decisions.
                         </span>
@@ -695,7 +695,7 @@ export default function ConsultingPage() {
                         <span className="font-bold text-purple-200">
                           Revenue:
                         </span>
-                        <span className="text-gray-200 ml-1">
+                        <span className="text-white/90 ml-1">
                           Sustainable framework development to maximize and
                           diversify revenue.
                         </span>
