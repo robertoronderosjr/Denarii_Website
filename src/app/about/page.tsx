@@ -163,13 +163,9 @@ export default function AboutPage() {
   }, [currentSlide]);
 
   return (
-    <>
+    <div className="min-h-screen w-full bg-black">
       {/* Hero Section */}
       <section className="py-32 relative overflow-hidden">
-        {/* Background gradient effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent pointer-events-none" />
-
         <div className="container px-4 md:px-6 mx-auto relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Text */}
@@ -292,21 +288,29 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex justify-center">
-            <div className="relative w-full max-w-[1300px] rounded-2xl bg-white/10 border border-purple-400/20 shadow-2xl px-2 md:px-14 pt-24 pb-16 flex flex-col items-center overflow-visible">
+            <div
+              className="relative w-full max-w-full sm:max-w-[95vw] lg:max-w-[1300px] px-1 sm:px-4 md:px-8 lg:px-14 pt-16 pb-10 flex flex-col items-center overflow-x-visible"
+              style={{
+                boxShadow:
+                  "0 24px 80px 0 rgba(80,0,120,0.22), 0 2px 8px 0 rgba(80,0,120,0.10)",
+                background: "transparent",
+                border: "none",
+              }}
+            >
               {/* Navigation Arrows */}
               <button
-                className="absolute left-8 top-1/2 -translate-y-1/2 z-40 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
+                className="absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
                 style={{ transform: "translateY(-50%)" }}
                 onClick={() => handleSlide("prev")}
                 aria-label="Previous Slide"
               >
                 <svg
-                  width="56"
-                  height="56"
+                  width="40"
+                  height="40"
                   viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="drop-shadow-xl"
+                  className="drop-shadow-xl sm:w-12 sm:h-12 md:w-14 md:h-14"
                 >
                   <polyline
                     points="36,8 16,28 36,48"
@@ -318,18 +322,18 @@ export default function AboutPage() {
                 </svg>
               </button>
               <button
-                className="absolute right-8 top-1/2 -translate-y-1/2 z-40 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
+                className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
                 style={{ transform: "translateY(-50%)" }}
                 onClick={() => handleSlide("next")}
                 aria-label="Next Slide"
               >
                 <svg
-                  width="56"
-                  height="56"
+                  width="40"
+                  height="40"
                   viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="drop-shadow-xl"
+                  className="drop-shadow-xl sm:w-12 sm:h-12 md:w-14 md:h-14"
                 >
                   <polyline
                     points="20,8 40,28 20,48"
@@ -342,7 +346,7 @@ export default function AboutPage() {
               </button>
 
               {/* Fan/Coverflow Carousel */}
-              <div className="relative h-[500px] flex items-end justify-center pb-12 w-full px-2 md:px-8">
+              <div className="relative h-[320px] sm:h-[380px] md:h-[440px] lg:h-[500px] flex items-end justify-center pb-8 sm:pb-10 md:pb-12 w-full px-1 sm:px-4 md:px-8 lg:px-8 overflow-x-visible">
                 <div className="w-full h-full flex items-center justify-center relative">
                   {blogPreview.map((post, index) => {
                     // Calculate position relative to center
@@ -354,7 +358,7 @@ export default function AboutPage() {
                     // Only render cards within -3 to 3 positions
                     if (Math.abs(pos) > 3) return null;
 
-                    // Style for each position
+                    // Responsive card sizing and offsets
                     let scale = 1,
                       rotate = 0,
                       x = 0,
@@ -364,10 +368,10 @@ export default function AboutPage() {
                       shadow = "",
                       border = "",
                       blur = "none",
-                      width = 380,
+                      width = 320,
                       bg = "#fff";
                     if (pos === 0) {
-                      scale = 1.12;
+                      scale = 1.08;
                       rotate = 0;
                       x = 0;
                       z = 40;
@@ -375,73 +379,87 @@ export default function AboutPage() {
                       shadow =
                         "0 10px 36px 0 rgba(80,0,120,0.16), 0 2px 8px 0 rgba(80,0,120,0.10)";
                       border = "2px solid rgba(168,85,247,0.18)";
-                      width = 380;
+                      width = 320; // mobile default
+                      if (window.innerWidth >= 640) width = 360;
+                      if (window.innerWidth >= 1024) width = 380;
                       bg = "#fff";
                     } else if (pos === -1) {
                       scale = 0.92;
                       rotate = -18;
-                      x = -210;
+                      x = -110;
                       z = 30;
                       opacity = 0.8;
                       shadow = "0 4px 16px 0 rgba(80,0,120,0.10)";
                       border = "1.5px solid rgba(168,85,247,0.10)";
                       blur = "blur(1px)";
-                      width = 320;
+                      width = 220;
+                      if (window.innerWidth >= 640) width = 260;
+                      if (window.innerWidth >= 1024) width = 320;
                       bg = "#fff";
                     } else if (pos === 1) {
                       scale = 0.92;
                       rotate = 18;
-                      x = 210;
+                      x = 110;
                       z = 30;
                       opacity = 0.8;
                       shadow = "0 4px 16px 0 rgba(80,0,120,0.10)";
                       border = "1.5px solid rgba(168,85,247,0.10)";
                       blur = "blur(1px)";
-                      width = 320;
+                      width = 220;
+                      if (window.innerWidth >= 640) width = 260;
+                      if (window.innerWidth >= 1024) width = 320;
                       bg = "#fff";
                     } else if (pos === -2) {
                       scale = 0.8;
                       rotate = -28;
-                      x = -370;
+                      x = -180;
                       z = 20;
                       opacity = 0.5;
                       shadow = "0 2px 8px 0 rgba(80,0,120,0.08)";
                       border = "1px solid rgba(168,85,247,0.08)";
                       blur = "blur(2px)";
-                      width = 220;
+                      width = 120;
+                      if (window.innerWidth >= 640) width = 180;
+                      if (window.innerWidth >= 1024) width = 220;
                       bg = "#fff";
                     } else if (pos === 2) {
                       scale = 0.8;
                       rotate = 28;
-                      x = 370;
+                      x = 180;
                       z = 20;
                       opacity = 0.5;
                       shadow = "0 2px 8px 0 rgba(80,0,120,0.08)";
                       border = "1px solid rgba(168,85,247,0.08)";
                       blur = "blur(2px)";
-                      width = 220;
+                      width = 120;
+                      if (window.innerWidth >= 640) width = 180;
+                      if (window.innerWidth >= 1024) width = 220;
                       bg = "#fff";
                     } else if (pos === -3) {
                       scale = 0.65;
                       rotate = -38;
-                      x = -520;
+                      x = -240;
                       z = 10;
                       opacity = 0.18;
                       shadow = "0 1px 4px 0 rgba(80,0,120,0.04)";
                       border = "1px solid rgba(168,85,247,0.04)";
                       blur = "blur(3px)";
-                      width = 120;
+                      width = 60;
+                      if (window.innerWidth >= 640) width = 100;
+                      if (window.innerWidth >= 1024) width = 120;
                       bg = "#fff";
                     } else if (pos === 3) {
                       scale = 0.65;
                       rotate = 38;
-                      x = 520;
+                      x = 240;
                       z = 10;
                       opacity = 0.18;
                       shadow = "0 1px 4px 0 rgba(80,0,120,0.04)";
                       border = "1px solid rgba(168,85,247,0.04)";
                       blur = "blur(3px)";
-                      width = 120;
+                      width = 60;
+                      if (window.innerWidth >= 640) width = 100;
+                      if (window.innerWidth >= 1024) width = 120;
                       bg = "#fff";
                     }
 
@@ -543,6 +561,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

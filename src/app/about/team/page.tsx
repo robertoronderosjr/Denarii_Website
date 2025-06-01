@@ -100,7 +100,7 @@ const teamMembers = [
 
 export default function TeamPage() {
   return (
-    <>
+    <div className="min-h-screen w-full bg-black">
       {/* Hero Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto">
@@ -116,8 +116,7 @@ export default function TeamPage() {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-2xl border border-purple-700/30 p-8 shadow-xl backdrop-blur-md transition-all duration-150 flex flex-col items-center group hover:-translate-y-1 hover:shadow-2xl hover:border-purple-400/60"
-                style={{ minHeight: 320, maxWidth: 340, margin: "0 auto" }}
+                className="relative w-full max-w-xs sm:max-w-sm bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-2xl border border-purple-700/30 p-8 shadow-xl backdrop-blur-md transition-all duration-150 flex flex-col items-center group hover:-translate-y-1 hover:shadow-2xl hover:border-purple-400/60 mx-auto"
               >
                 <div className="relative w-36 h-36 mb-4 flex-shrink-0">
                   <Image
@@ -165,6 +164,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
