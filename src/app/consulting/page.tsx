@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRight,
   Lightbulb,
@@ -11,7 +13,10 @@ import {
   Network,
   Zap,
   Building,
+  Plus,
+  ChevronDown,
 } from "lucide-react";
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -91,6 +96,22 @@ const timelineSteps = [
 ];
 
 export default function ConsultingPage() {
+  // State for expanded cards
+  const [expandedCards, setExpandedCards] = useState<{[key: string]: boolean}>({
+    tokenDesign: false,
+    growthVolume: false,
+    brandContent: false,
+    financialManagement: false
+  });
+
+  // Toggle card expansion
+  const toggleCard = (cardId: string) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
+
   return (
     <>
       {/* Split-Section Intro */}
@@ -218,174 +239,430 @@ export default function ConsultingPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Token Design */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
-              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="h-8 w-8 text-purple-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 6v12"></path>
-                  <path d="M8 12h8"></path>
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
+              {/* Background Illustration */}
+              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-purple-300">
+                  <circle cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="100" cy="100" r="60" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="2" />
+                  <path d="M100 20v160M20 100h160M160 40L40 160M40 40l120 120" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                Product & Token Design
-              </h3>
-              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                Creating sustainable token economies aligned with your project's
-                vision and goals.
-              </p>
+              
+              <div className="relative z-10">
+                <div className="flex justify-between items-start">
+                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg
+                      className="h-8 w-8 text-purple-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 6v12"></path>
+                      <path d="M8 12h8"></path>
+                    </svg>
+                  </div>
+                  <button 
+                    onClick={() => toggleCard('tokenDesign')} 
+                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                    aria-expanded={expandedCards.tokenDesign}
+                    aria-label="Expand Token Design details"
+                  >
+                    <div className={`expand-icon ${expandedCards.tokenDesign ? 'expanded' : ''}`}>
+                      <Plus size={24} />
+                    </div>
+                  </button>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                  Token Design
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Creating sustainable token economies aligned with your project's
+                  vision and goals.
+                </p>
+                
+                {/* Expandable content */}
+                <div className={`card-content mt-4 ${expandedCards.tokenDesign ? 'expanded' : ''}`}>
+                  <div className="pt-4 border-t border-gray-800/50">
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Tokenomics design and distribution strategy</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Utility mapping and value accrual mechanisms</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Governance structure and incentive alignment</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Economic simulations and sustainability modeling</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Growth & Volume */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
-              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="h-8 w-8 text-purple-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                  <polyline points="17 6 23 6 23 12"></polyline>
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
+              {/* Background Illustration */}
+              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-green-300">
+                  <path d="M40 160L70 120L100 140L130 90L160 40" stroke="currentColor" strokeWidth="3" />
+                  <path d="M40 120L70 100L100 110L130 70L160 30" stroke="currentColor" strokeWidth="3" />
+                  <path d="M40 140L70 110L100 125L130 80L160 35" stroke="currentColor" strokeWidth="3" />
+                  <rect x="30" y="30" width="140" height="140" rx="4" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                Growth & Volume
-              </h3>
-              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                Strategic approaches to drive adoption, liquidity, and
-                sustainable trading volume.
-              </p>
+              
+              <div className="relative z-10">
+                <div className="flex justify-between items-start">
+                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg
+                      className="h-8 w-8 text-purple-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                      <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                  </div>
+                  <button 
+                    onClick={() => toggleCard('growthVolume')} 
+                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                    aria-expanded={expandedCards.growthVolume}
+                    aria-label="Expand Growth & Volume details"
+                  >
+                    <div className={`expand-icon ${expandedCards.growthVolume ? 'expanded' : ''}`}>
+                      <Plus size={24} />
+                    </div>
+                  </button>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                  Growth & Volume
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Strategic approaches to drive adoption, liquidity, and
+                  sustainable trading volume.
+                </p>
+                
+                {/* Expandable content */}
+                <div className={`card-content mt-4 ${expandedCards.growthVolume ? 'expanded' : ''}`}>
+                  <div className="pt-4 border-t border-gray-800/50">
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Market making and liquidity strategies</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Exchange listing and relationship management</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Community growth and engagement programs</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Sustainable volume generation techniques</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Brand & Content */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
-              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="h-8 w-8 text-purple-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 20.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z"></path>
-                  <path d="M12 8v8"></path>
-                  <path d="M8 12h8"></path>
-                  <path d="M20 4v.01"></path>
-                  <path d="M4 4v.01"></path>
-                  <path d="M20 20v.01"></path>
-                  <path d="M4 20v.01"></path>
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
+              {/* Background Illustration */}
+              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-blue-300">
+                  <path d="M60 60H140V140H60V60Z" stroke="currentColor" strokeWidth="2" />
+                  <path d="M80 100H120" stroke="currentColor" strokeWidth="3" />
+                  <path d="M80 80H120" stroke="currentColor" strokeWidth="3" />
+                  <path d="M80 120H120" stroke="currentColor" strokeWidth="3" />
+                  <circle cx="100" cy="40" r="10" stroke="currentColor" strokeWidth="2" />
+                  <path d="M90 40H110" stroke="currentColor" strokeWidth="2" />
+                  <path d="M100 30V50" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                Brand & Content
-              </h3>
-              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                Developing compelling narratives and content strategies for
-                token projects.
-              </p>
+              
+              <div className="relative z-10">
+                <div className="flex justify-between items-start">
+                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg
+                      className="h-8 w-8 text-purple-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 20.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z"></path>
+                      <path d="M12 8v8"></path>
+                      <path d="M8 12h8"></path>
+                      <path d="M20 4v.01"></path>
+                      <path d="M4 4v.01"></path>
+                      <path d="M20 20v.01"></path>
+                      <path d="M4 20v.01"></path>
+                    </svg>
+                  </div>
+                  <button 
+                    onClick={() => toggleCard('brandContent')} 
+                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                    aria-expanded={expandedCards.brandContent}
+                    aria-label="Expand Brand & Content details"
+                  >
+                    <div className={`expand-icon ${expandedCards.brandContent ? 'expanded' : ''}`}>
+                      <Plus size={24} />
+                    </div>
+                  </button>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                  Brand & Content
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Developing compelling narratives and content strategies for
+                  token projects.
+                </p>
+                
+                {/* Expandable content */}
+                <div className={`card-content mt-4 ${expandedCards.brandContent ? 'expanded' : ''}`}>
+                  <div className="pt-4 border-t border-gray-800/50">
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Brand identity and positioning strategy</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Content creation and distribution planning</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Narrative development and messaging frameworks</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Community engagement and educational content</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Token Financial Management */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 hover:translate-y-[-4px] group">
-              <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="h-8 w-8 text-purple-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
+              {/* Background Illustration */}
+              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-yellow-300">
+                  <circle cx="100" cy="100" r="50" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="1" />
+                  <path d="M100 60V140" stroke="currentColor" strokeWidth="2" />
+                  <path d="M70 100H130" stroke="currentColor" strokeWidth="2" />
+                  <path d="M80 80L120 120" stroke="currentColor" strokeWidth="1" />
+                  <path d="M80 120L120 80" stroke="currentColor" strokeWidth="1" />
+                  <rect x="40" y="40" width="120" height="120" rx="4" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+                  <path d="M40 70H60" stroke="currentColor" strokeWidth="2" />
+                  <path d="M40 100H60" stroke="currentColor" strokeWidth="2" />
+                  <path d="M40 130H60" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                Token Financial Management
-              </h3>
-              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                Optimizing treasury operations and financial strategies for
-                long-term sustainability.
-              </p>
+              
+              <div className="relative z-10">
+                <div className="flex justify-between items-start">
+                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <svg
+                      className="h-8 w-8 text-purple-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                  </div>
+                  <button 
+                    onClick={() => toggleCard('financialManagement')} 
+                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                    aria-expanded={expandedCards.financialManagement}
+                    aria-label="Expand Token Financial Management details"
+                  >
+                    <div className={`expand-icon ${expandedCards.financialManagement ? 'expanded' : ''}`}>
+                      <Plus size={24} />
+                    </div>
+                  </button>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                  Token Financial Management
+                </h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  Optimizing treasury operations and financial strategies for
+                  long-term sustainability.
+                </p>
+                
+                {/* Expandable content */}
+                <div className={`card-content mt-4 ${expandedCards.financialManagement ? 'expanded' : ''}`}>
+                  <div className="pt-4 border-t border-gray-800/50">
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Treasury management and diversification</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Risk assessment and mitigation strategies</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Financial modeling and scenario planning</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
+                        <span>Sustainable revenue generation frameworks</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Consulting Timeline Section */}
-      <section className="py-24">
-        <div className="container px-4 md:px-6 mx-auto">
-          <h2 className="mb-16 text-center text-3xl font-bold md:text-4xl text-white">
-            Our Consulting Process
-          </h2>
+      <section className="py-24 relative overflow-hidden">
+        {/* Background gradient elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 to-transparent opacity-30 pointer-events-none"></div>
 
-          {/* Vertical Timeline Line */}
-          <div className="relative z-10">
+        <div className="container px-4 md:px-6 mx-auto relative">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold md:text-4xl text-white mb-4">
+              Our Consulting Process
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              A structured approach to designing and implementing effective
+              tokenomics solutions
+            </p>
+          </div>
+
+          {/* Desktop Timeline (hidden on mobile) */}
+          <div className="hidden md:block relative">
+            {/* Continuous Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-600/80 to-indigo-600/80 rounded-full z-10"></div>
+
             {timelineSteps.map((step, index) => (
-              <div key={step.id} className="mb-20 last:mb-0">
-                <div
-                  className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center`}
-                >
-                  {/* Timeline Step Number & Icon */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center z-20">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg shadow-purple-900/30 border-2 border-gray-900">
-                      <step.icon className="h-5 w-5 text-white" />
+              <div key={step.id} className="relative mb-24 last:mb-0">
+                {/* Timeline Node */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg shadow-purple-900/30 border-2 border-gray-900 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-xl font-bold">
+                      {step.id}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content Grid */}
+                <div className="grid grid-cols-2 gap-16 items-center">
+                  {/* Left Content - For odd steps */}
+                  <div
+                    className={
+                      index % 2 === 0
+                        ? "pr-16"
+                        : "opacity-0 pointer-events-none"
+                    }
+                  >
+                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300 group">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                          <step.icon className="h-6 w-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                        {step.description}
+                      </p>
                     </div>
                   </div>
 
-                  {/* Left Content - For even steps */}
+                  {/* Right Content - For even steps */}
                   <div
-                    className={`${
-                      index % 2 === 0 ? "md:block" : "md:hidden"
-                    } bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl border border-gray-800 p-6 shadow-lg`}
+                    className={
+                      index % 2 === 1
+                        ? "pl-16"
+                        : "opacity-0 pointer-events-none"
+                    }
                   >
-                    <div className="flex items-center gap-4 mb-4 md:hidden">
-                      <div className="rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 p-2 shadow-lg shadow-purple-900/30">
-                        <step.icon className="h-5 w-5 text-white" />
+                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300 group">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                          <step.icon className="h-6 w-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
+                          {step.title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl font-bold text-white">
-                        {step.id}. {step.title}
-                      </h3>
+                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                        {step.description}
+                      </p>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4 hidden md:block">
-                      {step.id}. {step.title}
-                    </h3>
-                    <p className="text-gray-400">{step.description}</p>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
-                  {/* Empty space for even steps on mobile */}
-                  <div
-                    className={`${
-                      index % 2 === 0 ? "md:hidden" : "md:block"
-                    } bg-gradient-to-br from-gray-900 to-gray-950 rounded-xl border border-gray-800 p-6 shadow-lg`}
-                  >
-                    <div className="flex items-center gap-4 mb-4 md:hidden">
-                      <div className="rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 p-2 shadow-lg shadow-purple-900/30">
-                        <step.icon className="h-5 w-5 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white">
-                        {step.id}. {step.title}
-                      </h3>
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-4 hidden md:block">
-                      {step.id}. {step.title}
-                    </h3>
-                    <p className="text-gray-400">{step.description}</p>
+          {/* Mobile Timeline (visible only on mobile) */}
+          <div className="md:hidden relative">
+            {/* Continuous Timeline Line */}
+            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600/80 to-indigo-600/80 rounded-full"></div>
+
+            {timelineSteps.map((step) => (
+              <div key={step.id} className="relative pl-16 mb-12 last:mb-0">
+                {/* Timeline Node */}
+                <div className="absolute left-6 transform -translate-x-1/2 flex items-center justify-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg shadow-purple-900/30 border-2 border-gray-900">
+                    <span className="text-white text-base font-bold">
+                      {step.id}
+                    </span>
                   </div>
+                </div>
+
+                {/* Content */}
+                <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-6 shadow-lg">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-2 text-purple-400">
+                      <step.icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-400 text-sm">{step.description}</p>
                 </div>
               </div>
             ))}
