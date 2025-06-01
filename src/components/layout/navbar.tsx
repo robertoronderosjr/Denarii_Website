@@ -130,6 +130,51 @@ export function Navbar() {
                 );
               }
 
+              // Special handling for About Us dropdown
+              if (link.label === "About Us" && link.children) {
+                return (
+                  <div key={link.href} className="relative group">
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "text-lg font-medium transition-colors hover:text-primary flex items-center",
+                        pathname === link.href
+                          ? "text-primary"
+                          : "text-gray-100"
+                      )}
+                    >
+                      {link.label}
+                      <svg
+                        className="ml-1 h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </Link>
+                    <div className="absolute h-4 w-full left-0 bottom-0 translate-y-full"></div>
+                    <div className="absolute top-[calc(100%+12px)] left-0 z-50 bg-black w-56 rounded-xl shadow-md py-1 border border-white/10 transition-all duration-200 ease-out origin-top scale-y-95 opacity-0 group-hover:opacity-100 group-hover:scale-y-100 hidden group-hover:flex hover:flex flex-col pointer-events-auto">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-4 py-3 text-base font-medium text-white hover:bg-purple-600 cursor-pointer transition-colors rounded-lg mx-1 my-0.5 whitespace-nowrap"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               // Regular nav links
               return (
                 <Link
@@ -224,6 +269,38 @@ export function Navbar() {
                           >
                             F-Ecosystem
                           </Link>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  // Special handling for About Us in mobile menu
+                  if (link.label === "About Us" && link.children) {
+                    return (
+                      <div key={link.href} className="space-y-2">
+                        <Link
+                          href={link.href}
+                          className={cn(
+                            "px-3 py-2 text-base font-medium transition-colors hover:text-primary rounded-md flex items-center justify-between",
+                            pathname === link.href
+                              ? "text-primary"
+                              : "text-gray-100"
+                          )}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                        <div className="pl-4 space-y-2 border-l border-white/10">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="px-3 py-1 text-sm text-gray-300 hover:bg-purple-600 hover:text-white rounded-md transition-colors block"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
                         </div>
                       </div>
                     );

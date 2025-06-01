@@ -131,6 +131,37 @@ const values = [
   },
 ];
 
+// Blog preview data (replace with real data as needed)
+const blogPreview = [
+  {
+    id: 1,
+    title: "Understanding Tokenomics: A Comprehensive Guide",
+    excerpt:
+      "Learn the fundamentals of tokenomics and how to design sustainable token economies for your blockchain project.",
+    date: "2024-03-15",
+    image: "/blog/tokenomics-guide.jpg",
+    link: "/blog/1",
+  },
+  {
+    id: 2,
+    title: "The Future of DeFi: Trends to Watch in 2024",
+    excerpt:
+      "Explore the emerging trends in decentralized finance and how they're shaping the future of blockchain technology.",
+    date: "2024-03-10",
+    image: "/blog/defi-trends.jpg",
+    link: "/blog/2",
+  },
+  {
+    id: 3,
+    title: "Building Sustainable Token Economies",
+    excerpt:
+      "Discover the key principles and strategies for creating long-lasting token economies that benefit all stakeholders.",
+    date: "2024-03-05",
+    image: "/blog/sustainable-tokens.jpg",
+    link: "/blog/3",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -138,31 +169,39 @@ export default function AboutPage() {
       <section className="py-24 relative overflow-hidden">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text */}
             <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-8">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 animate-sparkle">
-                  About Denarii
-                </span>
+              <h1 className="text-5xl font-extrabold tracking-tighter mb-6 text-white">
+                Who We Are
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
-                We're a team of blockchain experts and tokenomics specialists
-                dedicated to helping projects build sustainable token economies.
+              <p className="text-xl text-gray-300 mb-10">
+                Denarii Labs is a pioneering Web3 accelerator and consulting
+                firm, empowering blockchain projects with expert guidance,
+                innovative tokenomics, and a global network. We help founders
+                turn bold ideas into thriving ecosystems.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button
-                  className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-105 transition-all duration-300 text-lg px-8 py-5"
                   size="lg"
                   asChild
                 >
-                  <Link href="#team">
-                    Meet Our Team <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                  <Link href="#team">Meet the Team</Link>
+                </Button>
+                <Button
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold hover:scale-105 transition-all duration-300 text-lg px-8 py-5"
+                  size="lg"
+                  asChild
+                  variant="outline"
+                >
+                  <Link href="/blog">Visit Our Blog</Link>
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/20 p-8">
-                <div className="relative w-full h-full">
+            {/* Right Column - Illustration or Brand Visual */}
+            <div className="relative flex items-center justify-center">
+              <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/20 p-8 flex items-center justify-center">
+                <div className="relative w-40 h-40 flex items-center justify-center">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-2xl"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Users className="w-32 h-32 text-purple-400/50" />
@@ -205,67 +244,54 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-24">
+      {/* Blog Section */}
+      <section className="py-24">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold md:text-4xl text-white mb-4">
-              Meet Our Team
+              From Our Blog
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Experienced professionals dedicated to your project's success
+              Insights, news, and media from the Denarii Labs team
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-2xl border border-purple-700/30 p-8 shadow-xl backdrop-blur-md transition-all duration-150 flex flex-col items-center group hover:-translate-y-1 hover:shadow-2xl hover:border-purple-400/60"
-                style={{ minHeight: 320, maxWidth: 340, margin: "0 auto" }}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+            {blogPreview.map((post) => (
+              <article
+                key={post.id}
+                className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-xl border border-gray-800/50 overflow-hidden shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300"
               >
-                <div className="relative w-36 h-36 mb-4 flex-shrink-0">
+                <div className="aspect-video relative">
                   <Image
-                    src={member.image}
-                    alt={member.name}
+                    src={post.image}
+                    alt={post.title}
                     fill
-                    className="object-cover rounded-full border-4 border-purple-400/40 shadow-lg group-hover:shadow-purple-400/30 transition-all duration-150"
-                    style={{ objectPosition: "center" }}
+                    className="object-cover"
                   />
                 </div>
-                <div className="w-12 border-t-2 border-purple-700/20 mb-4 group-hover:border-purple-400/40 transition-colors duration-150" />
-                <div className="flex flex-row items-center justify-between w-full gap-4 mb-2">
-                  <div className="flex flex-col items-start flex-1 min-w-0">
-                    <h3 className="text-lg font-bold text-white mb-1 tracking-tight w-full text-left leading-tight">
-                      {member.name}
-                    </h3>
-                    <span
-                      className="text-purple-200 text-base font-medium w-full text-left leading-tight"
-                      title={member.role}
-                    >
-                      {member.role}
-                    </span>
-                  </div>
-                  <div className="flex gap-3 flex-shrink-0">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`LinkedIn profile of ${member.name}`}
-                    >
-                      <Linkedin className="h-7 w-7 text-purple-300 hover:text-purple-100 transition-colors duration-150 drop-shadow-md" />
-                    </a>
-                    <a
-                      href={member.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`X profile of ${member.name}`}
-                    >
-                      <XIcon className="h-7 w-7 text-purple-300 hover:text-purple-100 transition-colors duration-150 drop-shadow-md" />
-                    </a>
-                  </div>
+                <div className="p-6">
+                  <div className="text-sm text-gray-400 mb-2">{post.date}</div>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4">{post.excerpt}</p>
+                  <Link
+                    href={post.link}
+                    className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-200 font-medium"
+                  >
+                    Read More
+                  </Link>
                 </div>
-              </div>
+              </article>
             ))}
+          </div>
+          <div className="text-center">
+            <Button
+              className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-lg px-8 py-4 rounded-lg shadow-lg shadow-purple-900/30 transition-all duration-300"
+              asChild
+            >
+              <Link href="/blog">See all posts</Link>
+            </Button>
           </div>
         </div>
       </section>
