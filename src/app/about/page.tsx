@@ -9,88 +9,101 @@ import {
   Shield,
   ArrowRight,
   Linkedin,
-  Twitter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+
+// Custom X (formerly Twitter) icon component (copied from footer)
+const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={props.width || 28}
+    height={props.height || 28}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={props.className || "lucide"}
+  >
+    <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5549 21H20.7996L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
+  </svg>
+);
 
 const teamMembers = [
   {
     name: "Drew Austin",
     role: "Founding Partner",
     image: "/team/drew-austin.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/drewaustin",
+    twitter: "https://x.com/DrewAustin",
   },
   {
     name: "Elana Gold",
     role: "Partner / Head of BD",
     image: "/team/elana-gold.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/itselanagold",
+    twitter: "https://x.com/ItsElanaGold",
   },
   {
     name: "Jennifer Styles",
     role: "Chief Operating Officer",
     image: "/team/jennifer-styles.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/jennifer-styles-2757362",
     twitter: "#",
   },
   {
     name: "Joshua Howard",
     role: "Associate",
     image: "/team/joshua-howard.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/joshuah1/",
+    twitter: "https://x.com/jhowow_",
   },
   {
     name: "Jake Craven",
     role: "Product Manager",
     image: "/team/jake-craven.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/jake-craven",
+    twitter: "https://x.com/Craven_JE",
   },
   {
     name: "Nabil Allouche",
     role: "Tokenomics",
     image: "/team/nabil-allouche.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/nabil-allouche-673a991b5/",
     twitter: "#",
   },
   {
     name: "Lauren Adelman",
     role: "Partnerships",
     image: "/team/lauren-adelman.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/laurenadelman/",
+    twitter: "https://x.com/ChiefofWeb3",
   },
   {
     name: "Edgar Woo",
     role: "Head of Digital & Social",
     image: "/team/edgar-woo.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/edgarwoo",
+    twitter: "https://x.com/_edgarwoo",
   },
   {
     name: "Simon Lacy",
     role: "KOL & Distribution Lead",
     image: "/team/simon-lacy.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/mezcalpapi-eth-96a86424b/",
+    twitter: "https://x.com/mezcalpapieth",
   },
   {
     name: "Brian Fanzo",
     role: "Web3 Strategy & Community",
     image: "/team/brian-fanzo.jpg",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/brianfanzo",
+    twitter: "https://x.com/iSocialFanz",
   },
   {
     name: "Austin Ritter",
     role: "AI & Operations Manager",
     image: "/team/austin-ritter.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/austinritter",
     twitter: "#",
   },
 ];
@@ -245,9 +258,9 @@ export default function AboutPage() {
                       href={member.twitter}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Twitter profile of ${member.name}`}
+                      aria-label={`X profile of ${member.name}`}
                     >
-                      <Twitter className="h-7 w-7 text-purple-300 hover:text-purple-100 transition-colors duration-150 drop-shadow-md" />
+                      <XIcon className="h-7 w-7 text-purple-300 hover:text-purple-100 transition-colors duration-150 drop-shadow-md" />
                     </a>
                   </div>
                 </div>
