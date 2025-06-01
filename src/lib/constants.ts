@@ -13,10 +13,11 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/partners", label: "Partners" },
   {
     href: "/about",
-    label: "About Us",
+    label: "About",
     children: [
       { href: "/about/team", label: "Team" },
-      { href: "/blog", label: "Blog" },
+      { href: "/about/blog", label: "Blog" },
+      { href: "/about/contact", label: "Contact Us" },
     ],
   },
 ];

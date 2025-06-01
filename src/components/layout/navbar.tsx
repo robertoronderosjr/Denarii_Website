@@ -130,8 +130,8 @@ export function Navbar() {
                 );
               }
 
-              // Special handling for About Us dropdown
-              if (link.label === "About Us" && link.children) {
+              // Special handling for About dropdown (now label is 'About')
+              if (link.label === "About" && link.children) {
                 return (
                   <div key={link.href} className="relative group">
                     <Link
@@ -274,8 +274,8 @@ export function Navbar() {
                     );
                   }
 
-                  // Special handling for About Us in mobile menu
-                  if (link.label === "About Us" && link.children) {
+                  // Special handling for About dropdown (now label is 'About') in mobile menu
+                  if (link.label === "About" && link.children) {
                     return (
                       <div key={link.href} className="space-y-2">
                         <Link
