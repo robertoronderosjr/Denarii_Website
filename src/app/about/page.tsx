@@ -207,35 +207,39 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-xl border border-gray-800/50 p-8 shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300 flex flex-col items-center"
+                className="relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-2xl border border-purple-700/30 p-8 shadow-xl backdrop-blur-md transition-all duration-150 flex flex-col items-center group hover:-translate-y-1 hover:shadow-2xl hover:border-purple-400/60"
+                style={{ minHeight: 320, maxWidth: 340, margin: "0 auto" }}
               >
-                <div className="relative w-32 h-32 mb-6">
+                <div className="relative w-36 h-36 mb-4 flex-shrink-0">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover rounded-full border-4 border-purple-700/30 shadow-md"
+                    className="object-cover rounded-full border-4 border-purple-400/40 shadow-lg group-hover:shadow-purple-400/30 transition-all duration-150"
                     style={{ objectPosition: "center" }}
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1 text-center w-full">
-                  {member.name}
-                </h3>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full mb-4 gap-2">
-                  <span
-                    className="text-purple-400 text-left text-base font-medium w-full sm:w-2/3"
-                    title={member.role}
-                  >
-                    {member.role}
-                  </span>
-                  <span className="flex gap-4 sm:ml-2 mt-2 sm:mt-0">
+                <div className="w-12 border-t-2 border-purple-700/20 mb-4 group-hover:border-purple-400/40 transition-colors duration-150" />
+                <div className="flex flex-row items-center justify-between w-full gap-4 mb-2">
+                  <div className="flex flex-col items-start flex-1 min-w-0">
+                    <h3 className="text-lg font-bold text-white mb-1 tracking-tight w-full text-left leading-tight">
+                      {member.name}
+                    </h3>
+                    <span
+                      className="text-purple-200 text-base font-medium w-full text-left leading-tight"
+                      title={member.role}
+                    >
+                      {member.role}
+                    </span>
+                  </div>
+                  <div className="flex gap-3 flex-shrink-0">
                     <a
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`LinkedIn profile of ${member.name}`}
                     >
-                      <Linkedin className="h-8 w-8 text-purple-300 hover:text-purple-100 transition-colors duration-200" />
+                      <Linkedin className="h-7 w-7 text-purple-300 hover:text-purple-100 transition-colors duration-150 drop-shadow-md" />
                     </a>
                     <a
                       href={member.twitter}
@@ -243,9 +247,9 @@ export default function AboutPage() {
                       rel="noopener noreferrer"
                       aria-label={`Twitter profile of ${member.name}`}
                     >
-                      <Twitter className="h-8 w-8 text-purple-300 hover:text-purple-100 transition-colors duration-200" />
+                      <Twitter className="h-7 w-7 text-purple-300 hover:text-purple-100 transition-colors duration-150 drop-shadow-md" />
                     </a>
-                  </span>
+                  </div>
                 </div>
               </div>
             ))}
