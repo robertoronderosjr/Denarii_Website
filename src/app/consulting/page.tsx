@@ -35,6 +35,7 @@ import { CtaButton } from "@/components/common/cta-button";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { Switch } from "@/components/ui/switch";
 
 const services = [
   {
@@ -63,41 +64,70 @@ const services = [
   },
 ];
 
-const timelineSteps = [
+// Placeholder timeline steps for Pre-TGE and Post-TGE
+const preTgeTimeline = [
   {
     id: 1,
     icon: Milestone,
     title: "Discovery & Assessment",
-    description:
-      "We start by understanding your project's vision, goals, target audience, and existing architecture. Deep dive into your concept and market positioning.",
+    description: "Pre-TGE: Understand project vision, goals, and market.",
   },
   {
     id: 2,
     icon: Users,
     title: "Strategic Workshop",
-    description:
-      "Collaborative sessions to define core token utilities, economic flows, and governance models. We align on key performance indicators for success.",
+    description: "Pre-TGE: Define token utility, incentives, and KPIs.",
   },
   {
     id: 3,
     icon: Lightbulb,
     title: "Token Model Design",
-    description:
-      "Development of a comprehensive tokenomics framework, including supply dynamics, distribution schedules, staking mechanisms, and value capture strategies.",
+    description: "Pre-TGE: Develop tokenomics, distribution, and governance.",
   },
   {
     id: 4,
     icon: FileText,
     title: "Documentation & Review",
-    description:
-      "Detailed documentation of the token model. Iterative feedback sessions to refine the design and ensure it meets your project's needs.",
+    description: "Pre-TGE: Prepare docs, refine messaging, and iterate.",
   },
   {
     id: 5,
     icon: CheckCircle,
-    title: "Implementation Support & Go-to-Market",
-    description:
-      "Guidance on smart contract implementation best practices related to tokenomics and support for your launch strategy.",
+    title: "Implementation & Launch",
+    description: "Pre-TGE: Support deployment, launch, and listings.",
+  },
+];
+
+const postTgeTimeline = [
+  {
+    id: 1,
+    icon: Milestone,
+    title: "Post-Launch Analysis",
+    description: "Post-TGE: Monitor performance and community feedback.",
+  },
+  {
+    id: 2,
+    icon: Users,
+    title: "Growth Initiatives",
+    description: "Post-TGE: Drive adoption, partnerships, and incentives.",
+  },
+  {
+    id: 3,
+    icon: Lightbulb,
+    title: "Ongoing Optimization",
+    description: "Post-TGE: Refine tokenomics and governance as needed.",
+  },
+  {
+    id: 4,
+    icon: FileText,
+    title: "Reporting & Compliance",
+    description: "Post-TGE: Ensure transparency and regulatory alignment.",
+  },
+  {
+    id: 5,
+    icon: CheckCircle,
+    title: "Sustained Engagement",
+    description: "Post-TGE: Maintain community and ecosystem health.",
   },
 ];
 
@@ -117,6 +147,9 @@ export default function ConsultingPage() {
     number | null
   >(null);
 
+  // State for timeline toggle
+  const [timelineType, setTimelineType] = useState<"pre" | "post">("pre");
+
   // Toggle card expansion
   const toggleCard = (cardId: string) => {
     setExpandedCards((prev) => ({
@@ -128,6 +161,10 @@ export default function ConsultingPage() {
   const handleExpandTimelineStep = (stepId: number) => {
     setExpandedTimelineStep(expandedTimelineStep === stepId ? null : stepId);
   };
+
+  // Choose timeline steps based on toggle
+  const timelineSteps =
+    timelineType === "pre" ? preTgeTimeline : postTgeTimeline;
 
   return (
     <>
@@ -720,6 +757,39 @@ export default function ConsultingPage() {
 
       {/* Consulting Timeline Section */}
       <section className="py-24 relative overflow-hidden">
+        {/* Timeline Toggle */}
+        <div className="flex justify-center items-center gap-6 mb-10">
+          <button
+            className={`px-6 py-2 rounded-full text-lg font-semibold transition-colors duration-200 border border-purple-700/30 focus:outline-none focus:ring-2 focus:ring-purple-500/40 ${
+              timelineType === "pre"
+                ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow"
+                : "bg-gray-900/60 text-purple-200 hover:bg-purple-800/20"
+            }`}
+            onClick={() => setTimelineType("pre")}
+            aria-pressed={timelineType === "pre"}
+          >
+            Pre-TGE
+          </button>
+          <Switch
+            checked={timelineType === "post"}
+            onCheckedChange={(checked) =>
+              setTimelineType(checked ? "post" : "pre")
+            }
+            className="mx-2 border-purple-700/30 bg-gray-800 data-[state=checked]:bg-indigo-600"
+            aria-label="Toggle Pre-TGE/Post-TGE"
+          />
+          <button
+            className={`px-6 py-2 rounded-full text-lg font-semibold transition-colors duration-200 border border-purple-700/30 focus:outline-none focus:ring-2 focus:ring-purple-500/40 ${
+              timelineType === "post"
+                ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow"
+                : "bg-gray-900/60 text-purple-200 hover:bg-purple-800/20"
+            }`}
+            onClick={() => setTimelineType("post")}
+            aria-pressed={timelineType === "post"}
+          >
+            Post-TGE
+          </button>
+        </div>
         {/* Background gradient elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 to-transparent opacity-30 pointer-events-none"></div>
 
@@ -863,12 +933,53 @@ export default function ConsultingPage() {
                             }`}
                             aria-hidden={!isExpanded}
                           >
-                            <div className="text-gray-300 text-base leading-relaxed">
-                              Additional detail or insight about this step. Key
-                              considerations, deliverables, or outcomes.
-                              Optional: add images, links, or custom content
-                              here.
-                            </div>
+                            <ul className="text-gray-300 text-base leading-relaxed space-y-2 pl-4 list-disc">
+                              {timelineType === "pre" && step.id === 1 && (
+                                <>
+                                  <li>Stakeholder analysis</li>
+                                  <li>Competitive and landscape research</li>
+                                  <li>Set TGE goal setting and benchmarks</li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 2 && (
+                                <>
+                                  <li>Define community incentive programs</li>
+                                  <li>Develop token utility</li>
+                                  <li>
+                                    Start facilitating partnership and exchange
+                                    introductions
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 3 && (
+                                <>
+                                  <li>
+                                    Start modeling token distribution and unlock
+                                    schedule
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 4 && (
+                                <>
+                                  <li>Prepare Light-Paper & documentation</li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 5 && (
+                                <>
+                                  <li>
+                                    Start creating token illustrations and memes
+                                  </li>
+                                  <li>
+                                    Coordinate vesting and unlocks contracts
+                                  </li>
+                                  <li>GTM (Go-To-Market) campaign</li>
+                                </>
+                              )}
+                              {/* Placeholder for Post-TGE, to be updated later */}
+                              {timelineType === "post" && (
+                                <li>Post-TGE details coming soon.</li>
+                              )}
+                            </ul>
                           </div>
                         </div>
                       </div>
@@ -926,12 +1037,53 @@ export default function ConsultingPage() {
                             }`}
                             aria-hidden={!isExpanded}
                           >
-                            <div className="text-gray-300 text-base leading-relaxed">
-                              Additional detail or insight about this step. Key
-                              considerations, deliverables, or outcomes.
-                              Optional: add images, links, or custom content
-                              here.
-                            </div>
+                            <ul className="text-gray-300 text-base leading-relaxed space-y-2 pl-4 list-disc">
+                              {timelineType === "pre" && step.id === 1 && (
+                                <>
+                                  <li>Stakeholder analysis</li>
+                                  <li>Competitive and landscape research</li>
+                                  <li>Set TGE goal setting and benchmarks</li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 2 && (
+                                <>
+                                  <li>Define community incentive programs</li>
+                                  <li>Develop token utility</li>
+                                  <li>
+                                    Start facilitating partnership and exchange
+                                    introductions
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 3 && (
+                                <>
+                                  <li>
+                                    Start modeling token distribution and unlock
+                                    schedule
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 4 && (
+                                <>
+                                  <li>Prepare Light-Paper & documentation</li>
+                                </>
+                              )}
+                              {timelineType === "pre" && step.id === 5 && (
+                                <>
+                                  <li>
+                                    Start creating token illustrations and memes
+                                  </li>
+                                  <li>
+                                    Coordinate vesting and unlocks contracts
+                                  </li>
+                                  <li>GTM (Go-To-Market) campaign</li>
+                                </>
+                              )}
+                              {/* Placeholder for Post-TGE, to be updated later */}
+                              {timelineType === "post" && (
+                                <li>Post-TGE details coming soon.</li>
+                              )}
+                            </ul>
                           </div>
                         </div>
                       </div>
