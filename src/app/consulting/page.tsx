@@ -97,18 +97,20 @@ const timelineSteps = [
 
 export default function ConsultingPage() {
   // State for expanded cards
-  const [expandedCards, setExpandedCards] = useState<{[key: string]: boolean}>({
+  const [expandedCards, setExpandedCards] = useState<{
+    [key: string]: boolean;
+  }>({
     tokenDesign: false,
     growthVolume: false,
     brandContent: false,
-    financialManagement: false
+    financialManagement: false,
   });
 
   // Toggle card expansion
   const toggleCard = (cardId: string) => {
-    setExpandedCards(prev => ({
+    setExpandedCards((prev) => ({
       ...prev,
-      [cardId]: !prev[cardId]
+      [cardId]: !prev[cardId],
     }));
   };
 
@@ -237,76 +239,92 @@ export default function ConsultingPage() {
           <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl text-white">
             Core Consulting Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Token Design */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
-              {/* Background Illustration */}
-              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-purple-300">
-                  <circle cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="100" cy="100" r="60" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="2" />
-                  <path d="M100 20v160M20 100h160M160 40L40 160M40 40l120 120" stroke="currentColor" strokeWidth="2" />
-                </svg>
-              </div>
-              
-              <div className="relative z-10">
-                <div className="flex justify-between items-start">
-                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg
-                      className="h-8 w-8 text-purple-400"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M12 6v12"></path>
-                      <path d="M8 12h8"></path>
-                    </svg>
+            <div
+              className={`relative h-[340px] perspective-1000 cursor-pointer group`}
+              onClick={() => toggleCard("tokenDesign")}
+            >
+              <div
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                  expandedCards.tokenDesign ? "rotate-y-180" : ""
+                }`}
+              >
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
                   </div>
-                  <button 
-                    onClick={() => toggleCard('tokenDesign')} 
-                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
-                    aria-expanded={expandedCards.tokenDesign}
-                    aria-label="Expand Token Design details"
-                  >
-                    <div className={`expand-icon ${expandedCards.tokenDesign ? 'expanded' : ''}`}>
-                      <Plus size={24} />
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-7 w-24 h-24 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300">
+                      <Lightbulb className="h-12 w-12 text-purple-300 group-hover:text-purple-200 transition-colors duration-300" />
                     </div>
-                  </button>
+                    <h3 className="text-3xl font-extrabold text-white text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200 group-hover:from-purple-100 group-hover:to-indigo-100 transition-all duration-300">
+                      Product & Token Design
+                    </h3>
+                  </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                  Token Design
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Creating sustainable token economies aligned with your project's
-                  vision and goals.
-                </p>
-                
-                {/* Expandable content */}
-                <div className={`card-content mt-4 ${expandedCards.tokenDesign ? 'expanded' : ''}`}>
-                  <div className="pt-4 border-t border-gray-800/50">
-                    <ul className="space-y-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Tokenomics design and distribution strategy</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Utility mapping and value accrual mechanisms</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Governance structure and incentive alignment</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Economic simulations and sustainability modeling</span>
-                      </li>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
+                  </div>
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
+                      Product & Token Design
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        "Tokenomics Design: Supply, distribution, and utility mapping",
+                        "Value Accrual: Sustainable value capture mechanisms",
+                        "Governance: Structure and incentive alignment",
+                        "Sustainability: Economic modeling and simulations",
+                      ].map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
+                          <span className="text-gray-200 text-sm">{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -314,73 +332,90 @@ export default function ConsultingPage() {
             </div>
 
             {/* Growth & Volume */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
-              {/* Background Illustration */}
-              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-green-300">
-                  <path d="M40 160L70 120L100 140L130 90L160 40" stroke="currentColor" strokeWidth="3" />
-                  <path d="M40 120L70 100L100 110L130 70L160 30" stroke="currentColor" strokeWidth="3" />
-                  <path d="M40 140L70 110L100 125L130 80L160 35" stroke="currentColor" strokeWidth="3" />
-                  <rect x="30" y="30" width="140" height="140" rx="4" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" />
-                </svg>
-              </div>
-              
-              <div className="relative z-10">
-                <div className="flex justify-between items-start">
-                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg
-                      className="h-8 w-8 text-purple-400"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                      <polyline points="17 6 23 6 23 12"></polyline>
-                    </svg>
+            <div
+              className={`relative h-[340px] perspective-1000 cursor-pointer group`}
+              onClick={() => toggleCard("growthVolume")}
+            >
+              <div
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                  expandedCards.growthVolume ? "rotate-y-180" : ""
+                }`}
+              >
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
                   </div>
-                  <button 
-                    onClick={() => toggleCard('growthVolume')} 
-                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
-                    aria-expanded={expandedCards.growthVolume}
-                    aria-label="Expand Growth & Volume details"
-                  >
-                    <div className={`expand-icon ${expandedCards.growthVolume ? 'expanded' : ''}`}>
-                      <Plus size={24} />
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-7 w-24 h-24 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300">
+                      <TrendingUp className="h-12 w-12 text-purple-300 group-hover:text-purple-200 transition-colors duration-300" />
                     </div>
-                  </button>
+                    <h3 className="text-3xl font-extrabold text-white text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200 group-hover:from-purple-100 group-hover:to-indigo-100 transition-all duration-300">
+                      Growth and Volume
+                    </h3>
+                  </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                  Growth & Volume
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Strategic approaches to drive adoption, liquidity, and
-                  sustainable trading volume.
-                </p>
-                
-                {/* Expandable content */}
-                <div className={`card-content mt-4 ${expandedCards.growthVolume ? 'expanded' : ''}`}>
-                  <div className="pt-4 border-t border-gray-800/50">
-                    <ul className="space-y-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Market making and liquidity strategies</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Exchange listing and relationship management</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Community growth and engagement programs</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Sustainable volume generation techniques</span>
-                      </li>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
+                  </div>
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
+                      Growth and Volume
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        "Market Making: Liquidity strategies and implementation",
+                        "Exchange Relations: Listing strategy and management",
+                        "Community Growth: Engagement and retention programs",
+                        "Volume Generation: Sustainable trading strategies",
+                      ].map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
+                          <span className="text-gray-200 text-sm">{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -388,81 +423,90 @@ export default function ConsultingPage() {
             </div>
 
             {/* Brand & Content */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
-              {/* Background Illustration */}
-              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-blue-300">
-                  <path d="M60 60H140V140H60V60Z" stroke="currentColor" strokeWidth="2" />
-                  <path d="M80 100H120" stroke="currentColor" strokeWidth="3" />
-                  <path d="M80 80H120" stroke="currentColor" strokeWidth="3" />
-                  <path d="M80 120H120" stroke="currentColor" strokeWidth="3" />
-                  <circle cx="100" cy="40" r="10" stroke="currentColor" strokeWidth="2" />
-                  <path d="M90 40H110" stroke="currentColor" strokeWidth="2" />
-                  <path d="M100 30V50" stroke="currentColor" strokeWidth="2" />
-                </svg>
-              </div>
-              
-              <div className="relative z-10">
-                <div className="flex justify-between items-start">
-                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg
-                      className="h-8 w-8 text-purple-400"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M12 20.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z"></path>
-                      <path d="M12 8v8"></path>
-                      <path d="M8 12h8"></path>
-                      <path d="M20 4v.01"></path>
-                      <path d="M4 4v.01"></path>
-                      <path d="M20 20v.01"></path>
-                      <path d="M4 20v.01"></path>
-                    </svg>
+            <div
+              className={`relative h-[340px] perspective-1000 cursor-pointer group`}
+              onClick={() => toggleCard("brandContent")}
+            >
+              <div
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                  expandedCards.brandContent ? "rotate-y-180" : ""
+                }`}
+              >
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
                   </div>
-                  <button 
-                    onClick={() => toggleCard('brandContent')} 
-                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
-                    aria-expanded={expandedCards.brandContent}
-                    aria-label="Expand Brand & Content details"
-                  >
-                    <div className={`expand-icon ${expandedCards.brandContent ? 'expanded' : ''}`}>
-                      <Plus size={24} />
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-7 w-24 h-24 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300">
+                      <FileText className="h-12 w-12 text-purple-300 group-hover:text-purple-200 transition-colors duration-300" />
                     </div>
-                  </button>
+                    <h3 className="text-3xl font-extrabold text-white text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200 group-hover:from-purple-100 group-hover:to-indigo-100 transition-all duration-300">
+                      Brand and Content
+                    </h3>
+                  </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                  Brand & Content
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Developing compelling narratives and content strategies for
-                  token projects.
-                </p>
-                
-                {/* Expandable content */}
-                <div className={`card-content mt-4 ${expandedCards.brandContent ? 'expanded' : ''}`}>
-                  <div className="pt-4 border-t border-gray-800/50">
-                    <ul className="space-y-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Brand identity and positioning strategy</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Content creation and distribution planning</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Narrative development and messaging frameworks</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Community engagement and educational content</span>
-                      </li>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
+                  </div>
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
+                      Brand and Content
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        "Brand Identity: Positioning and visual strategy",
+                        "Content Strategy: Creation and distribution planning",
+                        "Narrative: Messaging and story frameworks",
+                        "Community: Engagement and educational content",
+                      ].map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
+                          <span className="text-gray-200 text-sm">{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -470,79 +514,90 @@ export default function ConsultingPage() {
             </div>
 
             {/* Token Financial Management */}
-            <div className="bg-gradient-to-br from-gray-900/70 to-gray-950/70 backdrop-blur-sm rounded-xl border border-gray-800/50 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20 hover:border-purple-900/30 group relative overflow-hidden">
-              {/* Background Illustration */}
-              <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-yellow-300">
-                  <circle cx="100" cy="100" r="50" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="100" cy="100" r="40" stroke="currentColor" strokeWidth="1" />
-                  <path d="M100 60V140" stroke="currentColor" strokeWidth="2" />
-                  <path d="M70 100H130" stroke="currentColor" strokeWidth="2" />
-                  <path d="M80 80L120 120" stroke="currentColor" strokeWidth="1" />
-                  <path d="M80 120L120 80" stroke="currentColor" strokeWidth="1" />
-                  <rect x="40" y="40" width="120" height="120" rx="4" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
-                  <path d="M40 70H60" stroke="currentColor" strokeWidth="2" />
-                  <path d="M40 100H60" stroke="currentColor" strokeWidth="2" />
-                  <path d="M40 130H60" stroke="currentColor" strokeWidth="2" />
-                </svg>
-              </div>
-              
-              <div className="relative z-10">
-                <div className="flex justify-between items-start">
-                  <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg
-                      className="h-8 w-8 text-purple-400"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
+            <div
+              className={`relative h-[340px] perspective-1000 cursor-pointer group`}
+              onClick={() => toggleCard("financialManagement")}
+            >
+              <div
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                  expandedCards.financialManagement ? "rotate-y-180" : ""
+                }`}
+              >
+                {/* Front */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
                   </div>
-                  <button 
-                    onClick={() => toggleCard('financialManagement')} 
-                    className="text-purple-400 hover:text-purple-300 transition-colors duration-300"
-                    aria-expanded={expandedCards.financialManagement}
-                    aria-label="Expand Token Financial Management details"
-                  >
-                    <div className={`expand-icon ${expandedCards.financialManagement ? 'expanded' : ''}`}>
-                      <Plus size={24} />
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-7 w-24 h-24 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-300">
+                      <BarChart3 className="h-12 w-12 text-purple-300 group-hover:text-purple-200 transition-colors duration-300" />
                     </div>
-                  </button>
+                    <h3 className="text-3xl font-extrabold text-white text-center tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200 group-hover:from-purple-100 group-hover:to-indigo-100 transition-all duration-300">
+                      Token Financial Management
+                    </h3>
+                  </div>
                 </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
-                  Token Financial Management
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  Optimizing treasury operations and financial strategies for
-                  long-term sustainability.
-                </p>
-                
-                {/* Expandable content */}
-                <div className={`card-content mt-4 ${expandedCards.financialManagement ? 'expanded' : ''}`}>
-                  <div className="pt-4 border-t border-gray-800/50">
-                    <ul className="space-y-2 text-gray-300">
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Treasury management and diversification</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Risk assessment and mitigation strategies</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Financial modeling and scenario planning</span>
-                      </li>
-                      <li className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-purple-400 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>Sustainable revenue generation frameworks</span>
-                      </li>
+                {/* Back */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
+                  {/* Pattern Background */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
+                        backgroundSize: "24px 24px",
+                      }}
+                    ></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
+                        backgroundSize: "48px 48px",
+                        backgroundPosition: "0 0, 24px 24px",
+                      }}
+                    ></div>
+                  </div>
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
+                      Token Financial Management
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        "Treasury Management: Diversification and optimization",
+                        "Risk Assessment: Mitigation strategies and planning",
+                        "Financial Modeling: Scenario planning and analysis",
+                        "Revenue Generation: Sustainable framework development",
+                      ].map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
+                          <span className="text-gray-200 text-sm">{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
