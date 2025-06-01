@@ -150,7 +150,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/team"
+                    href="/about/team"
                     className="text-sm text-foreground/70 transition-colors hover:text-primary"
                   >
                     Team
@@ -158,10 +158,18 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/blog"
+                    href="/about/blog"
                     className="text-sm text-foreground/70 transition-colors hover:text-primary"
                   >
                     Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about/contact"
+                    className="text-sm text-foreground/70 transition-colors hover:text-primary"
+                  >
+                    Contact Us
                   </Link>
                 </li>
               </ul>
@@ -175,7 +183,7 @@ export function Footer() {
               <ul className="space-y-3">
                 <li>
                   <Link
-                    href="/privacy"
+                    href="/legal/privacy"
                     className="text-sm text-foreground/70 transition-colors hover:text-primary"
                   >
                     Privacy Policy
@@ -183,7 +191,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/terms"
+                    href="/legal/terms"
                     className="text-sm text-foreground/70 transition-colors hover:text-primary"
                   >
                     Terms & Conditions
@@ -191,7 +199,7 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/security"
+                    href="/legal/security"
                     className="text-sm text-foreground/70 transition-colors hover:text-primary"
                   >
                     Security Procedures
