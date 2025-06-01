@@ -69,34 +69,32 @@ const preTgeTimeline = [
   {
     id: 1,
     icon: Milestone,
-    title: "Audit & Research",
-    description:
-      "Comprehensive project and market analysis to set a strong foundation.",
+    title: "Project Audit",
+    description: "Review stakeholders, market, and align on TGE goals.",
   },
   {
     id: 2,
     icon: Users,
-    title: "Token Utility & Incentive Design",
-    description: "Designing core token functions and incentive mechanisms.",
+    title: "Token Strategy Design",
+    description: "Define token utility, incentives, and value alignment.",
   },
   {
     id: 3,
     icon: Lightbulb,
-    title: "Partnerships & Exchange Strategy",
-    description:
-      "Strategic outreach and exchange planning for launch readiness.",
+    title: "Partnership Foundations",
+    description: "Begin key ecosystem, exchange, and investor outreach.",
   },
   {
     id: 4,
     icon: FileText,
-    title: "Documentation & Visual Collateral",
-    description: "Crafting clear documentation and compelling visuals.",
+    title: "Modeling & Documentation",
+    description: "Finalize tokenomics, unlocks, and technical docs.",
   },
   {
     id: 5,
     icon: CheckCircle,
-    title: "Launch Planning & Execution",
-    description: "Coordinating all elements for a successful TGE.",
+    title: "Launch Preparation",
+    description: "Execute GTM plans, vesting logistics, and creatives.",
   },
 ];
 
@@ -104,32 +102,32 @@ const postTgeTimeline = [
   {
     id: 1,
     icon: Milestone,
-    title: "Post-Launch Analysis",
-    description: "Post-TGE: Monitor performance and community feedback.",
+    title: "Post-TGE Audit",
+    description: "Comprehensive post-launch review and alignment.",
   },
   {
     id: 2,
     icon: Users,
-    title: "Growth Initiatives",
-    description: "Post-TGE: Drive adoption, partnerships, and incentives.",
+    title: "Community & Content Strategy",
+    description: "Plan engagement and refine token messaging.",
   },
   {
     id: 3,
     icon: Lightbulb,
-    title: "Ongoing Optimization",
-    description: "Post-TGE: Refine tokenomics and governance as needed.",
+    title: "Campaign Execution",
+    description: "Deploy incentives and launch token marketing.",
   },
   {
     id: 4,
     icon: FileText,
-    title: "Reporting & Compliance",
-    description: "Post-TGE: Ensure transparency and regulatory alignment.",
+    title: "Liquidity & Market Activity",
+    description: "Manage listings, market entries, and OTC deals.",
   },
   {
     id: 5,
     icon: CheckCircle,
-    title: "Sustained Engagement",
-    description: "Post-TGE: Maintain community and ecosystem health.",
+    title: "Community Engagement & Scaling",
+    description: "Grow awareness and sustain momentum post-launch.",
   },
 ];
 
@@ -890,23 +888,26 @@ export default function ConsultingPage() {
                             if (e.key === "Enter" || e.key === " ")
                               handleExpandTimelineStep(step.id);
                           }}
+                          style={{ position: "relative" }}
                         >
+                          {/* Chevron Icon in top right */}
+                          <span
+                            className={`absolute top-4 right-4 transition-transform duration-300 ${
+                              isExpanded
+                                ? "rotate-90 text-purple-300"
+                                : "text-gray-500"
+                            }`}
+                            style={{ zIndex: 2 }}
+                          >
+                            <ChevronDown className="h-6 w-6" />
+                          </span>
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                            <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400">
                               <step.icon className="h-6 w-6" />
                             </div>
                             <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
                               {step.title}
                             </h3>
-                            <span
-                              className={`ml-auto transition-transform duration-300 ${
-                                isExpanded
-                                  ? "rotate-90 text-purple-300"
-                                  : "text-gray-500"
-                              }`}
-                            >
-                              <ChevronDown className="h-6 w-6" />
-                            </span>
                           </div>
                           <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
                             {step.description}
@@ -980,9 +981,69 @@ export default function ConsultingPage() {
                                   <li>Prep materials for TGE announcements</li>
                                 </>
                               )}
-                              {/* Placeholder for Post-TGE, to be updated later */}
-                              {timelineType === "post" && (
-                                <li>Post-TGE details coming soon.</li>
+                              {timelineType === "post" && step.id === 1 && (
+                                <>
+                                  <li>Stakeholder and team alignment</li>
+                                  <li>Conduct brand and content review</li>
+                                  <li>Analyze competitive positioning</li>
+                                  <li>
+                                    Review token distribution & circulating
+                                    supply
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 2 && (
+                                <>
+                                  <li>Build event-driven content calendar</li>
+                                  <li>
+                                    Identify key KOLs and community leaders
+                                  </li>
+                                  <li>Design new content, memes, and assets</li>
+                                  <li>
+                                    Refine token tone, voice, and messaging
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 3 && (
+                                <>
+                                  <li>
+                                    Launch new incentive & growth campaigns
+                                  </li>
+                                  <li>Oversee social media token comms</li>
+                                  <li>
+                                    Push updates to listings (DEXScreener, CMC,
+                                    CG)
+                                  </li>
+                                  <li>
+                                    Track sentiment and adjust based on feedback
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 4 && (
+                                <>
+                                  <li>
+                                    Coordinate OTC sales and market timing
+                                  </li>
+                                  <li>Activate GTM token-specific campaigns</li>
+                                  <li>
+                                    Introduce token to KOLs & partner ecosystems
+                                  </li>
+                                  <li>Monitor volume and market reactions</li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 5 && (
+                                <>
+                                  <li>
+                                    Manage Telegram & Discord growth loops
+                                  </li>
+                                  <li>Host AMAs and community events</li>
+                                  <li>
+                                    Launch feedback loops with users and holders
+                                  </li>
+                                  <li>
+                                    Prepare community for next ecosystem phase
+                                  </li>
+                                </>
                               )}
                             </ul>
                           </div>
@@ -1011,23 +1072,26 @@ export default function ConsultingPage() {
                             if (e.key === "Enter" || e.key === " ")
                               handleExpandTimelineStep(step.id);
                           }}
+                          style={{ position: "relative" }}
                         >
+                          {/* Chevron Icon in top right */}
+                          <span
+                            className={`absolute top-4 right-4 transition-transform duration-300 ${
+                              isExpanded
+                                ? "rotate-90 text-purple-300"
+                                : "text-gray-500"
+                            }`}
+                            style={{ zIndex: 2 }}
+                          >
+                            <ChevronDown className="h-6 w-6" />
+                          </span>
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                            <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-3 text-purple-400">
                               <step.icon className="h-6 w-6" />
                             </div>
                             <h3 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
                               {step.title}
                             </h3>
-                            <span
-                              className={`ml-auto transition-transform duration-300 ${
-                                isExpanded
-                                  ? "rotate-90 text-purple-300"
-                                  : "text-gray-500"
-                              }`}
-                            >
-                              <ChevronDown className="h-6 w-6" />
-                            </span>
                           </div>
                           <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
                             {step.description}
@@ -1101,9 +1165,69 @@ export default function ConsultingPage() {
                                   <li>Prep materials for TGE announcements</li>
                                 </>
                               )}
-                              {/* Placeholder for Post-TGE, to be updated later */}
-                              {timelineType === "post" && (
-                                <li>Post-TGE details coming soon.</li>
+                              {timelineType === "post" && step.id === 1 && (
+                                <>
+                                  <li>Stakeholder and team alignment</li>
+                                  <li>Conduct brand and content review</li>
+                                  <li>Analyze competitive positioning</li>
+                                  <li>
+                                    Review token distribution & circulating
+                                    supply
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 2 && (
+                                <>
+                                  <li>Build event-driven content calendar</li>
+                                  <li>
+                                    Identify key KOLs and community leaders
+                                  </li>
+                                  <li>Design new content, memes, and assets</li>
+                                  <li>
+                                    Refine token tone, voice, and messaging
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 3 && (
+                                <>
+                                  <li>
+                                    Launch new incentive & growth campaigns
+                                  </li>
+                                  <li>Oversee social media token comms</li>
+                                  <li>
+                                    Push updates to listings (DEXScreener, CMC,
+                                    CG)
+                                  </li>
+                                  <li>
+                                    Track sentiment and adjust based on feedback
+                                  </li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 4 && (
+                                <>
+                                  <li>
+                                    Coordinate OTC sales and market timing
+                                  </li>
+                                  <li>Activate GTM token-specific campaigns</li>
+                                  <li>
+                                    Introduce token to KOLs & partner ecosystems
+                                  </li>
+                                  <li>Monitor volume and market reactions</li>
+                                </>
+                              )}
+                              {timelineType === "post" && step.id === 5 && (
+                                <>
+                                  <li>
+                                    Manage Telegram & Discord growth loops
+                                  </li>
+                                  <li>Host AMAs and community events</li>
+                                  <li>
+                                    Launch feedback loops with users and holders
+                                  </li>
+                                  <li>
+                                    Prepare community for next ecosystem phase
+                                  </li>
+                                </>
                               )}
                             </ul>
                           </div>
@@ -1121,31 +1245,172 @@ export default function ConsultingPage() {
             {/* Continuous Timeline Line */}
             <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600/80 to-indigo-600/80 rounded-full"></div>
 
-            {timelineSteps.map((step) => (
-              <div key={step.id} className="relative pl-16 mb-12 last:mb-0">
-                {/* Timeline Node */}
-                <div className="absolute left-6 transform -translate-x-1/2 flex items-center justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg shadow-purple-900/30 border-2 border-gray-900">
-                    <span className="text-white text-base font-bold">
-                      {step.id}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-6 shadow-lg">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-2 text-purple-400">
-                      <step.icon className="h-5 w-5" />
+            {timelineSteps.map((step) => {
+              const isExpanded = expandedTimelineStep === step.id;
+              return (
+                <div key={step.id} className="relative pl-16 mb-12 last:mb-0">
+                  {/* Timeline Node */}
+                  <div className="absolute left-6 transform -translate-x-1/2 flex items-center justify-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 shadow-lg shadow-purple-900/30 border-2 border-gray-900">
+                      <span className="text-white text-base font-bold">
+                        {step.id}
+                      </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white">
-                      {step.title}
-                    </h3>
                   </div>
-                  <p className="text-gray-400 text-sm">{step.description}</p>
+
+                  {/* Expandable Content */}
+                  <div
+                    className={`bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-xl border border-gray-800/50 p-6 shadow-lg transition-all duration-300 group cursor-pointer ${
+                      isExpanded
+                        ? "shadow-purple-900/20 border-purple-500/30"
+                        : "hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30"
+                    }`}
+                    tabIndex={0}
+                    role="button"
+                    aria-expanded={isExpanded}
+                    aria-controls={`timeline-step-mobile-${step.id}`}
+                    onClick={() =>
+                      setExpandedTimelineStep(isExpanded ? null : step.id)
+                    }
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ")
+                        setExpandedTimelineStep(isExpanded ? null : step.id);
+                    }}
+                    style={{ position: "relative" }}
+                  >
+                    {/* Chevron Icon in top right */}
+                    <span
+                      className={`absolute top-4 right-4 transition-transform duration-300 ${
+                        isExpanded
+                          ? "rotate-90 text-purple-300"
+                          : "text-gray-500"
+                      }`}
+                      style={{ zIndex: 2 }}
+                    >
+                      <ChevronDown className="h-6 w-6" />
+                    </span>
+                    <div className="flex items-center gap-4 mb-2">
+                      <div className="rounded-full bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-2 text-purple-400">
+                        <step.icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-400 text-sm mb-2">
+                      {step.description}
+                    </p>
+                    {/* Expanded Content (seamless, no box) */}
+                    <div
+                      id={`timeline-step-mobile-${step.id}`}
+                      className={`overflow-hidden transition-all duration-500 ${
+                        isExpanded
+                          ? "max-h-80 opacity-100 mt-2"
+                          : "max-h-0 opacity-0 mt-0"
+                      }`}
+                      aria-hidden={!isExpanded}
+                    >
+                      <ul className="text-gray-300 text-base leading-relaxed space-y-2 pl-4 list-disc">
+                        {timelineType === "pre" && step.id === 1 && (
+                          <>
+                            <li>Stakeholder mapping and analysis</li>
+                            <li>Competitive and landscape research</li>
+                            <li>Define token generation benchmarks</li>
+                            <li>Align internal goals and success metrics</li>
+                          </>
+                        )}
+                        {timelineType === "pre" && step.id === 2 && (
+                          <>
+                            <li>Define core token utility and functions</li>
+                            <li>Structure community incentive mechanisms</li>
+                            <li>Align token roles with user behaviors</li>
+                            <li>
+                              Validate utility assumptions through workshops
+                            </li>
+                          </>
+                        )}
+                        {timelineType === "pre" && step.id === 3 && (
+                          <>
+                            <li>Begin partnership and BD outreach</li>
+                            <li>Identify relevant exchange listings</li>
+                            <li>
+                              Initiate unlock modeling and vesting strategy
+                            </li>
+                            <li>Map partner value-add and timing</li>
+                          </>
+                        )}
+                        {timelineType === "pre" && step.id === 4 && (
+                          <>
+                            <li>Draft and refine Lightpaper / Whitepaper</li>
+                            <li>Develop token distribution schedules</li>
+                            <li>Create token branding and iconography</li>
+                            <li>Design supporting visuals and memes</li>
+                          </>
+                        )}
+                        {timelineType === "pre" && step.id === 5 && (
+                          <>
+                            <li>Finalize GTM (go-to-market) strategy</li>
+                            <li>Coordinate vesting + unlock smart contracts</li>
+                            <li>Align launch timelines across stakeholders</li>
+                            <li>Prep materials for TGE announcements</li>
+                          </>
+                        )}
+                        {timelineType === "post" && step.id === 1 && (
+                          <>
+                            <li>Stakeholder and team alignment</li>
+                            <li>Conduct brand and content review</li>
+                            <li>Analyze competitive positioning</li>
+                            <li>
+                              Review token distribution & circulating supply
+                            </li>
+                          </>
+                        )}
+                        {timelineType === "post" && step.id === 2 && (
+                          <>
+                            <li>Build event-driven content calendar</li>
+                            <li>Identify key KOLs and community leaders</li>
+                            <li>Design new content, memes, and assets</li>
+                            <li>Refine token tone, voice, and messaging</li>
+                          </>
+                        )}
+                        {timelineType === "post" && step.id === 3 && (
+                          <>
+                            <li>Launch new incentive & growth campaigns</li>
+                            <li>Oversee social media token comms</li>
+                            <li>
+                              Push updates to listings (DEXScreener, CMC, CG)
+                            </li>
+                            <li>
+                              Track sentiment and adjust based on feedback
+                            </li>
+                          </>
+                        )}
+                        {timelineType === "post" && step.id === 4 && (
+                          <>
+                            <li>Coordinate OTC sales and market timing</li>
+                            <li>Activate GTM token-specific campaigns</li>
+                            <li>
+                              Introduce token to KOLs & partner ecosystems
+                            </li>
+                            <li>Monitor volume and market reactions</li>
+                          </>
+                        )}
+                        {timelineType === "post" && step.id === 5 && (
+                          <>
+                            <li>Manage Telegram & Discord growth loops</li>
+                            <li>Host AMAs and community events</li>
+                            <li>
+                              Launch feedback loops with users and holders
+                            </li>
+                            <li>Prepare community for next ecosystem phase</li>
+                          </>
+                        )}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
