@@ -141,45 +141,113 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-32 relative overflow-hidden">
+        {/* Background gradient effects */}
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent pointer-events-none" />
+
+        <div className="container px-4 md:px-6 mx-auto relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Text */}
             <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0">
-              <h1 className="text-5xl font-extrabold tracking-tighter mb-6 text-white">
-                About Us
-              </h1>
-              <p className="text-xl text-gray-300 mb-10">
-                Denarii Labs is a pioneering Web3 accelerator and consulting
-                firm, empowering blockchain projects with expert guidance,
-                innovative tokenomics, and a global network. We help founders
-                turn bold ideas into thriving ecosystems.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="space-y-2 mb-8">
+                <span className="text-purple-400 font-semibold tracking-wider uppercase text-sm">
+                  Our Story
+                </span>
+                <h1 className="text-6xl font-extrabold tracking-tighter text-white">
+                  Who We Are
+                </h1>
+              </div>
+              <div className="space-y-8 mb-12">
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Denarii Labs is a tokenomics accelerator and strategic growth
+                  partner for Web3 protocols. We collaborate with projects at
+                  every stage–refining token design, crafting go-to-market
+                  strategies, and executing high-impact growth initiatives to
+                  drive real adoption.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-purple-500/20 flex items-center justify-center ring-1 ring-purple-500/20">
+                      <span className="text-purple-400 text-sm">✓</span>
+                    </div>
+                    <p className="text-gray-300 text-base">
+                      Full-spectrum tokenomics expertise
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-purple-500/20 flex items-center justify-center ring-1 ring-purple-500/20">
+                      <span className="text-purple-400 text-sm">✓</span>
+                    </div>
+                    <p className="text-gray-300 text-base">
+                      Strategic growth & execution
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-purple-500/20 flex items-center justify-center ring-1 ring-purple-500/20">
+                      <span className="text-purple-400 text-sm">✓</span>
+                    </div>
+                    <p className="text-gray-300 text-base">
+                      Proven accelerator framework
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-purple-500/20 flex items-center justify-center ring-1 ring-purple-500/20">
+                      <span className="text-purple-400 text-sm">✓</span>
+                    </div>
+                    <p className="text-gray-300 text-base">
+                      Powered by Red Beard Ventures
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-6">
                 <Button
-                  className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-105 transition-all duration-300 text-lg px-8 py-5"
+                  className="group relative bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-105 transition-all duration-300 text-lg h-14 min-w-[200px] shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 overflow-hidden"
                   size="lg"
                   asChild
                 >
-                  <Link href="#team">Meet the Team</Link>
+                  <Link
+                    href="/about/team"
+                    className="relative z-10 flex items-center justify-center gap-2 w-full"
+                  >
+                    Meet the Team
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
                 <Button
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold hover:scale-105 transition-all duration-300 text-lg px-8 py-5"
+                  className="group relative bg-transparent text-white font-bold hover:scale-105 transition-all duration-300 text-lg h-14 min-w-[200px] border-2 border-purple-500/30 hover:border-purple-500/50 shadow-lg shadow-purple-500/10 hover:shadow-purple-500/20 overflow-hidden"
                   size="lg"
                   asChild
                   variant="outline"
                 >
-                  <Link href="/blog">Visit Our Blog</Link>
+                  <Link
+                    href="/about/blog"
+                    className="relative z-10 flex items-center justify-center gap-2 w-full"
+                  >
+                    Visit Our Blog
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
               </div>
             </div>
             {/* Right Column - Illustration or Brand Visual */}
             <div className="relative flex items-center justify-center">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-900/20 to-indigo-900/20 p-8 flex items-center justify-center">
-                <div className="relative w-40 h-40 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-2xl"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Users className="w-32 h-32 text-purple-400/50" />
+              <div className="relative w-full aspect-square max-w-lg">
+                {/* Outer glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-3xl blur-2xl" />
+
+                {/* Main container */}
+                <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 p-8 flex items-center justify-center border border-white/10 backdrop-blur-xl">
+                  {/* Animated gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 rounded-3xl animate-pulse" />
+
+                  {/* Content */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-indigo-500/5 rounded-2xl" />
+                    <div className="relative flex items-center justify-center">
+                      <Users className="w-40 h-40 text-purple-400/60" />
+                    </div>
                   </div>
                 </div>
               </div>
