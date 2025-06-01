@@ -252,12 +252,21 @@ export default function ConsultingPage() {
               onClick={() => toggleCard("tokenDesign")}
             >
               <div
-                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d group/card-outer ${
                   expandedCards.tokenDesign ? "rotate-y-180" : ""
                 }`}
+                style={
+                  !expandedCards.tokenDesign ? { willChange: "transform" } : {}
+                }
               >
+                {/* Slight flip on hover if not flipped */}
+                <style jsx>{`
+                  .group\/card-outer:hover:not(.rotate-y-180) {
+                    transform: perspective(1000px) rotateY(8deg);
+                  }
+                `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -289,7 +298,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -358,12 +367,21 @@ export default function ConsultingPage() {
               onClick={() => toggleCard("growthVolume")}
             >
               <div
-                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d group/card-outer ${
                   expandedCards.growthVolume ? "rotate-y-180" : ""
                 }`}
+                style={
+                  !expandedCards.growthVolume ? { willChange: "transform" } : {}
+                }
               >
+                {/* Slight flip on hover if not flipped */}
+                <style jsx>{`
+                  .group\/card-outer:hover:not(.rotate-y-180) {
+                    transform: perspective(1000px) rotateY(8deg);
+                  }
+                `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -395,7 +413,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -464,12 +482,21 @@ export default function ConsultingPage() {
               onClick={() => toggleCard("brandContent")}
             >
               <div
-                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d group/card-outer ${
                   expandedCards.brandContent ? "rotate-y-180" : ""
                 }`}
+                style={
+                  !expandedCards.brandContent ? { willChange: "transform" } : {}
+                }
               >
+                {/* Slight flip on hover if not flipped */}
+                <style jsx>{`
+                  .group\/card-outer:hover:not(.rotate-y-180) {
+                    transform: perspective(1000px) rotateY(8deg);
+                  }
+                `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -501,7 +528,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
@@ -570,12 +597,23 @@ export default function ConsultingPage() {
               onClick={() => toggleCard("financialManagement")}
             >
               <div
-                className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
+                className={`relative w-full h-full transition-transform duration-700 transform-style-3d group/card-outer ${
                   expandedCards.financialManagement ? "rotate-y-180" : ""
                 }`}
+                style={
+                  !expandedCards.financialManagement
+                    ? { willChange: "transform" }
+                    : {}
+                }
               >
+                {/* Slight flip on hover if not flipped */}
+                <style jsx>{`
+                  .group\/card-outer:hover:not(.rotate-y-180) {
+                    transform: perspective(1000px) rotateY(8deg);
+                  }
+                `}</style>
                 {/* Front */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col items-center justify-center p-8 overflow-hidden">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/30 to-purple-800/40 rounded-2xl border border-purple-400/30 shadow-xl flex flex-col items-center justify-center p-8 overflow-hidden group/card bg-white/15">
                   {/* Pattern Background */}
                   <div className="absolute inset-0 opacity-5">
                     <div
@@ -607,7 +645,7 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180 backdrop-blur-sm">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-purple-300 text-lg font-bold">
