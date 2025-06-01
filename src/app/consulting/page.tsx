@@ -15,6 +15,12 @@ import {
   Building,
   Plus,
   ChevronDown,
+  Layers,
+  Circle,
+  Triangle,
+  PenLine,
+  MessageCircle,
+  Calculator,
 } from "lucide-react";
 import { useState } from "react";
 import {
@@ -283,50 +289,65 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
-                  {/* Pattern Background */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
-                        backgroundSize: "24px 24px",
-                      }}
-                    ></div>
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
-                        backgroundSize: "48px 48px",
-                        backgroundPosition: "0 0, 24px 24px",
-                      }}
-                    ></div>
-                  </div>
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
-
-                  <div className="relative z-10">
-                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
-                      Product & Token Design
-                    </h3>
-                    <ul className="space-y-3">
-                      {[
-                        "Tokenomics Design: Supply, distribution, and utility mapping",
-                        "Value Accrual: Sustainable value capture mechanisms",
-                        "Governance: Structure and incentive alignment",
-                        "Sustainability: Economic modeling and simulations",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
-                          <span className="text-gray-200 text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Research & Analysis:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Monitor on-chain growth metrics and analyze comparable
+                          tokens.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Utility:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Design features that incentivize participation and
+                          create value.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Token Model:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Optimize token structures for sustainability and
+                          utility.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Governance:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Empower communities with governance models and
+                          decision-making tools.
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -374,50 +395,65 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
-                  {/* Pattern Background */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
-                        backgroundSize: "24px 24px",
-                      }}
-                    ></div>
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
-                        backgroundSize: "48px 48px",
-                        backgroundPosition: "0 0, 24px 24px",
-                      }}
-                    ></div>
-                  </div>
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
-
-                  <div className="relative z-10">
-                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
-                      Growth and Volume
-                    </h3>
-                    <ul className="space-y-3">
-                      {[
-                        "Market Making: Liquidity strategies and implementation",
-                        "Exchange Relations: Listing strategy and management",
-                        "Community Growth: Engagement and retention programs",
-                        "Volume Generation: Sustainable trading strategies",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
-                          <span className="text-gray-200 text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Market Making:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Liquidity strategies and implementation for healthy
+                          trading and price stability.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Exchange Relations:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Listing strategy and management to maximize token
+                          accessibility.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Community Growth:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Engagement and retention programs to foster a loyal
+                          user base.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Volume Generation:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Sustainable trading strategies to drive consistent
+                          token volume.
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -465,50 +501,65 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
-                  {/* Pattern Background */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
-                        backgroundSize: "24px 24px",
-                      }}
-                    ></div>
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
-                        backgroundSize: "48px 48px",
-                        backgroundPosition: "0 0, 24px 24px",
-                      }}
-                    ></div>
-                  </div>
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
-
-                  <div className="relative z-10">
-                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
-                      Brand and Content
-                    </h3>
-                    <ul className="space-y-3">
-                      {[
-                        "Brand Identity: Positioning and visual strategy",
-                        "Content Strategy: Creation and distribution planning",
-                        "Narrative: Messaging and story frameworks",
-                        "Community: Engagement and educational content",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
-                          <span className="text-gray-200 text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Brand Identity:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Positioning and visual strategy to create a memorable
+                          brand.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Content Strategy:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Creation and distribution planning to engage your
+                          audience.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Narrative:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Messaging and story frameworks to communicate your
+                          vision.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Community:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Engagement and educational content to build a strong
+                          community.
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -556,50 +607,63 @@ export default function ConsultingPage() {
                   </div>
                 </div>
                 {/* Back */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-8 rotate-y-180 overflow-hidden">
-                  {/* Pattern Background */}
-                  <div className="absolute inset-0 opacity-5">
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(147, 51, 234, 0.3) 1px, transparent 0)`,
-                        backgroundSize: "24px 24px",
-                      }}
-                    ></div>
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        backgroundImage: `linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1)), linear-gradient(45deg, rgba(147, 51, 234, 0.1) 25%, transparent 25%, transparent 75%, rgba(147, 51, 234, 0.1) 75%, rgba(147, 51, 234, 0.1))`,
-                        backgroundSize: "48px 48px",
-                        backgroundPosition: "0 0, 24px 24px",
-                      }}
-                    ></div>
-                  </div>
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 opacity-50"></div>
-
-                  <div className="relative z-10">
-                    <h3 className="text-3xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-indigo-200">
-                      Token Financial Management
-                    </h3>
-                    <ul className="space-y-3">
-                      {[
-                        "Treasury Management: Diversification and optimization",
-                        "Risk Assessment: Mitigation strategies and planning",
-                        "Financial Modeling: Scenario planning and analysis",
-                        "Revenue Generation: Sustainable framework development",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 opacity-0 translate-y-4 animate-[fadeInUp_0.5s_ease-out_forwards] bg-gray-900/50 p-3 rounded-lg border border-purple-400/10 hover:border-purple-400/20 transition-all duration-300"
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                          <CheckCircle className="h-5 w-5 text-purple-300 mt-1 flex-shrink-0" />
-                          <span className="text-gray-200 text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-gray-900/95 via-purple-900/40 to-gray-900/95 rounded-2xl border border-purple-400/20 shadow-lg flex flex-col justify-center p-6 rotate-y-180">
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Treasury:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Diversification and optimization of treasury assets
+                          for sustainability.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">Risk:</span>
+                        <span className="text-gray-200 ml-1">
+                          Mitigation strategies and planning to safeguard assets
+                          and operations.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Modeling:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Scenario planning and analysis to inform strategic
+                          decisions.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-300 text-lg font-bold">
+                        •
+                      </span>
+                      <div>
+                        <span className="font-bold text-purple-200">
+                          Revenue:
+                        </span>
+                        <span className="text-gray-200 ml-1">
+                          Sustainable framework development to maximize and
+                          diversify revenue.
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
