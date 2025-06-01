@@ -301,11 +301,11 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6 mx-auto text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold md:text-4xl mb-6 text-white">
-              Ready to Work With Us?
+              Have Questions or Want to Connect?
             </h2>
             <p className="text-xl text-gray-300 mb-10">
-              Let's discuss how we can help your project succeed with
-              sustainable tokenomics.
+              Reach out to Denarii Labs and our team will get back to you as
+              soon as possible.
             </p>
             <div>
               <Button
@@ -313,9 +313,7 @@ export default function AboutPage() {
                 size="lg"
                 asChild
               >
-                <Link href="/consulting#contact">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                <Link href="/about/contact">Contact Us</Link>
               </Button>
             </div>
           </div>
