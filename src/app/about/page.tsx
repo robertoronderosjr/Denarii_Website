@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 // Custom X (formerly Twitter) icon component (copied from footer)
 const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -138,6 +139,29 @@ const blogPreview = [
 ];
 
 export default function AboutPage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handleSlide = (direction: "prev" | "next") => {
+    if (direction === "prev") {
+      setCurrentSlide((prev) =>
+        prev === 0 ? blogPreview.length - 1 : prev - 1
+      );
+    } else {
+      setCurrentSlide((prev) =>
+        prev === blogPreview.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  // Auto-advance slides every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleSlide("next");
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [currentSlide]);
+
   return (
     <>
       {/* Hero Section */}
@@ -257,53 +281,241 @@ export default function AboutPage() {
       </section>
 
       {/* Blog Section */}
-      <section className="py-24">
+      <section className="py-24 relative bg-gradient-to-b from-[#1a1333] via-[#221a3a] to-[#18122b]">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold md:text-4xl text-white mb-4">
-              From Our Blog
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold md:text-4xl text-white mb-4 drop-shadow-lg">
+              Trending Insights
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Insights, news, and media from the Denarii Labs team
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+              Latest perspectives and analysis from our team
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-            {blogPreview.map((post) => (
-              <article
-                key={post.id}
-                className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 rounded-xl border border-gray-800/50 overflow-hidden shadow-lg hover:shadow-xl hover:shadow-purple-900/10 hover:border-purple-900/30 transition-all duration-300"
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-[1300px] rounded-2xl bg-white/10 border border-purple-400/20 shadow-2xl px-2 md:px-14 pt-24 pb-16 flex flex-col items-center overflow-visible">
+              {/* Navigation Arrows */}
+              <button
+                className="absolute left-8 top-1/2 -translate-y-1/2 z-40 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
+                style={{ transform: "translateY(-50%)" }}
+                onClick={() => handleSlide("prev")}
+                aria-label="Previous Slide"
               >
-                <div className="aspect-video relative">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
+                <svg
+                  width="56"
+                  height="56"
+                  viewBox="0 0 56 56"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="drop-shadow-xl"
+                >
+                  <polyline
+                    points="36,8 16,28 36,48"
+                    stroke="#fff"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
+                </svg>
+              </button>
+              <button
+                className="absolute right-8 top-1/2 -translate-y-1/2 z-40 p-0 m-0 bg-transparent border-none outline-none cursor-pointer"
+                style={{ transform: "translateY(-50%)" }}
+                onClick={() => handleSlide("next")}
+                aria-label="Next Slide"
+              >
+                <svg
+                  width="56"
+                  height="56"
+                  viewBox="0 0 56 56"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="drop-shadow-xl"
+                >
+                  <polyline
+                    points="20,8 40,28 20,48"
+                    stroke="#fff"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              {/* Fan/Coverflow Carousel */}
+              <div className="relative h-[500px] flex items-end justify-center pb-12 w-full px-2 md:px-8">
+                <div className="w-full h-full flex items-center justify-center relative">
+                  {blogPreview.map((post, index) => {
+                    // Calculate position relative to center
+                    const total = blogPreview.length;
+                    let pos = index - currentSlide;
+                    if (pos < -Math.floor(total / 2)) pos += total;
+                    if (pos > Math.floor(total / 2)) pos -= total;
+
+                    // Only render cards within -3 to 3 positions
+                    if (Math.abs(pos) > 3) return null;
+
+                    // Style for each position
+                    let scale = 1,
+                      rotate = 0,
+                      x = 0,
+                      z = 0,
+                      opacity = 1,
+                      zIndex = 10 - Math.abs(pos),
+                      shadow = "",
+                      border = "",
+                      blur = "none",
+                      width = 380,
+                      bg = "#fff";
+                    if (pos === 0) {
+                      scale = 1.12;
+                      rotate = 0;
+                      x = 0;
+                      z = 40;
+                      opacity = 1;
+                      shadow =
+                        "0 10px 36px 0 rgba(80,0,120,0.16), 0 2px 8px 0 rgba(80,0,120,0.10)";
+                      border = "2px solid rgba(168,85,247,0.18)";
+                      width = 380;
+                      bg = "#fff";
+                    } else if (pos === -1) {
+                      scale = 0.92;
+                      rotate = -18;
+                      x = -210;
+                      z = 30;
+                      opacity = 0.8;
+                      shadow = "0 4px 16px 0 rgba(80,0,120,0.10)";
+                      border = "1.5px solid rgba(168,85,247,0.10)";
+                      blur = "blur(1px)";
+                      width = 320;
+                      bg = "#fff";
+                    } else if (pos === 1) {
+                      scale = 0.92;
+                      rotate = 18;
+                      x = 210;
+                      z = 30;
+                      opacity = 0.8;
+                      shadow = "0 4px 16px 0 rgba(80,0,120,0.10)";
+                      border = "1.5px solid rgba(168,85,247,0.10)";
+                      blur = "blur(1px)";
+                      width = 320;
+                      bg = "#fff";
+                    } else if (pos === -2) {
+                      scale = 0.8;
+                      rotate = -28;
+                      x = -370;
+                      z = 20;
+                      opacity = 0.5;
+                      shadow = "0 2px 8px 0 rgba(80,0,120,0.08)";
+                      border = "1px solid rgba(168,85,247,0.08)";
+                      blur = "blur(2px)";
+                      width = 220;
+                      bg = "#fff";
+                    } else if (pos === 2) {
+                      scale = 0.8;
+                      rotate = 28;
+                      x = 370;
+                      z = 20;
+                      opacity = 0.5;
+                      shadow = "0 2px 8px 0 rgba(80,0,120,0.08)";
+                      border = "1px solid rgba(168,85,247,0.08)";
+                      blur = "blur(2px)";
+                      width = 220;
+                      bg = "#fff";
+                    } else if (pos === -3) {
+                      scale = 0.65;
+                      rotate = -38;
+                      x = -520;
+                      z = 10;
+                      opacity = 0.18;
+                      shadow = "0 1px 4px 0 rgba(80,0,120,0.04)";
+                      border = "1px solid rgba(168,85,247,0.04)";
+                      blur = "blur(3px)";
+                      width = 120;
+                      bg = "#fff";
+                    } else if (pos === 3) {
+                      scale = 0.65;
+                      rotate = 38;
+                      x = 520;
+                      z = 10;
+                      opacity = 0.18;
+                      shadow = "0 1px 4px 0 rgba(80,0,120,0.04)";
+                      border = "1px solid rgba(168,85,247,0.04)";
+                      blur = "blur(3px)";
+                      width = 120;
+                      bg = "#fff";
+                    }
+
+                    return (
+                      <div
+                        key={post.id}
+                        className="absolute bottom-0 left-1/2 transition-all duration-700"
+                        style={{
+                          width: width + "px",
+                          background: bg,
+                          transform: `translateX(-50%) translateX(${x}px) scale(${scale}) rotateY(${rotate}deg) translateZ(${z}px)`,
+                          opacity,
+                          zIndex,
+                          boxShadow: shadow,
+                          border,
+                          filter: blur,
+                          pointerEvents: pos === 0 ? "auto" : "none",
+                          borderRadius: "20px",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <article className="rounded-xl overflow-hidden flex flex-col h-full bg-white">
+                          <div className="aspect-video relative rounded-t-xl overflow-hidden">
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              fill
+                              className="object-cover rounded-t-xl"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                          </div>
+                          <div className="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                              <div className="text-xs font-semibold text-purple-500 mb-1 tracking-wide uppercase">
+                                {post.date}
+                              </div>
+                              <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+                                {post.title}
+                              </h3>
+                              <p className="text-gray-700 mb-4 line-clamp-2 text-sm">
+                                {post.excerpt}
+                              </p>
+                            </div>
+                            <Link
+                              href={post.link}
+                              className="inline-flex items-center text-purple-600 hover:text-indigo-600 font-semibold transition-colors duration-200 text-sm group"
+                            >
+                              Read More
+                              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                            </Link>
+                          </div>
+                        </article>
+                      </div>
+                    );
+                  })}
                 </div>
-                <div className="p-6">
-                  <div className="text-sm text-gray-400 mb-2">{post.date}</div>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4">{post.excerpt}</p>
-                  <Link
-                    href={post.link}
-                    className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-200 font-medium"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="text-center">
-            <Button
-              className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-lg px-8 py-4 rounded-lg shadow-lg shadow-purple-900/30 transition-all duration-300"
-              asChild
-            >
-              <Link href="/blog">See all posts</Link>
-            </Button>
+              </div>
+
+              {/* Progress Dots */}
+              <div className="flex justify-center gap-3 mt-8">
+                {blogPreview.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`transition-all duration-300 h-2 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-purple-400/60 ${
+                      currentSlide === index
+                        ? "bg-gradient-to-r from-purple-500 to-indigo-500 w-8 scale-110"
+                        : "bg-white/60 w-3 hover:bg-purple-300/60"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
