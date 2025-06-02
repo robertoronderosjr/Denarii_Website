@@ -45,34 +45,39 @@ import { Button } from "@/components/ui/button";
 
 const tracks = [
   {
-    id: "modular",
-    name: "Modular",
-    logo: "https://placehold.co/100x100?text=Modular",
-    description: "Accelerating modular blockchain infrastructure and tooling.",
-    link: "/accelerator/modular",
-  },
-  {
-    id: "app-chain",
-    name: "App Chain",
-    logo: "https://placehold.co/100x100?text=App+Chain",
+    id: "wire-network",
+    name: "Wire Network",
+    type: "AI Accelerator",
+    logo: "https://placehold.co/100x100?text=Wire",
     description:
-      "Supporting the next wave of application-specific blockchains.",
-    link: "/accelerator/app-chain",
+      "Building the future of AI infrastructure and applications on the blockchain.",
+    link: "/accelerator/wire-network",
   },
   {
-    id: "consumer",
-    name: "Consumer",
-    logo: "https://placehold.co/100x100?text=Consumer",
-    description: "Empowering consumer-facing Web3 products and platforms.",
-    link: "/accelerator/consumer",
-  },
-  {
-    id: "ai",
-    name: "AI",
-    logo: "https://placehold.co/100x100?text=AI",
+    id: "avalanche",
+    name: "Avalanche",
+    type: "App Chain Accelerator",
+    logo: "https://placehold.co/100x100?text=AVAX",
     description:
-      "Accelerating the intersection of AI and blockchain innovation.",
-    link: "/accelerator/ai",
+      "Accelerating the next generation of application-specific blockchains.",
+    link: "/accelerator/avalanche",
+  },
+  {
+    id: "xion",
+    name: "XION",
+    type: "Consumer Accelerator",
+    logo: "https://placehold.co/100x100?text=XION",
+    description: "Empowering consumer-focused Web3 products and platforms.",
+    link: "/accelerator/xion",
+  },
+  {
+    id: "f-ecosystem",
+    name: "F-Ecosystem",
+    type: "Modular Accelerator",
+    logo: "https://placehold.co/100x100?text=F",
+    description:
+      "Supporting modular blockchain infrastructure and tooling innovation.",
+    link: "/accelerator/f-ecosystem",
   },
 ];
 
@@ -154,16 +159,14 @@ const partnerLogos = Array(8)
   }));
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 32 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+  transition: { duration: 0.7, ease: "easeOut" },
 };
 
-const staggerContainer = {
+const stagger = {
   animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
@@ -250,47 +253,75 @@ export default function AcceleratorPage() {
         </div>
       </section>
 
-      {/* About/Overview Section - Concise Copy, Chain Logos Right */}
+      {/* About/Overview Section - Clean, Animated, Professional */}
       <SectionWrapper className="py-20">
-        <div className="mx-auto max-w-6xl rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-950/90 border border-purple-700/20 shadow-2xl p-0 md:p-0 flex flex-col md:flex-row items-stretch overflow-hidden">
-          {/* Left: Concise Copy */}
-          <div className="flex-1 p-8 md:p-14 flex flex-col justify-center gap-6">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-1 tracking-tight">
-              Accelerator Track
-            </h2>
-            <h3 className="text-lg font-medium text-purple-200 mb-4">
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={stagger}
+          className="mx-auto max-w-6xl rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-950/90 border border-purple-700/20 shadow-2xl flex flex-col md:flex-row items-stretch overflow-hidden backdrop-blur-lg"
+        >
+          {/* Left: Animated Text */}
+          <div className="flex-1 p-8 md:p-16 flex flex-col justify-center gap-8">
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-3 mb-2"
+            >
+              <span className="inline-block w-2 h-8 rounded-full bg-gradient-to-b from-purple-500 via-pink-500 to-indigo-500" />
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                Accelerator Track
+              </h2>
+            </motion.div>
+            <motion.h3
+              variants={fadeInUp}
+              className="text-lg font-medium text-purple-200 mb-2 leading-relaxed"
+            >
               Backing visionary startups building real utility across leading
               blockchain ecosystems.
-            </h3>
-            <p className="text-lg text-gray-200 mb-2 leading-relaxed max-w-xl">
+            </motion.h3>
+            <motion.p
+              variants={fadeInUp}
+              className="text-lg text-gray-200 leading-relaxed max-w-xl"
+            >
               Denarii Labs, in partnership with Red Beard Ventures, offers a
               24-week accelerator driving projects to build meaningful,
               token-powered applications on partner chains.
-            </p>
-            <div>
+            </motion.p>
+            <motion.div variants={fadeInUp} className="mt-2">
               <span className="font-semibold text-white mb-2 block">
                 Program Benefits:
               </span>
               <ul className="flex flex-col gap-2 mt-1">
                 {programBenefits.map((benefit, i) => (
-                  <li
+                  <motion.li
                     key={i}
+                    variants={fadeInUp}
                     className="flex items-center gap-2 text-gray-300 text-base font-medium"
                   >
                     <span className="text-purple-400 text-lg">•</span>
                     {benefit}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
-          {/* Right: Chain Sponsors Grid */}
-          <div className="flex-1 min-h-[320px] bg-gradient-to-br from-purple-900/30 to-indigo-900/30 flex flex-col items-center justify-center p-8 md:p-14">
+          {/* Right: Animated Chain Sponsors Grid */}
+          <motion.div
+            variants={stagger}
+            className="flex-1 min-h-[320px] bg-gradient-to-br from-purple-900/30 to-indigo-900/30 flex flex-col items-center justify-center p-8 md:p-14"
+          >
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full max-w-xs md:max-w-sm lg:max-w-md">
-              {chainSponsors.map((sponsor) => (
-                <div
+              {chainSponsors.map((sponsor, idx) => (
+                <motion.div
                   key={sponsor.name}
-                  className="flex items-center justify-center bg-gray-900/60 rounded-xl p-4 shadow hover:scale-105 hover:shadow-lg transition-transform duration-200"
+                  variants={fadeInUp}
+                  whileHover={{
+                    scale: 1.08,
+                    boxShadow: "0 8px 32px 0 rgba(168,85,247,0.18)",
+                  }}
+                  className="flex items-center justify-center bg-gray-900/60 rounded-xl p-4 shadow transition-transform duration-200 cursor-pointer"
+                  style={{ transitionProperty: "box-shadow, transform" }}
                 >
                   <Image
                     src={sponsor.logo}
@@ -299,48 +330,69 @@ export default function AcceleratorPage() {
                     height={60}
                     className="object-contain"
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </SectionWrapper>
 
       {/* Cohorts & Tracks Section */}
-      <section className="py-20 bg-black">
+      <section className="py-24 bg-black">
         <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold md:text-4xl text-white mb-12 text-center">
-            Cohorts & Tracks
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {tracks.map((track) => (
-              <motion.a
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold md:text-4xl text-white mb-6">
+              Accelerator Tracks
+            </h2>
+            <div className="max-w-2xl mx-auto">
+              <p className="text-lg text-gray-300 mb-4">
+                We invest $100,000 into each project across our accelerator
+                tracks, providing not just capital but comprehensive support to
+                help you succeed.
+              </p>
+              <p className="text-base text-gray-400">
+                Each track is designed to support specific verticals in the Web3
+                ecosystem, with dedicated resources and expertise.
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {tracks.map((track, index) => (
+              <motion.div
                 key={track.id}
-                href={track.link}
-                className="group relative rounded-2xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-center shadow-xl transition-all duration-200 hover:shadow-2xl hover:border-purple-400/40 cursor-pointer min-h-[260px]"
-                whileHover={{ scale: 1.04 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-center shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-purple-400/40 min-h-[280px]"
               >
-                <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
-                  <Image
-                    src={track.logo}
-                    alt={track.name + " Logo"}
-                    width={80}
-                    height={80}
-                    className="mb-6 rounded-xl shadow-lg"
-                  />
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {track.name}
-                  </h3>
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 flex items-center justify-center bg-black/90 rounded-2xl px-6 py-4 text-center text-gray-200 text-base font-medium opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-sm transition-all duration-300"
-                  >
-                    {track.description}
-                  </motion.div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative w-32 h-32 mb-4 rounded-3xl overflow-hidden bg-gradient-to-br from-purple-500/20 to-indigo-500/20 p-5">
+                    <Image
+                      src={track.logo}
+                      alt={track.name + " Logo"}
+                      width={128}
+                      height={128}
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="text-base font-medium text-purple-400">
+                    {track.type}
+                  </span>
                 </div>
-              </motion.a>
+                <Link
+                  href={track.link}
+                  className="absolute inset-0"
+                  aria-label={`Learn more about ${track.name}`}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
