@@ -22,6 +22,7 @@ import {
   GraduationCap,
   Zap,
   LineChart,
+  CheckCircle,
 } from "lucide-react";
 import {
   Card,
@@ -44,36 +45,34 @@ import { Button } from "@/components/ui/button";
 
 const tracks = [
   {
-    id: "avalanche",
-    name: "Avalanche Accelerator",
-    icon: Mountain,
-    description:
-      "Building the next generation of applications on the Avalanche ecosystem.",
-    dataAiHint: "mountain peak",
+    id: "modular",
+    name: "Modular",
+    logo: "https://placehold.co/100x100?text=Modular",
+    description: "Accelerating modular blockchain infrastructure and tooling.",
+    link: "/accelerator/modular",
   },
   {
-    id: "xion",
-    name: "XION Accelerator",
-    icon: Rocket,
+    id: "app-chain",
+    name: "App Chain",
+    logo: "https://placehold.co/100x100?text=App+Chain",
     description:
-      "Building the future of consumer-focused blockchain applications.",
-    dataAiHint: "rocket launch",
+      "Supporting the next wave of application-specific blockchains.",
+    link: "/accelerator/app-chain",
   },
   {
-    id: "f-ecosystem",
-    name: "F-Ecosystem Accelerator",
-    icon: Leaf,
-    description:
-      "Building sustainable and innovative solutions for the future of finance.",
-    dataAiHint: "leaf growth",
+    id: "consumer",
+    name: "Consumer",
+    logo: "https://placehold.co/100x100?text=Consumer",
+    description: "Empowering consumer-facing Web3 products and platforms.",
+    link: "/accelerator/consumer",
   },
   {
-    id: "wire-network",
-    name: "Wire Network Accelerator",
-    icon: Network,
+    id: "ai",
+    name: "AI",
+    logo: "https://placehold.co/100x100?text=AI",
     description:
-      "Building the next generation of decentralized network infrastructure and connectivity solutions.",
-    dataAiHint: "network nodes",
+      "Accelerating the intersection of AI and blockchain innovation.",
+    link: "/accelerator/ai",
   },
 ];
 
@@ -124,42 +123,27 @@ const timeline = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Sarah Chen",
-    role: "Founder, DeFi Protocol",
-    cohort: "Cohort 001",
-    quote:
-      "The Denarii Labs Accelerator provided us with invaluable mentorship and connections that were crucial for our success.",
-    imageUrl: "https://placehold.co/100x100.png",
-  },
-  {
-    name: "Michael Rodriguez",
-    role: "CEO, NFT Platform",
-    cohort: "Cohort 002",
-    quote:
-      "The structured program and expert guidance helped us refine our product and secure significant funding.",
-    imageUrl: "https://placehold.co/100x100.png",
-  },
+const programBenefits = [
+  "Capital investment",
+  "Technical development support",
+  "Strategic marketing",
+  "Expert mentorship",
 ];
 
-const benefits = [
+const chainSponsors = [
+  { name: "Avalanche", logo: "https://placehold.co/120x60?text=Avalanche" },
   {
-    icon: Briefcase,
-    label: "Direct investment capital",
+    name: "Wire Network",
+    logo: "https://placehold.co/120x60?text=Wire+Network",
   },
-  {
-    icon: Code,
-    label: "Technical development support",
-  },
-  {
-    icon: Megaphone,
-    label: "Strategic marketing assistance",
-  },
-  {
-    icon: GraduationCap,
-    label: "Mentorship from blockchain and business experts",
-  },
+  { name: "Xion", logo: "https://placehold.co/120x60?text=Xion" },
+  { name: "FLOW", logo: "https://placehold.co/120x60?text=FLOW" },
+  { name: "Celo", logo: "https://placehold.co/120x60?text=Celo" },
+  { name: "Futureverse", logo: "https://placehold.co/120x60?text=Futureverse" },
+  { name: "Faraway", logo: "https://placehold.co/120x60?text=Faraway" },
+  { name: "Fenwick", logo: "https://placehold.co/120x60?text=Fenwick" },
+  { name: "Hedgy", logo: "https://placehold.co/120x60?text=Hedgy" },
+  { name: "Kairon Labs", logo: "https://placehold.co/120x60?text=Kairon+Labs" },
 ];
 
 const partnerLogos = Array(8)
@@ -182,6 +166,13 @@ const staggerContainer = {
     },
   },
 };
+
+const programHighlights = [
+  "Cohort-based, founder-first accelerator",
+  "Access to capital, mentorship, and top-tier partners",
+  "Hands-on support for tokenomics, go-to-market, and growth",
+  "Focus on Web3, DeFi, consumer, modular, and AI tracks",
+];
 
 export default function AcceleratorPage() {
   const router = useRouter();
@@ -259,161 +250,101 @@ export default function AcceleratorPage() {
         </div>
       </section>
 
-      {/* About/Overview Section */}
-      <SectionWrapper className="relative z-10 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mx-auto max-w-5xl rounded-3xl bg-background/80 p-8 shadow-xl ring-1 ring-primary/10 backdrop-blur-lg md:p-14"
-        >
-          <div className="flex flex-col md:flex-row gap-10 items-center">
-            {/* Left: Text */}
-            <div className="flex-1">
-              <h2 className="text-3xl font-bold mb-4 md:text-4xl">
-                Accelerator Track
-              </h2>
-              <p className="mb-4 text-lg text-foreground/90">
-                Denarii Labs, powered by Red Beard Ventures, presents a{" "}
-                <span className="font-semibold">
-                  24-week intensive accelerator program
-                </span>{" "}
-                designed to drive companies to build on the selected chain or
-                ecosystem, focused on developing applications that leverage
-                tokens.
-              </p>
-              <p className="mb-4 text-lg text-foreground/80">
-                Our mission is to expand the ecosystem through the strategic
-                development of projects that foster real-world adoption and
-                activity.
-              </p>
-              <div className="mb-6">
-                <h3 className="font-semibold mb-2 text-primary">
-                  Program Benefits:
-                </h3>
-                <ul className="grid gap-2 md:grid-cols-2">
-                  {benefits.map((benefit) => (
-                    <li
-                      key={benefit.label}
-                      className="flex items-center gap-2 text-foreground/90"
-                    >
-                      <benefit.icon className="h-5 w-5 text-primary" />
-                      {benefit.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            {/* Right: Logo Card */}
-            <div className="flex-1 flex flex-col items-center justify-center gap-6">
-              <div className="mb-2 rounded-2xl bg-secondary/40 p-8 shadow-lg">
-                <Image
-                  src="https://placehold.co/120x120/orange/white?text=RBV"
-                  alt="Red Beard Ventures Logo"
-                  width={120}
-                  height={120}
-                  className="mx-auto rounded-full shadow-md"
-                />
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
-                {partnerLogos.map((logo, i) => (
-                  <motion.div
-                    key={logo.alt}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.07 }}
-                    className="flex items-center justify-center rounded-lg bg-secondary/30 p-2 shadow hover:scale-105 transition-transform"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={120}
-                      height={60}
-                      className="object-contain"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-              <span className="mt-2 text-xs text-foreground/60">
-                Our Partners & Sponsors
+      {/* About/Overview Section - Concise Copy, Chain Logos Right */}
+      <SectionWrapper className="py-20">
+        <div className="mx-auto max-w-6xl rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-950/90 border border-purple-700/20 shadow-2xl p-0 md:p-0 flex flex-col md:flex-row items-stretch overflow-hidden">
+          {/* Left: Concise Copy */}
+          <div className="flex-1 p-8 md:p-14 flex flex-col justify-center gap-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-1 tracking-tight">
+              Accelerator Track
+            </h2>
+            <h3 className="text-lg font-medium text-purple-200 mb-4">
+              Backing visionary startups building real utility across leading
+              blockchain ecosystems.
+            </h3>
+            <p className="text-lg text-gray-200 mb-2 leading-relaxed max-w-xl">
+              Denarii Labs, in partnership with Red Beard Ventures, offers a
+              24-week accelerator driving projects to build meaningful,
+              token-powered applications on partner chains.
+            </p>
+            <div>
+              <span className="font-semibold text-white mb-2 block">
+                Program Benefits:
               </span>
+              <ul className="flex flex-col gap-2 mt-1">
+                {programBenefits.map((benefit, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-2 text-gray-300 text-base font-medium"
+                  >
+                    <span className="text-purple-400 text-lg">•</span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </motion.div>
-      </SectionWrapper>
-
-      {/* Stats Section */}
-      <SectionWrapper className="bg-secondary/10">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <Card key={stat.label} className="text-center">
-              <CardHeader>
-                <div className="mx-auto mb-4 rounded-full bg-primary/10 p-3 text-primary">
-                  <LineChart className="h-6 w-6" />
+          {/* Right: Chain Sponsors Grid */}
+          <div className="flex-1 min-h-[320px] bg-gradient-to-br from-purple-900/30 to-indigo-900/30 flex flex-col items-center justify-center p-8 md:p-14">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full max-w-xs md:max-w-sm lg:max-w-md">
+              {chainSponsors.map((sponsor) => (
+                <div
+                  key={sponsor.name}
+                  className="flex items-center justify-center bg-gray-900/60 rounded-xl p-4 shadow hover:scale-105 hover:shadow-lg transition-transform duration-200"
+                >
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name + " Logo"}
+                    width={120}
+                    height={60}
+                    className="object-contain"
+                  />
                 </div>
-                <CardTitle className="text-3xl font-bold">
-                  {stat.value}
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  {stat.label}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Tracks Section */}
-      <SectionWrapper>
-        <div className="mb-12 flex flex-col items-center justify-between gap-4 md:flex-row">
-          <h2 className="text-3xl font-bold md:text-4xl">Explore Our Tracks</h2>
-          <div className="w-full md:w-auto md:min-w-[250px]">
-            <Select onValueChange={handleTrackNavigation}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Navigate to Track Page" />
-              </SelectTrigger>
-              <SelectContent>
-                {tracks.map((track) => (
-                  <SelectItem key={track.id} value={track.id}>
-                    {track.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {tracks.map((track) => (
-            <Card
-              key={track.id}
-              className="flex transform flex-col overflow-hidden bg-card transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-1"
-            >
-              <CardHeader className="items-center p-6">
-                <div className="mb-4 rounded-full bg-primary/10 p-3 text-primary">
-                  <track.icon className="h-8 w-8" />
-                </div>
-                <CardTitle className="text-center text-xl">
-                  {track.name}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow p-6 pt-0">
-                <CardDescription className="text-center text-sm">
-                  {track.description}
-                </CardDescription>
-              </CardContent>
-              <CardFooter className="p-6 pt-0">
-                <Button variant="link" asChild className="mx-auto text-primary">
-                  <Link href={`/accelerator/${track.id}`}>
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
       </SectionWrapper>
+
+      {/* Cohorts & Tracks Section */}
+      <section className="py-20 bg-black">
+        <div className="container px-4 md:px-6 max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold md:text-4xl text-white mb-12 text-center">
+            Cohorts & Tracks
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {tracks.map((track) => (
+              <motion.a
+                key={track.id}
+                href={track.link}
+                className="group relative rounded-2xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-center shadow-xl transition-all duration-200 hover:shadow-2xl hover:border-purple-400/40 cursor-pointer min-h-[260px]"
+                whileHover={{ scale: 1.04 }}
+              >
+                <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
+                  <Image
+                    src={track.logo}
+                    alt={track.name + " Logo"}
+                    width={80}
+                    height={80}
+                    className="mb-6 rounded-xl shadow-lg"
+                  />
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {track.name}
+                  </h3>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 flex items-center justify-center bg-black/90 rounded-2xl px-6 py-4 text-center text-gray-200 text-base font-medium opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-sm transition-all duration-300"
+                  >
+                    {track.description}
+                  </motion.div>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Timeline Section */}
       <SectionWrapper className="bg-secondary/30">
@@ -463,43 +394,6 @@ export default function AcceleratorPage() {
               </CardHeader>
               <CardContent className="p-6 pt-0">
                 <CardDescription>{cohort.description}</CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Testimonials Section */}
-      <SectionWrapper>
-        <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">
-          Success Stories
-        </h2>
-        <div className="grid gap-8 md:grid-cols-2">
-          {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} className="relative">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={testimonial.imageUrl}
-                    alt={testimonial.name}
-                    width={100}
-                    height={100}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <CardTitle className="text-xl">
-                      {testimonial.name}
-                    </CardTitle>
-                    <CardDescription>
-                      {testimonial.role} • {testimonial.cohort}
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg italic text-foreground/80">
-                  "{testimonial.quote}"
-                </p>
               </CardContent>
             </Card>
           ))}
