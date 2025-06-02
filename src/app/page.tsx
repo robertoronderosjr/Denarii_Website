@@ -86,66 +86,67 @@ export default function Home() {
   return (
     <ScrollBackground>
       <main>
-        {/* Hero Section */}
-        <section className="py-24 md:py-32 w-full relative overflow-hidden min-h-[90vh] flex items-center">
-          <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">
-            <div className="flex flex-col items-center justify-center space-y-10">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mb-2">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 animate-sparkle">
-                  Backing the Next Generation
-                </span>
-                <br />
-                <span className="text-white">of Tokenized Startups</span>
-              </h1>
-              <p className="max-w-2xl text-gray-300 md:text-xl font-medium mb-4">
-                Scaling Web3 startups with capital, tokenomics, <br /> and
-                backed by Red Beard Ventures
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 w-full max-w-xl mx-auto">
-                <Button
-                  className="flex-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
-                  size="lg"
-                  asChild
-                >
-                  <Link
-                    href="/accelerator"
-                    className="flex items-center justify-center gap-3"
+        {/* Hero Section - Accelerator + Consulting Focus */}
+        <section className="py-24 md:py-32 w-full relative overflow-hidden min-h-[80vh] flex items-center">
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-16 md:gap-24">
+              {/* Left: Text, CTAs */}
+              <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left space-y-10">
+                <div>
+                  <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 animate-sparkle">
+                      Accelerator & Consulting for Web3
+                    </span>
+                  </h1>
+                  <p className="max-w-2xl text-gray-300 md:text-xl font-medium mb-8 mt-4">
+                    Denarii Labs empowers founders and protocols with a
+                    world-class accelerator and expert consulting services.
+                    Scale your Web3 project with capital, tokenomics, and
+                    hands-on support—backed by Red Beard Ventures.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 w-full max-w-xl md:max-w-none mx-auto md:mx-0">
+                  <Button
+                    className="flex-1 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[200px]"
+                    size="lg"
+                    asChild
                   >
-                    <Zap className="h-6 w-6" />
-                    Apply to Accelerator
-                  </Link>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="flex-1 bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[240px]"
-                  size="lg"
-                  asChild
-                >
-                  <Link
-                    href="/consulting"
-                    className="flex items-center justify-center gap-3"
+                    <Link
+                      href="/accelerator"
+                      className="flex items-center justify-center gap-3"
+                    >
+                      <Zap className="h-6 w-6" />
+                      Explore Accelerator
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1 bg-transparent text-white border-purple-600 hover:bg-black hover:border-purple-400 hover:text-white hover:scale-110 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 text-xl py-8 px-10 min-w-[200px]"
+                    size="lg"
+                    asChild
                   >
-                    <LineChart className="h-6 w-6" />
-                    Tokenomics Consulting
-                  </Link>
-                </Button>
+                    <Link
+                      href="/consulting"
+                      className="flex items-center justify-center gap-3"
+                    >
+                      <LineChart className="h-6 w-6" />
+                      Consulting Services
+                    </Link>
+                  </Button>
+                </div>
               </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mt-16">
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-gray-800/30 to-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
-                  >
-                    <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-                      {stat.value}
-                    </span>
-                    <span className="text-gray-400 text-sm text-center mt-2">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
+              {/* Right: Visual Placeholder */}
+              <div className="w-full md:w-1/2 flex items-center justify-center mb-12 md:mb-0">
+                {/* You can replace this with a Lottie animation, illustration, or logo marquee */}
+                <div className="relative h-[320px] w-[320px] md:h-[400px] md:w-[400px] flex items-center justify-center">
+                  <Image
+                    src="https://placehold.co/400x400/222/fff?text=Denarii+Labs"
+                    alt="Denarii Labs Visual Placeholder"
+                    fill
+                    className="object-contain rounded-2xl shadow-2xl border border-white/10"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
