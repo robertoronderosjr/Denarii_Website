@@ -52,7 +52,7 @@ const tracks = [
     id: "wire-network",
     name: "Wire Network",
     type: "AI Accelerator",
-    logo: "https://placehold.co/100x100?text=Wire",
+    logo: "/chains/wire-network.png",
     description:
       "Building the future of AI infrastructure and applications on the blockchain.",
     link: "/accelerator/wire-network",
@@ -61,7 +61,7 @@ const tracks = [
     id: "avalanche",
     name: "Avalanche",
     type: "App Chain Accelerator",
-    logo: "https://placehold.co/100x100?text=AVAX",
+    logo: "/chains/avalanche.png",
     description:
       "Accelerating the next generation of application-specific blockchains.",
     link: "/accelerator/avalanche",
@@ -70,15 +70,15 @@ const tracks = [
     id: "xion",
     name: "XION",
     type: "Consumer Accelerator",
-    logo: "https://placehold.co/100x100?text=XION",
+    logo: "/chains/xion.png",
     description: "Empowering consumer-focused Web3 products and platforms.",
     link: "/accelerator/xion",
   },
   {
     id: "f-ecosystem",
-    name: "F-Ecosystem",
+    name: "FCHAIN",
     type: "Modular Accelerator",
-    logo: "https://placehold.co/100x100?text=F",
+    logo: "/chains/fchain.png",
     description:
       "Supporting modular blockchain infrastructure and tooling innovation.",
     link: "/accelerator/f-ecosystem",
@@ -348,47 +348,20 @@ export default function AcceleratorPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
               Cohort 003 — Now Accepting Applications
             </h2>
-            {/* Redesigned What's Included */}
-            <div className="flex flex-col items-center justify-center w-full">
-              <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-8 bg-gradient-to-br from-gray-900/60 to-gray-950/70 border border-purple-700/20 rounded-2xl px-4 py-2 md:px-8 md:py-2 mb-2 shadow-sm max-w-4xl mx-auto">
-                <span className="text-sm font-semibold text-purple-300 tracking-wide mr-4 md:mr-8 md:border-r md:border-purple-700/30 pr-4 md:pr-8">
-                  What's Included
-                </span>
-                <div className="flex flex-wrap items-center gap-4 md:gap-8">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
-                      <DollarSign className="w-4 h-4 text-white" />
-                    </span>
-                    <span className="text-xs text-white font-medium">
-                      $100K Funding
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
-                      <TrendingUp className="w-4 h-4 text-white" />
-                    </span>
-                    <span className="text-xs text-white font-medium">
-                      Growth & GTM
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
-                      <Wrench className="w-4 h-4 text-white" />
-                    </span>
-                    <span className="text-xs text-white font-medium">
-                      Tech Help
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
-                      <NetworkIcon className="w-4 h-4 text-white" />
-                    </span>
-                    <span className="text-xs text-white font-medium">
-                      Partner Ecosystems
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Cool styled tags for the 4 items */}
+            <div className="flex flex-wrap justify-center gap-4 mb-2">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold text-sm shadow-md">
+                <DollarSign className="w-4 h-4" /> $100K Funding
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold text-sm shadow-md">
+                <TrendingUp className="w-4 h-4" /> Growth & GTM
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-semibold text-sm shadow-md">
+                <Wrench className="w-4 h-4" /> Tech Help
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-semibold text-sm shadow-md">
+                <NetworkIcon className="w-4 h-4" /> Partner Ecosystems
+              </span>
             </div>
           </div>
 
@@ -398,25 +371,38 @@ export default function AcceleratorPage() {
               {tracks.map((track) => (
                 <div
                   key={track.id}
-                  className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-between shadow-xl transition-all duration-200 hover:shadow-2xl hover:border-purple-400/40 min-h-[320px] backdrop-blur-sm"
+                  className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-between shadow-xl transition-all duration-200 hover:shadow-2xl hover:border-purple-400/40 min-h-[340px] backdrop-blur-sm"
                 >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative w-28 h-28 mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-500/20 to-indigo-500/20 p-3">
+                  <div className="flex flex-col items-center text-center flex-1 w-full justify-start">
+                    <div
+                      className="flex items-center justify-center w-full"
+                      style={{ height: "140px", marginBottom: "0" }}
+                    >
                       <Image
                         src={track.logo}
                         alt={track.name + " Logo"}
-                        width={112}
-                        height={112}
-                        className="object-contain"
+                        width={260}
+                        height={140}
+                        className="object-contain w-full max-h-36"
                       />
                     </div>
-                    <span className="text-base font-medium text-purple-400 mb-1">
-                      {track.type}
-                    </span>
+                    <div
+                      style={{
+                        height: "36px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <span className="text-base font-medium text-purple-400">
+                        {track.type}
+                      </span>
+                    </div>
                   </div>
                   <Link
                     href={track.link}
-                    className="inline-flex items-center justify-center w-full px-6 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 mt-4"
+                    className="inline-flex items-center justify-center w-full px-6 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 mt-2"
                   >
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
