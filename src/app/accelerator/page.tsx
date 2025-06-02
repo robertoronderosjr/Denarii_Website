@@ -338,32 +338,96 @@ export default function AcceleratorPage() {
       </SectionWrapper>
 
       {/* Cohorts & Tracks Section */}
-      <section className="py-24 bg-black">
-        <div className="container px-4 md:px-6 max-w-6xl mx-auto">
+      <section className="py-32 bg-black">
+        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl font-bold md:text-4xl text-white mb-6">
-              Accelerator Tracks
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
+              Cohort 003 — Now Accepting Applications
             </h2>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg text-gray-300 mb-4">
-                We invest $100,000 into each project across our accelerator
-                tracks, providing not just capital but comprehensive support to
-                help you succeed.
-              </p>
-              <p className="text-base text-gray-400">
-                Each track is designed to support specific verticals in the Web3
-                ecosystem, with dedicated resources and expertise.
-              </p>
+
+            <div className="mt-16 bg-gradient-to-br from-gray-900/50 to-gray-950/50 rounded-3xl border border-purple-700/20 p-10 md:p-12">
+              <h3 className="text-2xl font-semibold text-white mb-10">
+                What's Included:
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left max-w-4xl mx-auto">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-sm font-bold">$</span>
+                  </div>
+                  <div>
+                    <span className="text-lg text-white font-medium">
+                      $100K in direct investment
+                    </span>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-sm font-bold">⚡</span>
+                  </div>
+                  <div>
+                    <span className="text-lg text-white font-medium">
+                      Strategic and technical guidance
+                    </span>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-sm font-bold">🔗</span>
+                  </div>
+                  <div>
+                    <span className="text-lg text-white font-medium">
+                      Access to Denarii's partner ecosystems
+                    </span>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-sm font-bold">👥</span>
+                  </div>
+                  <div>
+                    <span className="text-lg text-white font-medium">
+                      Mentorship from top Web3 operators
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {tracks.map((track, index) => (
               <motion.div
                 key={track.id}
@@ -371,7 +435,7 @@ export default function AcceleratorPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-center shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-purple-400/40 min-h-[280px]"
+                className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-between shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-purple-400/40 min-h-[280px]"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="relative w-32 h-32 mb-4 rounded-3xl overflow-hidden bg-gradient-to-br from-purple-500/20 to-indigo-500/20 p-5">
@@ -389,9 +453,11 @@ export default function AcceleratorPage() {
                 </div>
                 <Link
                   href={track.link}
-                  className="absolute inset-0"
-                  aria-label={`Learn more about ${track.name}`}
-                />
+                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </motion.div>
             ))}
           </div>
