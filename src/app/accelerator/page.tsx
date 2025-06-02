@@ -23,6 +23,10 @@ import {
   Zap,
   LineChart,
   CheckCircle,
+  DollarSign,
+  TrendingUp,
+  Wrench,
+  Network as NetworkIcon,
 } from "lucide-react";
 import {
   Card,
@@ -340,126 +344,86 @@ export default function AcceleratorPage() {
       {/* Cohorts & Tracks Section */}
       <section className="py-32 bg-black">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
               Cohort 003 — Now Accepting Applications
             </h2>
-
-            <div className="mt-16 bg-gradient-to-br from-gray-900/50 to-gray-950/50 rounded-3xl border border-purple-700/20 p-10 md:p-12">
-              <h3 className="text-2xl font-semibold text-white mb-10">
-                What's Included:
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-left max-w-4xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">$</span>
-                  </div>
-                  <div>
-                    <span className="text-lg text-white font-medium">
-                      $100K in direct investment
+            {/* Redesigned What's Included */}
+            <div className="flex flex-col items-center justify-center w-full">
+              <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-4 md:gap-8 bg-gradient-to-br from-gray-900/60 to-gray-950/70 border border-purple-700/20 rounded-2xl px-4 py-2 md:px-8 md:py-2 mb-2 shadow-sm max-w-4xl mx-auto">
+                <span className="text-sm font-semibold text-purple-300 tracking-wide mr-4 md:mr-8 md:border-r md:border-purple-700/30 pr-4 md:pr-8">
+                  What's Included
+                </span>
+                <div className="flex flex-wrap items-center gap-4 md:gap-8">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
+                      <DollarSign className="w-4 h-4 text-white" />
+                    </span>
+                    <span className="text-xs text-white font-medium">
+                      $100K Funding
                     </span>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">⚡</span>
-                  </div>
-                  <div>
-                    <span className="text-lg text-white font-medium">
-                      Strategic and technical guidance
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
+                      <TrendingUp className="w-4 h-4 text-white" />
+                    </span>
+                    <span className="text-xs text-white font-medium">
+                      Growth & GTM
                     </span>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">🔗</span>
-                  </div>
-                  <div>
-                    <span className="text-lg text-white font-medium">
-                      Access to Denarii's partner ecosystems
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
+                      <Wrench className="w-4 h-4 text-white" />
+                    </span>
+                    <span className="text-xs text-white font-medium">
+                      Tech Help
                     </span>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-sm font-bold">👥</span>
-                  </div>
-                  <div>
-                    <span className="text-lg text-white font-medium">
-                      Mentorship from top Web3 operators
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 shadow-md">
+                      <NetworkIcon className="w-4 h-4 text-white" />
+                    </span>
+                    <span className="text-xs text-white font-medium">
+                      Partner Ecosystems
                     </span>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {tracks.map((track, index) => (
-              <motion.div
-                key={track.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-between shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-purple-400/40 min-h-[280px]"
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="relative w-32 h-32 mb-4 rounded-3xl overflow-hidden bg-gradient-to-br from-purple-500/20 to-indigo-500/20 p-5">
-                    <Image
-                      src={track.logo}
-                      alt={track.name + " Logo"}
-                      width={128}
-                      height={128}
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="text-base font-medium text-purple-400">
-                    {track.type}
-                  </span>
-                </div>
-                <Link
-                  href={track.link}
-                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
+          {/* Track Cards in a single row on desktop */}
+          <div className="mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {tracks.map((track) => (
+                <div
+                  key={track.id}
+                  className="group relative rounded-3xl bg-gradient-to-br from-gray-900/70 to-gray-950/80 border border-purple-700/20 p-8 flex flex-col items-center justify-between shadow-xl transition-all duration-200 hover:shadow-2xl hover:border-purple-400/40 min-h-[320px] backdrop-blur-sm"
                 >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </motion.div>
-            ))}
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative w-28 h-28 mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-500/20 to-indigo-500/20 p-3">
+                      <Image
+                        src={track.logo}
+                        alt={track.name + " Logo"}
+                        width={112}
+                        height={112}
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="text-base font-medium text-purple-400 mb-1">
+                      {track.type}
+                    </span>
+                  </div>
+                  <Link
+                    href={track.link}
+                    className="inline-flex items-center justify-center w-full px-6 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 mt-4"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
