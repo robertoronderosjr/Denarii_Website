@@ -140,19 +140,16 @@ const programBenefits = [
 ];
 
 const chainSponsors = [
-  { name: "Avalanche", logo: "https://placehold.co/120x60?text=Avalanche" },
-  {
-    name: "Wire Network",
-    logo: "https://placehold.co/120x60?text=Wire+Network",
-  },
-  { name: "Xion", logo: "https://placehold.co/120x60?text=Xion" },
-  { name: "FLOW", logo: "https://placehold.co/120x60?text=FLOW" },
-  { name: "Celo", logo: "https://placehold.co/120x60?text=Celo" },
-  { name: "Futureverse", logo: "https://placehold.co/120x60?text=Futureverse" },
-  { name: "Faraway", logo: "https://placehold.co/120x60?text=Faraway" },
-  { name: "Fenwick", logo: "https://placehold.co/120x60?text=Fenwick" },
-  { name: "Hedgy", logo: "https://placehold.co/120x60?text=Hedgy" },
-  { name: "Kairon Labs", logo: "https://placehold.co/120x60?text=Kairon+Labs" },
+  { name: "avalanche", logo: "/Chains/avalanche.png" },
+  { name: "celo", logo: "/Chains/celo.png" },
+  { name: "fchain", logo: "/Chains/fchain.png" },
+  { name: "fenwick", logo: "/Chains/fenwick.png" },
+  { name: "flow", logo: "/Chains/flow.png" },
+  { name: "futureverse", logo: "/Chains/futureverse.png" },
+  { name: "hedgey", logo: "/Chains/hedgey.png" },
+  { name: "kairon", logo: "/Chains/kairon.png" },
+  { name: "wire network", logo: "/Chains/wire-network.png" },
+  { name: "xion", logo: "/Chains/xion.png" },
 ];
 
 const partnerLogos = Array(8)
@@ -315,26 +312,21 @@ export default function AcceleratorPage() {
             variants={stagger}
             className="flex-1 min-h-[320px] bg-gradient-to-br from-purple-900/30 to-indigo-900/30 flex flex-col items-center justify-center p-8 md:p-14"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full max-w-xs md:max-w-sm lg:max-w-md">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full h-full max-w-none">
               {chainSponsors.map((sponsor, idx) => (
-                <motion.div
+                <div
                   key={sponsor.name}
-                  variants={fadeInUp}
-                  whileHover={{
-                    scale: 1.08,
-                    boxShadow: "0 8px 32px 0 rgba(168,85,247,0.18)",
-                  }}
-                  className="flex items-center justify-center bg-gray-900/60 rounded-xl p-4 shadow transition-transform duration-200 cursor-pointer"
-                  style={{ transitionProperty: "box-shadow, transform" }}
+                  className="flex items-center justify-center w-full h-full"
+                  style={{ minHeight: "80px" }}
                 >
                   <Image
                     src={sponsor.logo}
                     alt={sponsor.name + " Logo"}
-                    width={120}
-                    height={60}
-                    className="object-contain"
+                    width={160}
+                    height={80}
+                    className="object-contain w-full h-auto max-h-20"
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
