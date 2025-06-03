@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import {
   ArrowRight,
   Users,
@@ -27,6 +27,11 @@ import {
   TrendingUp,
   Wrench,
   Network as NetworkIcon,
+  AlignCenter,
+  UserPlus,
+  ClipboardCheck,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import {
   Card,
@@ -46,6 +51,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
 
 const tracks = [
   {
@@ -177,6 +183,274 @@ const programHighlights = [
   "Hands-on support for tokenomics, go-to-market, and growth",
   "Focus on Web3, DeFi, consumer, modular, and AI tracks",
 ];
+
+// Timeline steps for Accelerator Process
+const processTimeline = [
+  {
+    icon: "AlignCenter",
+    step: 1,
+    title: "Alignment",
+    description:
+      "Denarii Labs and the Ecosystem / Chain develop custom curriculum and align on objectives for the program.",
+  },
+  {
+    icon: "Megaphone",
+    step: 2,
+    title: "Promotion",
+    description: "Marketing the Chain to attract Web3 project applications.",
+  },
+  {
+    icon: "Users",
+    step: 3,
+    title: "Review Applicants",
+    description:
+      "Denarii Labs conducts due diligence, selects projects, and promotes the selected chain.",
+  },
+  {
+    icon: "UserPlus",
+    step: 4,
+    title: "Onboarding",
+    description:
+      "Successful projects are integrated into the Denarii Labs framework.",
+  },
+  {
+    icon: "Rocket",
+    step: 5,
+    title: "Build",
+    description:
+      "Intensive 12-week accelerator curriculum focused on tokenomics and fundraising.",
+  },
+  {
+    icon: "ClipboardCheck",
+    step: 6,
+    title: "Review",
+    description:
+      "Evaluation and preparation for post-accelerator launch and funding.",
+  },
+  {
+    icon: "Award",
+    step: 7,
+    title: "Red Beard Ventures Summit",
+    description:
+      "A conference for companies to connect with investors and industry leaders.",
+  },
+  {
+    icon: "TrendingUp",
+    step: 8,
+    title: "Post-Accelerator",
+    description:
+      "Support for launch, market entry, growth strategies, and alumni network.",
+  },
+];
+
+type TimelineStep = {
+  icon: string;
+  step: number;
+  title: string;
+  description: string;
+};
+
+function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
+  const [active, setActive] = useState(0);
+  const stepCount = steps.length;
+  const stepAngle = 360 / stepCount;
+  const radius = 220; // circle
+  const center = 260;
+
+  // Arrow button handlers
+  const handlePrev = () =>
+    setActive((prev) => (prev - 1 + stepCount) % stepCount);
+  const handleNext = () => setActive((prev) => (prev + 1) % stepCount);
+
+  // Calculate positions for steps (circle)
+  const positions = steps.map((_, i) => {
+    const theta = (i * stepAngle - 90) * (Math.PI / 180);
+    return {
+      x: radius * Math.cos(theta) + center,
+      y: radius * Math.sin(theta) + center,
+    };
+  });
+
+  return (
+    <div className="flex flex-col md:flex-row items-center justify-center w-full gap-12 md:gap-20 py-12 md:py-20">
+      {/* Wheel and arrows as a flex row */}
+      <div className="flex flex-row items-center justify-center">
+        {/* Left navigation arrow (chevron only, no circle) */}
+        <button
+          aria-label="Previous Step"
+          onClick={handlePrev}
+          className="p-0 bg-transparent border-none outline-none focus:outline-none mr-56 md:mr-96"
+        >
+          <svg
+            width="32"
+            height="54"
+            viewBox="0 0 32 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="drop-shadow-lg transition-transform duration-150 hover:scale-110 hover:drop-shadow-[0_0_8px_#fff]"
+            style={{ display: "block" }}
+          >
+            <polyline
+              points="27,6 6,27 27,48"
+              stroke="white"
+              strokeWidth="5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+          </svg>
+        </button>
+        <div
+          className="relative flex-shrink-0"
+          style={{ width: 520, height: 520, maxWidth: "100%" }}
+        >
+          {/* SVG arrows connecting steps */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            width={520}
+            height={520}
+          >
+            {positions.map((pos, i) => {
+              const next = positions[(i + 1) % stepCount];
+              // Arrow from pos to next
+              const dx = next.x - pos.x;
+              const dy = next.y - pos.y;
+              const angle = Math.atan2(dy, dx);
+              const arrowPadding = 44; // more space from the circles
+              const arrowLength =
+                Math.sqrt(dx * dx + dy * dy) - arrowPadding * 2;
+              const startX = pos.x + arrowPadding * Math.cos(angle);
+              const startY = pos.y + arrowPadding * Math.sin(angle);
+              const endX = startX + arrowLength * Math.cos(angle);
+              const endY = startY + arrowLength * Math.sin(angle);
+              return (
+                <g key={i}>
+                  <line
+                    x1={startX}
+                    y1={startY}
+                    x2={endX}
+                    y2={endY}
+                    stroke="#a855f7"
+                    strokeWidth={2}
+                    strokeDasharray="6 6"
+                    markerEnd="url(#arrowhead)"
+                    opacity={0.5}
+                  />
+                </g>
+              );
+            })}
+            <defs>
+              <marker
+                id="arrowhead"
+                markerWidth="8"
+                markerHeight="8"
+                refX="6"
+                refY="4"
+                orient="auto"
+                markerUnits="strokeWidth"
+              >
+                <polygon points="0 0, 8 4, 0 8" fill="#a855f7" />
+              </marker>
+            </defs>
+          </svg>
+          <div className="absolute inset-0">
+            {steps.map((step: TimelineStep, i: number) => {
+              const { x, y } = positions[i];
+              const isActive = active === i;
+              const Icon = require("lucide-react")[step.icon];
+              return (
+                <motion.div
+                  key={step.step}
+                  className={`absolute flex flex-col items-center justify-center select-none cursor-pointer transition-all duration-300 ${
+                    isActive ? "z-10" : "z-0"
+                  }`}
+                  style={{
+                    left: x,
+                    top: y,
+                    transform: isActive
+                      ? "translate(-50%,-50%) scale(1.15)"
+                      : "translate(-50%,-50%) scale(0.85)",
+                    filter: isActive
+                      ? "drop-shadow(0 0 20px #a855f7cc)"
+                      : "none",
+                  }}
+                  onClick={() => setActive(i)}
+                >
+                  <div className="flex flex-col items-center">
+                    {/* Step number badge at top center */}
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-black border-2 border-purple-400 text-lg font-bold text-purple-300 shadow-md mb-2 mt-1 z-10">
+                      {step.step}
+                    </div>
+                    <div
+                      className={`flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 shadow-lg ${
+                        isActive ? "ring-4 ring-purple-400/40" : ""
+                      }`}
+                    >
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div
+                      className={`mt-4 text-sm font-semibold uppercase tracking-wide text-center ${
+                        isActive ? "text-white" : "text-gray-400"
+                      }`}
+                    >
+                      {step.title}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+        {/* Right navigation arrow (chevron only, no circle) */}
+        <button
+          aria-label="Next Step"
+          onClick={handleNext}
+          className="p-0 bg-transparent border-none outline-none focus:outline-none ml-32 md:ml-56"
+        >
+          <svg
+            width="32"
+            height="54"
+            viewBox="0 0 32 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="drop-shadow-lg transition-transform duration-150 hover:scale-110 hover:drop-shadow-[0_0_8px_#fff]"
+            style={{ display: "block" }}
+          >
+            <polyline
+              points="5,6 26,27 5,48"
+              stroke="white"
+              strokeWidth="5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+          </svg>
+        </button>
+      </div>
+      {/* Hero text and dynamic step info on the right */}
+      <div className="flex-1 flex flex-col items-center md:items-start justify-center min-w-[220px] max-w-xl mx-auto text-center md:text-left">
+        <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
+          24-Week Accelerator Process
+        </h3>
+        <p className="text-lg text-gray-300 mb-8 max-w-xl">
+          Denarii Labs guides founders through a comprehensive, hands-on 24-week
+          journey. From alignment and onboarding to building, launching, and
+          post-accelerator growth, each step is designed to maximize your
+          project's success.
+        </p>
+        <div className="w-full border-t border-purple-700/30 my-4" />
+        <div className="w-full">
+          <div className="text-xl font-bold text-purple-300 mb-2 uppercase tracking-wide">
+            {steps[active].title}
+          </div>
+          <div className="text-base text-white mb-2">
+            {steps[active].description}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function AcceleratorPage() {
   const router = useRouter();
@@ -406,26 +680,12 @@ export default function AcceleratorPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <SectionWrapper className="bg-secondary/30">
+      {/* Accelerator Process Timeline Section */}
+      <SectionWrapper className="py-24">
         <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">
-          Program Timeline
+          Accelerator Process Timeline
         </h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {timeline.map((item) => (
-            <Card key={item.phase} className="relative">
-              <CardHeader>
-                <CardTitle className="text-xl">{item.phase}</CardTitle>
-                <CardDescription className="text-sm font-semibold text-primary">
-                  {item.duration}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-foreground/80">{item.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <TimelineWheel steps={processTimeline} />
       </SectionWrapper>
 
       {/* Past Cohorts Section */}
