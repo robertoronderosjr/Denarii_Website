@@ -230,7 +230,7 @@ const processTimeline = [
   {
     icon: "Award",
     step: 7,
-    title: "Red Beard Ventures Summit",
+    title: "RBV Summit",
     description:
       "A conference for companies to connect with investors and industry leaders.",
   },
@@ -257,11 +257,6 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
   const radius = 220; // circle
   const center = 260;
 
-  // Arrow button handlers
-  const handlePrev = () =>
-    setActive((prev) => (prev - 1 + stepCount) % stepCount);
-  const handleNext = () => setActive((prev) => (prev + 1) % stepCount);
-
   // Calculate positions for steps (circle)
   const positions = steps.map((_, i) => {
     const theta = (i * stepAngle - 90) * (Math.PI / 180);
@@ -271,15 +266,23 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
     };
   });
 
+  const handlePrev = () => {
+    setActive((active - 1 + stepCount) % stepCount);
+  };
+
+  const handleNext = () => {
+    setActive((active + 1) % stepCount);
+  };
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center w-full gap-12 md:gap-20 py-12 md:py-20">
-      {/* Wheel and arrows as a flex row */}
+      {/* Wheel and chevron arrows on the left */}
       <div className="flex flex-row items-center justify-center">
-        {/* Left navigation arrow (chevron only, no circle) */}
+        {/* Left chevron arrow */}
         <button
           aria-label="Previous Step"
           onClick={handlePrev}
-          className="p-0 bg-transparent border-none outline-none focus:outline-none mr-56 md:mr-96"
+          className="p-0 bg-transparent border-none outline-none focus:outline-none mr-4"
         >
           <svg
             width="32"
@@ -300,6 +303,7 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
             />
           </svg>
         </button>
+        {/* Wheel */}
         <div
           className="relative flex-shrink-0"
           style={{ width: 520, height: 520, maxWidth: "100%" }}
@@ -401,11 +405,11 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
             })}
           </div>
         </div>
-        {/* Right navigation arrow (chevron only, no circle) */}
+        {/* Right chevron arrow */}
         <button
           aria-label="Next Step"
           onClick={handleNext}
-          className="p-0 bg-transparent border-none outline-none focus:outline-none ml-32 md:ml-56"
+          className="p-0 bg-transparent border-none outline-none focus:outline-none ml-4"
         >
           <svg
             width="32"
@@ -438,12 +442,12 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
           post-accelerator growth, each step is designed to maximize your
           project's success.
         </p>
-        <div className="w-full border-t border-purple-700/30 my-4" />
+        <div className="w-full border-t border-purple-700/30 my-8" />
         <div className="w-full">
           <div className="text-xl font-bold text-purple-300 mb-2 uppercase tracking-wide">
             {steps[active].title}
           </div>
-          <div className="text-base text-white mb-2">
+          <div className="text-base text-white mb-2 min-h-[56px]">
             {steps[active].description}
           </div>
         </div>

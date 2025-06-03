@@ -100,8 +100,8 @@ export default function Home() {
                   </h1>
                   <p className="max-w-2xl text-gray-300 md:text-xl font-medium mb-8 mt-4">
                     Denarii Labs empowers founders and protocols with a
-                    world-class accelerator and expert consulting services.
-                    Scale your Web3 project with capital, tokenomics, and
+                    world-class accelerator and an expert tokenomics consulting
+                    arm. Scale your Web3 project with capital, tokenomics, and
                     hands-on support—backed by Red Beard Ventures.
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export default function Home() {
                       className="flex items-center justify-center gap-3"
                     >
                       <LineChart className="h-6 w-6" />
-                      Consulting Services
+                      Tokenomics Consulting
                     </Link>
                   </Button>
                 </div>
