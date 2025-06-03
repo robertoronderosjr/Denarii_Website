@@ -330,10 +330,10 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
               return (
                 <g key={i}>
                   <line
-                    x1={startX}
-                    y1={startY}
-                    x2={endX}
-                    y2={endY}
+                    x1={Number(startX.toFixed(2))}
+                    y1={Number(startY.toFixed(2))}
+                    x2={Number(endX.toFixed(2))}
+                    y2={Number(endY.toFixed(2))}
                     stroke="#a855f7"
                     strokeWidth={2}
                     strokeDasharray="6 6"
