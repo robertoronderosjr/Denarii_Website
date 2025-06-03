@@ -45,11 +45,11 @@ export function Navbar() {
         >
           <div className="relative h-14 w-14 overflow-hidden">
             <Image
-              src="/D_Logo.svg"
+              src="/Logo/Denarii-Logo_Icon-White.svg"
               alt="Denarii Labs Logo"
               width={56}
               height={56}
-              className="h-full w-full object-contain filter brightness-0 invert"
+              className="h-full w-full object-contain"
               priority
               quality={100}
             />

@@ -67,11 +67,11 @@ export function Footer() {
               >
                 <div className="relative h-10 w-10 overflow-hidden">
                   <Image
-                    src="/D_Logo.svg"
+                    src="/Logo/Denarii-Logo_Icon-White.svg"
                     alt="Denarii Labs Logo"
                     width={40}
                     height={40}
-                    className="h-full w-full object-contain filter brightness-0 invert"
+                    className="h-full w-full object-contain"
                     quality={100}
                   />
                 </div>
