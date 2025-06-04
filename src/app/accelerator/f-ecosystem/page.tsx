@@ -7,7 +7,7 @@ export default function FEcosystemAccelerator() {
   return (
     <AcceleratorTemplate
       title="F Ecosystem Accelerator"
-      description="Build the future of AI-powered applications with the F Ecosystem's battle-tested tools, games, and blockchain infrastructure."
+      description="Power intelligent Web3 applications with the F Ecosystem’s proven gaming tools, AI modules, and modular blockchain infrastructure. Built to scale and perform."
       overview="The F Ecosystem Accelerator is a 12-week program designed to help innovative projects build tools and protocols that integrate with RIFT AI. With over 3 million lifetime users, $250 million in NFT trading volume, and partnerships with leading brands, the F Ecosystem provides the perfect foundation for scaling your project."
       focusAreas={[
         "RWA",
