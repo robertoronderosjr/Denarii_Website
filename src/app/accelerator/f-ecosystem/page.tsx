@@ -47,6 +47,8 @@ export default function FEcosystemAccelerator() {
         ]
       }}
       whyBuildTitle="Why build in the F Ecosystem?"
+      learnMoreUrl="https://fchain.xyz/"
+      applyUrl="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
     />
   );
 }

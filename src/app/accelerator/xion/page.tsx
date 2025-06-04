@@ -47,6 +47,8 @@ export default function XionAccelerator() {
           "Performance: Instant finality and gasless transactions for user-first applications."
         ]
       }}
+      learnMoreUrl="https://xion.burnt.com/"
+      applyUrl="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
     />
   );
 }

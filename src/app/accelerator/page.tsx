@@ -733,10 +733,13 @@ export default function AcceleratorPage() {
           Join Cohort 003 and get the support you need to succeed. Applications
           are now open!
         </p>
-        <CtaButton href="/application-form">
-          {" "}
-          {/* Placeholder link */}
-          Apply Now <Users className="ml-2 h-5 w-5" />
+        <CtaButton
+          href="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lg px-10 py-7 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-lg shadow-purple-900/30 hover:scale-105 transition-all duration-300 rounded-xl font-semibold flex items-center justify-center gap-2"
+        >
+          Apply Now <Users className="ml-2 h-6 w-6" />
         </CtaButton>
       </SectionWrapper>
     </main>

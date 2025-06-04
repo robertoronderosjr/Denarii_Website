@@ -55,6 +55,8 @@ interface AcceleratorPageProps {
     website?: string;
   };
   whyBuildTitle?: string;
+  learnMoreUrl?: string;
+  applyUrl?: string;
 }
 
 interface ProgramDetail {
@@ -80,6 +82,8 @@ export default function AcceleratorTemplate({
   icon: Icon,
   technicalDetails,
   whyBuildTitle,
+  learnMoreUrl,
+  applyUrl,
 }: AcceleratorPageProps) {
   const programDetails: ProgramDetail[] = [
     { 
@@ -229,12 +233,15 @@ export default function AcceleratorTemplate({
                     </div>
 
                     {/* Learn More Button */}
-                    <div className="flex justify-center pt-4">
-                      <CtaButton 
-                        href={technicalDetails?.website || "#"} 
-                        className="text-lg px-10 py-4 bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 text-foreground hover:text-purple-300 shadow-lg hover:shadow-purple-500/20 hover:scale-105 transition-all duration-300"
+                    <div className="flex justify-center my-8">
+                      <CtaButton
+                        href={learnMoreUrl || technicalDetails?.website || "#"}
+                        className="text-lg px-12 py-5 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-semibold shadow-xl shadow-purple-900/20 border-none transition-all duration-300 transform hover:scale-105 hover:from-purple-600 hover:to-indigo-600 hover:shadow-pink-500/30 flex items-center gap-2"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                        Learn More
+                        <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                       </CtaButton>
                     </div>
                   </CardContent>
@@ -268,12 +275,14 @@ export default function AcceleratorTemplate({
                     </div>
                   </div>
                 ))}
-                <CtaButton 
-                  href="/accelerator#apply" 
-                  className="w-full text-lg px-6 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-lg shadow-purple-900/30 hover:scale-105 transition-all duration-300"
+                <a 
+                  href={applyUrl || "/accelerator#apply"} 
+                  className="w-full text-lg px-6 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-lg shadow-purple-900/30 hover:scale-105 transition-all duration-300 mt-4 flex items-center justify-center gap-2 rounded-xl font-semibold"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-                </CtaButton>
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -338,8 +347,10 @@ export default function AcceleratorTemplate({
             {ctaDescription}
           </p>
           <CtaButton 
-            href="/accelerator#apply" 
+            href={applyUrl || "/accelerator#apply"} 
             className="text-lg px-10 py-7 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-lg shadow-purple-900/30 hover:scale-105 transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Apply Now <ArrowRight className="ml-2 h-6 w-6" />
           </CtaButton>

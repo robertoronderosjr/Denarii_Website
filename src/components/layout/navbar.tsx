@@ -195,7 +195,7 @@ export function Navbar() {
             asChild
             className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold rounded-full px-6 py-2.5 shadow-md hover:scale-105 transition-all duration-300 ease-in-out text-lg"
           >
-            <Link href="/apply">Apply Now</Link>
+            <a href="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form" target="_blank" rel="noopener noreferrer">Apply Now</a>
           </Button>
         </div>
 
@@ -323,13 +323,15 @@ export function Navbar() {
                     </Link>
                   );
                 })}
-                <Link
-                  href="/apply"
+                <a
+                  href="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-2.5 text-base font-semibold text-white shadow-md hover:scale-105 transition-all duration-300 ease-in-out flex items-center justify-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Apply Now
-                </Link>
+                </a>
               </nav>
             </div>
           )}

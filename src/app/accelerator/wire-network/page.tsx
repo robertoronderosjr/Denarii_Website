@@ -50,6 +50,8 @@ export default function WireNetworkAccelerator() {
           "Speed: Processes 10,000 transactions per second in real-time."
         ]
       }}
+      learnMoreUrl="https://www.wire.network/"
+      applyUrl="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
     />
   );
 }

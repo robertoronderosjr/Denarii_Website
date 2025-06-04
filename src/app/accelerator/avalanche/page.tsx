@@ -50,6 +50,8 @@ The 12-week program empowers projects to unlock their potential with Avalanche's
           "Flexibility: Customizable infrastructure tailored to specific industries and use cases."
         ]
       }}
+      learnMoreUrl="https://www.avax.network/"
+      applyUrl="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
     />
   );
 }
