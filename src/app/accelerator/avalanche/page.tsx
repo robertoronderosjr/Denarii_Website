@@ -1,42 +1,55 @@
 "use client";
 
-import { Mountain } from "lucide-react";
 import AcceleratorTemplate from "../AcceleratorTemplate";
+import { Network } from "lucide-react";
 
-export default function AvalanchePage() {
+export default function AvalancheAccelerator() {
   return (
     <AcceleratorTemplate
       title="Avalanche Accelerator"
-      description="Building the next generation of applications on the Avalanche ecosystem."
-      overview="Our Avalanche Accelerator is designed for teams building innovative solutions on the Avalanche platform. This program focuses on developing high-performance applications, DeFi protocols, and infrastructure solutions that leverage Avalanche's unique capabilities in speed, scalability, and security."
+      description="Build your own Layer 1 blockchain with Avalanche's cutting-edge technology and Denarii Labs' expertise in tokenomics and blockchain development."
+      overview="The Avalanche Accelerator is a 12-week program designed to help early-stage projects launch their own Layer 1 blockchain using Avalanche's powerful platform. With immediate funding, expert guidance, and comprehensive support, we help you build scalable, sustainable, and high-performance blockchain solutions."
       focusAreas={[
-        "DeFi Applications",
-        "NFT & Gaming",
-        "Infrastructure Tools",
-        "Cross-chain Solutions",
-        "Enterprise Applications",
+        "Layer 1 Blockchain Development",
+        "Custom Subnet Architecture",
+        "DeFi and Financial Services",
+        "Enterprise Blockchain Solutions",
+        "Gaming and NFT Platforms"
       ]}
       highlights={[
-        "Avalanche-specific technical mentorship",
-        "Protocol design and optimization",
-        "Ecosystem integration support",
-        "Performance optimization",
-        "Cross-chain bridge development",
+        "Build your own Layer 1 blockchain with Avalanche's subnet architecture",
+        "Immediate $100,000 investment for selected projects",
+        "Weekly sessions on tokenomics, GTM, legal, and fundraising",
+        "Technical support from Avalanche and Denarii Labs experts",
+        "Access to Red Beard Ventures and other leading VCs"
       ]}
-      duration="12 Weeks"
-      format="Hybrid (Online & In-person events)"
-      cohort="Cohort 003 - Q4 2024"
-      target="Avalanche Ecosystem Projects"
+      duration="12 weeks"
+      format="Remote"
+      cohort="Open"
+      target="Early-stage projects looking to build their own Layer 1 blockchain"
       benefits={[
-        "Technical expertise",
-        "Ecosystem integration",
-        "Performance optimization",
-        "Cross-chain support",
-        "Community access",
+        "Immediate $100,000 investment upon selection",
+        "Direct access to Avalanche's technical team and resources",
+        "Weekly mentorship sessions on tokenomics and GTM strategy",
+        "Marketing support and ecosystem visibility",
+        "Networking opportunities with investors and partners"
       ]}
-      ctaTitle="Ready to Build on Avalanche?"
-      ctaDescription="Join our Avalanche Accelerator and help shape the future of the ecosystem."
-      icon={Mountain}
+      ctaTitle="Launch Your Layer 1 on Avalanche"
+      ctaDescription="Join our accelerator program and build your own blockchain with Avalanche's powerful technology stack and Denarii Labs' expertise."
+      icon={Network}
+      technicalDetails={{
+        title: "Why Build Your L1 on Avalanche?",
+        description: "Avalanche provides the perfect foundation for building custom Layer 1 blockchains with its unique subnet architecture and powerful features.",
+        features: [
+          "Sub-second transaction finality for real-time applications",
+          "Custom subnet architecture for tailored blockchain solutions",
+          "Low transaction costs and high throughput",
+          "Full Ethereum compatibility for easy dApp migration",
+          "Cross-chain interoperability through Avalanche Bridge",
+          "Energy-efficient consensus mechanism",
+          "Scalable infrastructure for growing applications"
+        ]
+      }}
     />
   );
 }
