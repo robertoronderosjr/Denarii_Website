@@ -54,6 +54,7 @@ interface AcceleratorPageProps {
     features: string[];
     website?: string;
   };
+  whyBuildTitle?: string;
 }
 
 interface ProgramDetail {
@@ -78,6 +79,7 @@ export default function AcceleratorTemplate({
   ctaDescription,
   icon: Icon,
   technicalDetails,
+  whyBuildTitle,
 }: AcceleratorPageProps) {
   const programDetails: ProgramDetail[] = [
     { 
@@ -286,7 +288,7 @@ export default function AcceleratorTemplate({
             <div className="space-y-8">
               <div className="space-y-4">
                 <h3 className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600">
-                  Why Build on {title.split(' ')[0]}?
+                  {whyBuildTitle ? whyBuildTitle : `Why Build on ${title.split(' ')[0]}?`}
                 </h3>
                 <p className="text-xl text-foreground/80 leading-relaxed">
                   {overview.split('\n\n')[0]}
