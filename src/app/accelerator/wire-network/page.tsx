@@ -10,12 +10,11 @@ export default function WireNetworkAccelerator() {
       description="Setting a new standard for blockchain technology with its Universal Transaction Layer (UTL), making digital transactions faster, more secure, and easier than ever."
       overview="Wire Network is redefining blockchain transactions through its Universal Polymorphic Address Protocol (UPAP) and Universal Transaction Layer (UTL). Our 12-week accelerator program focuses on advancing breakthroughs in decentralized finance (DeFi), social finance (SoFi), blockchain gaming, and AI-powered markets, all supported by Wire Network's fast, trustless, gas-free infrastructure."
       focusAreas={[
-        "AI Agent-based Projects",
-        "AI-Powered DeFi",
-        "Gaming Ecosystems",
-        "Universal Liquidity",
-        "Developer Tools",
-        "Cross-chain Solutions"
+        "AI Agents",
+        "AI DeFi",
+        "Gaming",
+        "Liquidity",
+        "Dev Tools"
       ]}
       highlights={[
         "No Gas Fees: Eliminate transaction fees that slow down blockchain adoption",
@@ -43,17 +42,12 @@ export default function WireNetworkAccelerator() {
       ctaDescription="Join our accelerator program to gain access to revolutionary blockchain technology, expert mentorship, and the resources you need to build the next generation of decentralized applications."
       icon={Network}
       technicalDetails={{
-        title: "Why Build on Wire Network?",
-        description: "Wire Network addresses the main obstacles that restrict blockchain applications today. With Wire, your application can operate instantly across blockchains with zero gas fees. Users can interact with your application using assets from any chain without bridges or added complexity.",
+        title: "What is Wire Network?",
+        description: "Wire Network is a revolutionary blockchain platform that eliminates gas fees and enables seamless cross-chain interactions. Known for its Universal Transaction Layer and blazing-fast processing speeds, Wire Network bridges the gap between different blockchain networks. With its unique architecture, Wire Network enables developers to create applications that work across all major blockchains while maintaining security, speed, and cost efficiency.",
         features: [
-          "Straightforward implementation through Wire's SDKs: Start building in minutes with complete documentation and example code",
-          "Easy-to-use APIs: Write code once to interact across blockchain networks",
-          "Proven security and stability: Built on established security principles with no bridge vulnerabilities",
-          "Built-in capacity expansion: A network built for scaling your applications to support your growing user base",
-          "Connect with users from every major blockchain ecosystem: Reach users regardless of which blockchain they prefer",
-          "Remove transaction fees that block adoption: Eliminate the primary barrier that prevents users from trying new applications",
-          "Build applications ready for tomorrow's demands: Create solutions that scale from hundreds to millions of users without modification",
-          "Universal Polymorphic Address Protocol (UPAP): Enables seamless interaction between different blockchains"
+          "No Gas Fees: Eliminates transaction fees for seamless user experience.",
+          "Cross-Chain: Enables seamless interaction with all major blockchains.",
+          "Speed: Processes 10,000 transactions per second in real-time."
         ]
       }}
     />

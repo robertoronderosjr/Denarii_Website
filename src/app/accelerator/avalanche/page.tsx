@@ -7,14 +7,18 @@ export default function AvalancheAccelerator() {
   return (
     <AcceleratorTemplate
       title="Avalanche Accelerator"
-      description="Build your own Layer 1 blockchain with Avalanche's cutting-edge technology and Denarii Labs' expertise in tokenomics and blockchain development."
-      overview="The Avalanche Accelerator is a 12-week program designed to help early-stage projects launch their own Layer 1 blockchain using Avalanche's powerful platform. With immediate funding, expert guidance, and comprehensive support, we help you build scalable, sustainable, and high-performance blockchain solutions."
+      description="Empowering modular blockchain innovation with Avalanche 9000, enabling founders to launch custom L1s with seamless scalability and integrated token architecture."
+      overview="Denarii Labs and Avalanche have partnered to accelerate blockchain startups with a focus on financial services, enterprise solutions, sustainability, gaming, and data intensive applications.
+
+ 
+
+The 12-week program empowers projects to unlock their potential with Avalanche's cutting edge platform, Avalanche 9000."
       focusAreas={[
-        "Layer 1 Blockchain Development",
-        "Custom Subnet Architecture",
-        "DeFi and Financial Services",
-        "Enterprise Blockchain Solutions",
-        "Gaming and NFT Platforms"
+        "DeFi",
+        "Enterprise",
+        "ESG",
+        "Gaming",
+        "Data"
       ]}
       highlights={[
         "Build your own Layer 1 blockchain with Avalanche's subnet architecture",
@@ -38,16 +42,12 @@ export default function AvalancheAccelerator() {
       ctaDescription="Join our accelerator program and build your own blockchain with Avalanche's powerful technology stack and Denarii Labs' expertise."
       icon={Network}
       technicalDetails={{
-        title: "Why Build Your L1 on Avalanche?",
-        description: "Avalanche provides the perfect foundation for building custom Layer 1 blockchains with its unique subnet architecture and powerful features.",
+        title: "What is Avalanche?",
+        description: "Avalanche is a cutting-edge blockchain platform designed to power decentralized applications, enterprise solutions, and financial ecosystems. Known for its eco-conscious design and blazing-fast transaction speeds, Avalanche bridges the gap between performance, scalability, and sustainability. With its unique architecture, Avalanche enables developers to create custom blockchain solutions while maintaining security, interoperability, and ease of use.",
         features: [
-          "Sub-second transaction finality for real-time applications",
-          "Custom subnet architecture for tailored blockchain solutions",
-          "Low transaction costs and high throughput",
-          "Full Ethereum compatibility for easy dApp migration",
-          "Cross-chain interoperability through Avalanche Bridge",
-          "Energy-efficient consensus mechanism",
-          "Scalable infrastructure for growing applications"
+          "Sustainability: Low-energy consensus mechanism for reduced environmental impact.",
+          "Speed: Sub-second transaction finality to enable real-time applications.",
+          "Flexibility: Customizable infrastructure tailored to specific industries and use cases."
         ]
       }}
     />

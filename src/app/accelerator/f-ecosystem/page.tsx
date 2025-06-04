@@ -10,11 +10,11 @@ export default function FEcosystemAccelerator() {
       description="Build the future of AI-powered applications with the F Ecosystem's battle-tested tools, games, and blockchain infrastructure."
       overview="The F Ecosystem Accelerator is a 12-week program designed to help innovative projects build tools and protocols that integrate with RIFT AI. With over 3 million lifetime users, $250 million in NFT trading volume, and partnerships with leading brands, the F Ecosystem provides the perfect foundation for scaling your project."
       focusAreas={[
-        "RWA Protocols: Agents interacting with tokenized real-world assets",
-        "DePIN Projects: Infrastructure for agentic businesses",
-        "Low-Risk Yield Strategies: Automated yield optimization for agents",
-        "Agent-Led Growth & GTM: AI-powered content and distribution",
-        "Intelligent Simulations: Environments for agent coordination and testing"
+        "RWA",
+        "DePIN",
+        "Yield",
+        "GTM",
+        "Simulation"
       ]}
       highlights={[
         "12-week accelerator with weekly sessions on tokenomics, GTM, legal, and fundraising",
@@ -38,16 +38,12 @@ export default function FEcosystemAccelerator() {
       ctaDescription="Join our accelerator program and leverage the power of the F Ecosystem's tools, games, and blockchain infrastructure to scale your project."
       icon={Network}
       technicalDetails={{
-        title: "Why Build in the F Ecosystem?",
-        description: "Built by experienced operators who've successfully delivered products to millions, the F Ecosystem empowers you to achieve similar scale - faster and more cost-effectively than ever.",
+        title: "What is the F Ecosystem?",
+        description: "The F Ecosystem is a comprehensive blockchain platform designed to power the next generation of Web3 applications. Known for its battle-tested infrastructure and innovative AI integration, F Ecosystem bridges the gap between traditional gaming and blockchain technology. With its unique architecture, F Ecosystem enables developers to create engaging applications while maintaining security, scalability, and user experience.",
         features: [
-          "Battle-tested Developer Tools: Multi-chain embedded wallets, audited smart contracts, and whitelabel solutions",
-          "Plug-and-Play AI Agent Stack: Launch tokens for AI Agents or tools for agents to leverage on RIFT AI",
-          "FCHAIN Integration: Avalanche-powered Layer 1 with gasless transactions and high performance",
-          "RIFT AI Platform: Create autonomous businesses with AI-driven strategies",
-          "Internet Capital: Fast funding mechanism leveraging RIFT AI for OTC token deals",
-          "Faraway Games: Access to successful games and original brands",
-          "Credibility + Capital: Access to Denarii Labs, Red Beard Ventures, and the Faraway investor network"
+          "Gaming: Battle-tested games with millions of active users.",
+          "Infrastructure: High-performance Layer 1 blockchain with gasless transactions.",
+          "AI Integration: Platform for creating autonomous AI-driven businesses."
         ]
       }}
     />
