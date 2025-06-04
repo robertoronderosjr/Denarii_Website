@@ -175,22 +175,21 @@ export default function Home() {
 
                   <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-8">
                     {/* RBV Logo */}
-                    <div className="mb-8 w-40 h-40 rounded-full bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-2 border-purple-500/20 flex items-center justify-center">
-                      <span className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-                        RBV
-                      </span>
+                    <div className="mb-8 w-40 h-40 relative">
+                      <Image
+                        src="/Logo/rbvlogo.png"
+                        alt="Red Beard Ventures Logo"
+                        fill
+                        className="object-contain"
+                        priority
+                      />
                     </div>
-
                     <h3 className="text-2xl font-bold text-white mb-2">
                       Red Beard Ventures
                     </h3>
                     <p className="text-purple-300/80 text-sm font-medium">
                       Early-Stage Web3 Investment Firm
                     </p>
-
-                    {/* Decorative elements */}
-                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl" />
-                    <div className="absolute -top-4 -left-4 w-24 h-24 bg-pink-600/10 rounded-full blur-3xl" />
                   </div>
                 </div>
               </div>
