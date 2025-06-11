@@ -9,7 +9,26 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CalendarDays, Users, Target, DivideIcon as LucideIcon, Sparkles, Zap, Network, DollarSign, CheckCircle, ArrowRight, Star, Rocket, Shield, Code, Clock, MapPin, CircleCheck } from "lucide-react";
+import {
+  ArrowLeft,
+  CalendarDays,
+  Users,
+  Target,
+  LucideIcon,
+  Sparkles,
+  Zap,
+  Network,
+  DollarSign,
+  CheckCircle,
+  ArrowRight,
+  Star,
+  Rocket,
+  Shield,
+  Code,
+  Clock,
+  MapPin,
+  CircleCheck,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CtaButton } from "@/components/common/cta-button";
@@ -45,13 +64,6 @@ interface ProgramDetail {
   value: string;
   icon: LucideIcon;
   className: string;
-}
-
-interface ProjectType {
-  tag: string;
-  desc: string;
-  icon: LucideIcon;
-  color: string;
 }
 
 export default function AcceleratorTemplate({
@@ -99,58 +111,6 @@ export default function AcceleratorTemplate({
       className: "text-purple-400"
     },
   ];
-
-  // Define project types with icons and colors for each accelerator
-  const getProjectTypes = (): ProjectType[] => {
-    if (title.includes('Wire')) {
-      return [
-        { tag: 'AI Agent-based Projects', desc: 'Platforms for autonomous transactions', icon: Rocket, color: 'from-blue-500 to-cyan-500' },
-        { tag: 'AI-Powered DeFi', desc: 'Lending, trading, and liquidity platforms driven by AI', icon: Zap, color: 'from-purple-500 to-pink-500' },
-        { tag: 'Gaming Ecosystems', desc: 'Real-time games requiring high-speed transactions', icon: Star, color: 'from-green-500 to-emerald-500' },
-        { tag: 'Universal Liquidity', desc: 'Cross-chain marketplaces for assets and NFTs', icon: Network, color: 'from-orange-500 to-red-500' },
-        { tag: 'Developer Tools', desc: 'SDKs, APIs, and modular components', icon: Code, color: 'from-indigo-500 to-blue-500' },
-      ];
-    } else if (title.includes('Avalanche')) {
-      return [
-        { tag: 'Financial Services', desc: 'On-chain finance, tokenized assets, and DeFi applications.', icon: DollarSign, color: 'from-green-500 to-teal-500' },
-        { tag: 'Enterprise Solutions', desc: 'Permissioned blockchains and custom Layer 1s for specific industries.', icon: Shield, color: 'from-blue-500 to-indigo-500' },
-        { tag: 'Sustainability-Focused Projects', desc: 'Blockchain applications with ESG goals leveraging eco-friendly consensus.', icon: Sparkles, color: 'from-emerald-500 to-green-500' },
-        { tag: 'Gaming & Digital Assets', desc: 'High-speed, low-cost platforms for gaming and NFTs.', icon: Star, color: 'from-purple-500 to-pink-500' },
-        { tag: 'Data-Intensive Applications', desc: 'Robust transaction processing and privacy-focused projects.', icon: Network, color: 'from-orange-500 to-red-500' },
-      ];
-    } else if (title.includes('XION')) {
-      return [
-        { tag: 'Consumer Platforms', desc: 'E-commerce, payments, and services for non-crypto-native users.', icon: Users, color: 'from-blue-500 to-cyan-500' },
-        { tag: 'Social & Community Tools', desc: 'SocialFi apps, creator rewards, and decentralized engagement.', icon: Star, color: 'from-pink-500 to-rose-500' },
-        { tag: 'Entertainment & Gaming', desc: 'Music, gaming, and event platforms with immersive Web3 features.', icon: Sparkles, color: 'from-purple-500 to-indigo-500' },
-        { tag: 'Asset Tokenization', desc: 'Real-world asset linking via NFC chips, digital twins, and collectibles.', icon: Shield, color: 'from-orange-500 to-amber-500' },
-        { tag: 'Web3 Enhancements', desc: 'Crypto payments, on-chain subscriptions, and privacy-preserving tools.', icon: Code, color: 'from-green-500 to-emerald-500' },
-      ];
-    } else if (title.includes('F Ecosystem')) {
-      return [
-        { tag: 'RWA Protocols', desc: 'Agent-driven access to tokenized real-world assets and collectibles.', icon: Shield, color: 'from-amber-500 to-orange-500' },
-        { tag: 'DePIN Infrastructure', desc: 'Decentralized physical networks powering agentic automation.', icon: Network, color: 'from-blue-500 to-indigo-500' },
-        { tag: 'Automated Yield', desc: 'Low-risk yield strategies optimized by autonomous agents.', icon: DollarSign, color: 'from-green-500 to-teal-500' },
-        { tag: 'AI-Powered GTM', desc: 'Agent-led growth, distribution, and go-to-market execution.', icon: Rocket, color: 'from-purple-500 to-pink-500' },
-        { tag: 'Intelligent Simulations', desc: 'Environments for agent coordination, testing, and strategy modeling.', icon: Zap, color: 'from-cyan-500 to-blue-500' },
-      ];
-    } else {
-      return focusAreas.map((area, index) => ({
-        tag: area,
-        desc: 'Building innovative solutions in this space',
-        icon: [Rocket, Zap, Network, DollarSign, Code][index % 5],
-        color: [
-          'from-purple-500 to-pink-500',
-          'from-blue-500 to-cyan-500',
-          'from-green-500 to-emerald-500',
-          'from-orange-500 to-red-500',
-          'from-indigo-500 to-blue-500'
-        ][index % 5]
-      }));
-    }
-  };
-
-  const projectTypes = getProjectTypes();
 
   return (
     <>
@@ -208,7 +168,7 @@ export default function AcceleratorTemplate({
 
       {/* Program Overview and Details Section */}
       <SectionWrapper className="py-32">
-        <div className="grid gap-20 lg:grid-cols-3 items-start">
+        <div className="grid gap-20 lg:grid-cols-3 items-stretch">
           {/* Overview and Tags */}
           <div className="lg:col-span-2 h-full flex flex-col">
             <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full flex flex-col">
@@ -217,58 +177,95 @@ export default function AcceleratorTemplate({
                   Program Overview
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-1 flex flex-col">
-                <div className="flex-1">
-                  <p className="whitespace-pre-line text-foreground/90 leading-relaxed text-lg md:text-xl mb-8">
+              <CardContent className="flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <p className="whitespace-pre-line text-foreground/90 leading-relaxed text-lg md:text-xl">
                     {overview}
                   </p>
-                  
-                  {/* Enhanced Types of Projects Section */}
-                  <div className="border-t border-primary/20 pt-6">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
+                  {/* Types of Projects Section - REVERTED TO ORIGINAL */}
+                  <div className="pt-4 border-t border-primary/20 mt-4">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
                         <Rocket className="h-6 w-6 text-purple-400" />
                       </div>
-                      <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600">
+                      <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 drop-shadow-md">
                         Types of Projects We're Looking For
                       </h3>
                     </div>
-                    
-                    <div className="grid gap-3">
-                      {projectTypes.map((project, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: idx * 0.1 }}
-                          className="group relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-4 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
-                        >
-                          {/* Background gradient overlay */}
-                          <div className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`} />
-                          
-                          <div className="relative flex items-start gap-3">
-                            {/* Icon */}
-                            <div className={`flex-shrink-0 p-2 rounded-lg bg-gradient-to-r ${project.color} bg-opacity-20 group-hover:scale-110 transition-transform duration-300`}>
-                              <project.icon className="h-5 w-5 text-white" />
-                            </div>
-                            
-                            {/* Content */}
-                            <div className="flex-1 min-w-0">
-                              <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                                <Badge 
-                                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${project.color} text-white font-semibold text-sm shadow-md border-0 whitespace-nowrap w-fit`}
-                                >
-                                  <CheckCircle className="h-3 w-3" />
-                                  {project.tag}
-                                </Badge>
-                              </div>
-                              <p className="text-foreground/70 text-sm leading-relaxed">
-                                {project.desc}
-                              </p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      ))}
+                    <div className="grid gap-5">
+                      {/* Map tags to their descriptions for Wire Network */}
+                      {title.includes('Wire') ? ([
+                        { tag: 'AI Agent-based Projects', desc: 'Platforms for autonomous transactions' },
+                        { tag: 'AI-Powered DeFi', desc: 'Lending, trading, and liquidity platforms driven by AI' },
+                        { tag: 'Gaming Ecosystems', desc: 'Real-time games requiring high-speed transactions' },
+                        { tag: 'Universal Liquidity', desc: 'Cross-chain marketplaces for assets and NFTs' },
+                        { tag: 'Developer Tools', desc: 'SDKs, APIs, and modular components' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : title.includes('Avalanche') ? ([
+                        { tag: 'Financial Services', desc: 'On-chain finance, tokenized assets, and DeFi applications.' },
+                        { tag: 'Enterprise Solutions', desc: 'Permissioned blockchains and custom Layer 1s for specific industries.' },
+                        { tag: 'Sustainability-Focused Projects', desc: 'Blockchain applications with ESG goals leveraging eco-friendly consensus.' },
+                        { tag: 'Gaming & Digital Assets', desc: 'High-speed, low-cost platforms for gaming and NFTs.' },
+                        { tag: 'Data-Intensive Applications', desc: 'Robust transaction processing and privacy-focused projects.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : title.includes('XION') ? ([
+                        { tag: 'Consumer Platforms', desc: 'E-commerce, payments, and services for non-crypto-native users.' },
+                        { tag: 'Social & Community Tools', desc: 'SocialFi apps, creator rewards, and decentralized engagement.' },
+                        { tag: 'Entertainment & Gaming', desc: 'Music, gaming, and event platforms with immersive Web3 features.' },
+                        { tag: 'Asset Tokenization', desc: 'Real-world asset linking via NFC chips, digital twins, and collectibles.' },
+                        { tag: 'Web3 Enhancements', desc: 'Crypto payments, on-chain subscriptions, and privacy-preserving tools.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : title.includes('F Ecosystem') ? ([
+                        { tag: 'RWA Protocols', desc: 'Agent-driven access to tokenized real-world assets and collectibles.' },
+                        { tag: 'DePIN Infrastructure', desc: 'Decentralized physical networks powering agentic automation.' },
+                        { tag: 'Automated Yield', desc: 'Low-risk yield strategies optimized by autonomous agents.' },
+                        { tag: 'AI-Powered GTM', desc: 'Agent-led growth, distribution, and go-to-market execution.' },
+                        { tag: 'Intelligent Simulations', desc: 'Environments for agent coordination, testing, and strategy modeling.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : (
+                        focusAreas.map((area, index) => (
+                          <span key={index} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {area}
+                          </span>
+                        ))
+                      )}
                     </div>
                   </div>
                 </div>
