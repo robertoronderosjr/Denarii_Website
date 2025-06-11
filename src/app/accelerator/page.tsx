@@ -724,23 +724,49 @@ export default function AcceleratorPage() {
         </div>
       </SectionWrapper>
 
-      {/* Application CTA Section */}
-      <SectionWrapper id="apply" className="text-center">
-        <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-          Ready to Build the Future?
-        </h2>
-        <p className="mx-auto mb-8 max-w-xl text-lg text-foreground/80">
-          Join Cohort 003 and get the support you need to succeed. Applications
-          are now open!
-        </p>
-        <CtaButton
-          href="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lg px-10 py-7 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-lg shadow-purple-900/30 hover:scale-105 transition-all duration-300 rounded-xl font-semibold flex items-center justify-center gap-2"
-        >
-          Apply Now <Users className="ml-2 h-6 w-6" />
-        </CtaButton>
+      {/* Compact Application CTA Section */}
+      <SectionWrapper id="apply" className="py-16 relative overflow-hidden">
+        {/* Subtle Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-transparent to-indigo-900/5" />
+        
+        <div className="relative max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            {/* Compact Header */}
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Rocket className="h-6 w-6 text-purple-400" />
+              <div className="h-px w-12 bg-gradient-to-r from-purple-500 to-indigo-500" />
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 leading-tight">
+              Ready to Build the Future?
+            </h2>
+            
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">
+              Join Cohort 003 and get the support you need to succeed. Applications are now open!
+            </p>
+
+            {/* Compact CTA Button */}
+            <CtaButton
+              href="https://airtable.com/apphGHvP2djrz67Ij/page3HaBQAelT3whO/form"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-lg px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold shadow-lg shadow-purple-900/30 border-none transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/40"
+            >
+              <Users className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              Apply Now
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </CtaButton>
+            
+            <p className="text-foreground/60 text-sm max-w-xl mx-auto">
+              Join the next cohort of successful Web3 startups. Application review begins immediately.
+            </p>
+          </motion.div>
+        </div>
       </SectionWrapper>
     </main>
   );
