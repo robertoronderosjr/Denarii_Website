@@ -243,6 +243,18 @@ const processTimeline = [
   },
 ];
 
+// Icon map for static imports
+const iconMap = {
+  AlignCenter,
+  Megaphone,
+  Users,
+  UserPlus,
+  Rocket,
+  ClipboardCheck,
+  Award,
+  TrendingUp,
+};
+
 type TimelineStep = {
   icon: string;
   step: number;
@@ -361,7 +373,7 @@ function TimelineWheel({ steps }: { steps: TimelineStep[] }) {
             {steps.map((step: TimelineStep, i: number) => {
               const { x, y } = positions[i];
               const isActive = active === i;
-              const Icon = require("lucide-react")[step.icon];
+              const Icon = iconMap[step.icon as keyof typeof iconMap];
               return (
                 <motion.div
                   key={step.step}
