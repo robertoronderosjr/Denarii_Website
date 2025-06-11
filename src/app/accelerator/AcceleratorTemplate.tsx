@@ -168,86 +168,109 @@ export default function AcceleratorTemplate({
 
       {/* Program Overview and Details Section */}
       <SectionWrapper className="py-32">
-        <div className="grid gap-20 lg:grid-cols-3">
+        <div className="grid gap-20 lg:grid-cols-3 items-stretch">
           {/* Overview and Tags */}
-          <div className="lg:col-span-2">
-            <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+          <div className="lg:col-span-2 h-full flex flex-col">
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full flex flex-col">
               <CardHeader className="pb-4">
                 <CardTitle className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 leading-tight">
                   Program Overview
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-8">
-                <p className="whitespace-pre-line text-foreground/90 leading-relaxed text-xl">
-                  {overview}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {focusAreas.map((area, index) => (
-                    <Badge
-                      key={index}
-                      variant="outline"
-                      className="px-4 py-2 text-lg font-medium bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group"
-                    >
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-purple-400 group-hover:scale-110 transition-transform duration-300" />
-                        {area}
+              <CardContent className="flex-1 flex flex-col justify-between space-y-3">
+                <div>
+                  <p className="whitespace-pre-line text-foreground/90 leading-relaxed text-lg md:text-xl">
+                    {overview}
+                  </p>
+                  {/* Types of Projects Section */}
+                  <div className="pt-4 border-t border-primary/20 mt-4">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
+                        <Rocket className="h-6 w-6 text-purple-400" />
                       </div>
-                    </Badge>
-                  ))}
+                      <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 drop-shadow-md">
+                        Types of Projects We're Looking For
+                      </h3>
+                    </div>
+                    <div className="grid gap-4 p-4 rounded-xl bg-gradient-to-br from-purple-900/10 via-background to-indigo-900/10 shadow-inner border border-primary/10">
+                      {/* Map tags to their descriptions for Wire Network */}
+                      {title.includes('Wire') ? ([
+                        { tag: 'AI Agent-based Projects', desc: 'Platforms for autonomous transactions' },
+                        { tag: 'AI-Powered DeFi', desc: 'Lending, trading, and liquidity platforms driven by AI' },
+                        { tag: 'Gaming Ecosystems', desc: 'Real-time games requiring high-speed transactions' },
+                        { tag: 'Universal Liquidity', desc: 'Cross-chain marketplaces for assets and NFTs' },
+                        { tag: 'Developer Tools', desc: 'SDKs, APIs, and modular components' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : title.includes('Avalanche') ? ([
+                        { tag: 'Financial Services', desc: 'On-chain finance, tokenized assets, and DeFi applications.' },
+                        { tag: 'Enterprise Solutions', desc: 'Permissioned blockchains and custom Layer 1s for specific industries.' },
+                        { tag: 'Sustainability-Focused Projects', desc: 'Blockchain applications with ESG goals leveraging eco-friendly consensus.' },
+                        { tag: 'Gaming & Digital Assets', desc: 'High-speed, low-cost platforms for gaming and NFTs.' },
+                        { tag: 'Data-Intensive Applications', desc: 'Robust transaction processing and privacy-focused projects.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : title.includes('XION') ? ([
+                        { tag: 'Consumer Platforms', desc: 'E-commerce, payments, and services for non-crypto-native users.' },
+                        { tag: 'Social & Community Tools', desc: 'SocialFi apps, creator rewards, and decentralized engagement.' },
+                        { tag: 'Entertainment & Gaming', desc: 'Music, gaming, and event platforms with immersive Web3 features.' },
+                        { tag: 'Asset Tokenization', desc: 'Real-world asset linking via NFC chips, digital twins, and collectibles.' },
+                        { tag: 'Web3 Enhancements', desc: 'Crypto payments, on-chain subscriptions, and privacy-preserving tools.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : title.includes('F Ecosystem') ? ([
+                        { tag: 'RWA Protocols', desc: 'Agent-driven access to tokenized real-world assets and collectibles.' },
+                        { tag: 'DePIN Infrastructure', desc: 'Decentralized physical networks powering agentic automation.' },
+                        { tag: 'Automated Yield', desc: 'Low-risk yield strategies optimized by autonomous agents.' },
+                        { tag: 'AI-Powered GTM', desc: 'Agent-led growth, distribution, and go-to-market execution.' },
+                        { tag: 'Intelligent Simulations', desc: 'Environments for agent coordination, testing, and strategy modeling.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {item.tag}
+                          </span>
+                          <span className="text-foreground/70 text-sm sm:ml-3 sm:mt-0 mt-1">
+                            {item.desc}
+                          </span>
+                        </div>
+                      ))) : (
+                        focusAreas.map((area, index) => (
+                          <span key={index} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-purple-100 font-semibold text-base shadow-md">
+                            <CheckCircle className="h-4 w-4 text-purple-400" />
+                            {area}
+                          </span>
+                        ))
+                      )}
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
-
-            {/* Technical Details Section */}
-            {technicalDetails && (
-              <div className="mt-20">
-                <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
-                        <Code className="h-8 w-8 text-purple-400" />
-                      </div>
-                      <CardTitle className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 leading-tight">
-                        {technicalDetails.title}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-8">
-                    {/* Description */}
-                    <p className="text-lg text-foreground/80 leading-relaxed">
-                      {technicalDetails.description}
-                    </p>
-
-                    {/* Core Features */}
-                    <div className="space-y-4">
-                      {technicalDetails.features.map((feature, index) => (
-                        <div key={index} className="flex items-start gap-4">
-                          <div className="p-2 rounded-lg bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
-                            <Zap className="h-5 w-5 text-purple-400" />
-                          </div>
-                          <p className="text-lg text-foreground/90">
-                            {feature}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Learn More Button */}
-                    <div className="flex justify-center my-8">
-                      <CtaButton
-                        href={learnMoreUrl || technicalDetails?.website || "#"}
-                        className="text-lg px-12 py-5 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-semibold shadow-xl shadow-purple-900/20 border-none transition-all duration-300 transform hover:scale-105 hover:from-purple-600 hover:to-indigo-600 hover:shadow-pink-500/30 flex items-center gap-2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Learn More
-                        <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                      </CtaButton>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            )}
           </div>
 
           {/* Program Details */}
@@ -288,6 +311,57 @@ export default function AcceleratorTemplate({
           </div>
         </div>
       </SectionWrapper>
+
+      {/* Technical Details Section */}
+      {technicalDetails && (
+        <div className="mt-20">
+          <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+            <CardHeader className="pb-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
+                  <Code className="h-8 w-8 text-purple-400" />
+                </div>
+                <CardTitle className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 leading-tight">
+                  {technicalDetails.title}
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-8">
+              {/* Description */}
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                {technicalDetails.description}
+              </p>
+
+              {/* Core Features */}
+              <div className="space-y-4">
+                {technicalDetails.features.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="p-2 rounded-lg bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
+                      <Zap className="h-5 w-5 text-purple-400" />
+                    </div>
+                    <p className="text-lg text-foreground/90">
+                      {feature}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Learn More Button */}
+              <div className="flex justify-center my-8">
+                <CtaButton
+                  href={learnMoreUrl || technicalDetails?.website || "#"}
+                  className="text-lg px-12 py-5 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-semibold shadow-xl shadow-purple-900/20 border-none transition-all duration-300 transform hover:scale-105 hover:from-purple-600 hover:to-indigo-600 hover:shadow-pink-500/30 flex items-center gap-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </CtaButton>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       {/* Why Build Section */}
       <SectionWrapper className="py-32">

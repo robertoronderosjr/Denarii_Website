@@ -16,6 +16,13 @@ export default function WireNetworkAccelerator() {
         "Liquidity",
         "Dev Tools"
       ]}
+      projectTypes={[
+        { title: "AI Agent-based Projects", description: "Platforms for autonomous transactions" },
+        { title: "AI-Powered DeFi", description: "Lending, trading, and liquidity platforms driven by AI" },
+        { title: "Gaming Ecosystems", description: "Real-time games requiring high-speed transactions" },
+        { title: "Universal Liquidity", description: "Cross-chain marketplaces for assets and NFTs" },
+        { title: "Developer Tools", description: "SDKs, APIs, and modular components" },
+      ]}
       highlights={[
         "No Gas Fees: Eliminate transaction fees that slow down blockchain adoption",
         "All Chains: Interact with any major blockchain seamlessly",
