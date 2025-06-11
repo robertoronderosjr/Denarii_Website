@@ -315,94 +315,201 @@ export default function AcceleratorTemplate({
         </div>
       </SectionWrapper>
 
-      {/* Technical Details Section */}
+      {/* Enhanced Technical Details Section */}
       {technicalDetails && (
-        <div className="mt-20">
-          <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
-            <CardHeader className="pb-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
-                  <Code className="h-8 w-8 text-purple-400" />
-                </div>
-                <CardTitle className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600 leading-tight">
-                  {technicalDetails.title}
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-8">
-              {/* Description */}
-              <p className="text-lg text-foreground/80 leading-relaxed">
-                {technicalDetails.description}
-              </p>
-
-              {/* Core Features */}
-              <div className="space-y-4">
-                {technicalDetails.features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="p-2 rounded-lg bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
-                      <Zap className="h-5 w-5 text-purple-400" />
-                    </div>
-                    <p className="text-lg text-foreground/90">
-                      {feature}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Learn More Button */}
-              <div className="flex justify-center my-8">
-                <CtaButton
-                  href={learnMoreUrl || technicalDetails?.website || "#"}
-                  className="text-lg px-12 py-5 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-semibold shadow-xl shadow-purple-900/20 border-none transition-all duration-300 transform hover:scale-105 hover:from-purple-600 hover:to-indigo-600 hover:shadow-pink-500/30 flex items-center gap-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
+        <SectionWrapper className="py-32">
+          <div className="relative">
+            {/* Background Elements */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-indigo-900/10 rounded-3xl" />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl" />
+            
+            <Card className="relative bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-xl border border-purple-500/20 shadow-2xl shadow-purple-900/20 overflow-hidden">
+              {/* Animated border gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-indigo-500/20 opacity-50 animate-pulse" />
+              <div className="absolute inset-[1px] bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-[inherit]" />
+              
+              <CardHeader className="relative pb-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-6"
                 >
-                  Learn More
-                  <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                </CtaButton>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl blur-lg opacity-50" />
+                    <div className="relative p-4 rounded-2xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20">
+                      <Code className="h-10 w-10 text-purple-400" />
+                    </div>
+                  </div>
+                  <div>
+                    <CardTitle className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 leading-tight">
+                      {technicalDetails.title}
+                    </CardTitle>
+                    <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mt-4" />
+                  </div>
+                </motion.div>
+              </CardHeader>
+              
+              <CardContent className="relative space-y-10">
+                {/* Description */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="relative"
+                >
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full" />
+                  <p className="text-xl text-foreground/90 leading-relaxed pl-8">
+                    {technicalDetails.description}
+                  </p>
+                </motion.div>
+
+                {/* Core Features */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="space-y-6"
+                >
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <Sparkles className="h-6 w-6 text-purple-400" />
+                    Core Features
+                  </h3>
+                  <div className="grid gap-6">
+                    {technicalDetails.features.map((feature, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6 + index * 0.1 }}
+                        className="group flex items-start gap-4 p-6 rounded-xl bg-gradient-to-r from-purple-500/5 to-indigo-500/5 border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+                      >
+                        <div className="flex-shrink-0 p-3 rounded-lg bg-gradient-to-r from-purple-500/20 to-indigo-500/20 group-hover:scale-110 transition-transform duration-300">
+                          <Zap className="h-6 w-6 text-purple-400" />
+                        </div>
+                        <p className="text-lg text-foreground/90 leading-relaxed">
+                          {feature}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Learn More Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8 }}
+                  className="flex justify-center pt-8"
+                >
+                  <CtaButton
+                    href={learnMoreUrl || technicalDetails?.website || "#"}
+                    className="group relative text-xl px-12 py-6 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-bold shadow-2xl shadow-purple-900/30 border-none transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/40 overflow-hidden"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {/* Animated background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative flex items-center gap-3">
+                      Learn More
+                      <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
+                  </CtaButton>
+                </motion.div>
+              </CardContent>
+            </Card>
+          </div>
+        </SectionWrapper>
       )}
 
-      {/* Why Build Section */}
+      {/* Enhanced Why Build Section */}
       <SectionWrapper className="py-32">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column - Text */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h3 className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600">
-                  {whyBuildTitle ? whyBuildTitle : `Why Build on ${title.split(' ')[0]}?`}
-                </h3>
-                <p className="text-xl text-foreground/80 leading-relaxed">
-                  {overview.split('\n\n')[0]}
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Visual Cards */}
-            <div className="grid grid-cols-1 gap-6">
-              {highlights.slice(0, 5).map((highlight, index) => (
-                <Card 
-                  key={index}
-                  className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 group"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 group-hover:scale-110 transition-transform duration-300">
-                        {index === 0 && <Zap className="h-6 w-6 text-purple-400" />}
-                        {index === 1 && <Network className="h-6 w-6 text-purple-400" />}
-                        {index === 2 && <DollarSign className="h-6 w-6 text-purple-400" />}
-                        {index === 3 && <Code className="h-6 w-6 text-purple-400" />}
-                        {index === 4 && <Shield className="h-6 w-6 text-purple-400" />}
+        <div className="relative">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/10 via-transparent to-purple-900/10 rounded-3xl" />
+          <div className="absolute top-1/4 right-0 w-72 h-72 bg-indigo-500/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-purple-500/5 rounded-full blur-3xl" />
+          
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Left Column - Enhanced Text */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-8"
+              >
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-lg opacity-50" />
+                      <div className="relative p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20">
+                        <Rocket className="h-8 w-8 text-purple-400" />
                       </div>
-                      <p className="text-lg group-hover:text-purple-300 transition-colors duration-300">{highlight}</p>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    <div className="h-1 flex-1 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" />
+                  </div>
+                  
+                  <h3 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 leading-tight">
+                    {whyBuildTitle ? whyBuildTitle : `Why Build on ${title.split(' ')[0]}?`}
+                  </h3>
+                  
+                  <div className="relative">
+                    <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-indigo-500 rounded-full" />
+                    <p className="text-xl text-foreground/80 leading-relaxed pl-8">
+                      {overview.split('\n\n')[0]}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Column - Enhanced Visual Cards */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 gap-6"
+              >
+                {highlights.slice(0, 5).map((highlight, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Card className="group relative overflow-hidden bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
+                      {/* Animated background gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      <CardContent className="relative p-6">
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0 relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
+                            <div className="relative p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                              {index === 0 && <Zap className="h-6 w-6 text-purple-400" />}
+                              {index === 1 && <Network className="h-6 w-6 text-purple-400" />}
+                              {index === 2 && <DollarSign className="h-6 w-6 text-purple-400" />}
+                              {index === 3 && <Code className="h-6 w-6 text-purple-400" />}
+                              {index === 4 && <Shield className="h-6 w-6 text-purple-400" />}
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-lg text-foreground/90 leading-relaxed group-hover:text-white transition-colors duration-300">
+                              {highlight}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>
