@@ -493,163 +493,56 @@ export default function AcceleratorTemplate({
         </div>
       </SectionWrapper>
 
-      {/* Compelling CTA Section */}
-      <SectionWrapper className="py-32 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-indigo-900/20" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-repeat opacity-5" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" />
+      {/* Optimized CTA Section - Better Design, Same Size */}
+      <SectionWrapper className="py-24 relative overflow-hidden">
+        {/* Subtle Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-indigo-900/10" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl" />
         
-        <div className="relative max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl blur-lg opacity-50" />
-                <div className="relative p-4 rounded-2xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20">
-                  <Rocket className="h-12 w-12 text-purple-400" />
-                </div>
-              </div>
-              <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" />
-            </div>
-            
-            <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 mb-6 leading-tight">
-              Ready to Transform Your Vision?
-            </h2>
-            
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed mb-12">
-              Join the next generation of Web3 innovators. Get $100K funding, expert mentorship, and access to our global network of partners and investors.
-            </p>
-          </motion.div>
-
-          {/* Key Benefits Grid */}
+        <div className="relative max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="grid md:grid-cols-3 gap-8 mb-16"
-          >
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <CardContent className="relative p-8 text-center">
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-md opacity-50" />
-                  <div className="relative p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20 inline-block">
-                    <DollarSign className="h-8 w-8 text-purple-400" />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">$100K Investment</h3>
-                <p className="text-foreground/70 leading-relaxed">Immediate funding to accelerate your development and growth</p>
-              </CardContent>
-            </Card>
-
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <CardContent className="relative p-8 text-center">
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-md opacity-50" />
-                  <div className="relative p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20 inline-block">
-                    <Users className="h-8 w-8 text-purple-400" />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Expert Mentorship</h3>
-                <p className="text-foreground/70 leading-relaxed">Weekly sessions with industry leaders and successful founders</p>
-              </CardContent>
-            </Card>
-
-            <Card className="group relative overflow-hidden bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <CardContent className="relative p-8 text-center">
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-md opacity-50" />
-                  <div className="relative p-4 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20 inline-block">
-                    <Network className="h-8 w-8 text-purple-400" />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Global Network</h3>
-                <p className="text-foreground/70 leading-relaxed">Access to 50+ ecosystem partners and leading VCs</p>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Social Proof & Urgency */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="bg-gradient-to-br from-gray-900/60 to-gray-950/80 backdrop-blur-xl border border-purple-500/20 rounded-2xl p-8 mb-12"
-          >
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <TrendingUp className="h-6 w-6 text-green-400" />
-                    <span className="text-2xl font-bold text-green-400">15+</span>
-                    <span className="text-foreground/70">Companies Graduated</span>
-                  </div>
-                  <div className="h-6 w-px bg-gray-600" />
-                  <div className="flex items-center gap-2">
-                    <Award className="h-6 w-6 text-purple-400" />
-                    <span className="text-2xl font-bold text-purple-400">$3M+</span>
-                    <span className="text-foreground/70">Capital Supported</span>
-                  </div>
-                </div>
-                <blockquote className="text-lg text-foreground/80 italic leading-relaxed">
-                  "Denarii Labs transformed our vision into a thriving protocol with over $50M TVL. Their tokenomics expertise and network were game-changing."
-                </blockquote>
-                <div className="flex items-center gap-3 mt-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center">
-                    <span className="text-white font-bold">SC</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white">Sarah Chen</p>
-                    <p className="text-sm text-foreground/60">Founder, DeFi Protocol</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center md:text-right">
-                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-full px-4 py-2 mb-4">
-                  <Timer className="h-5 w-5 text-orange-400" />
-                  <span className="text-orange-300 font-semibold">Applications Close Soon</span>
-                </div>
-                <p className="text-foreground/70 mb-2">Limited spots available</p>
-                <p className="text-2xl font-bold text-white">Only 8 projects selected</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Main CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
             className="text-center"
           >
+            {/* Header */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-lg opacity-50" />
+                <div className="relative p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20">
+                  <Target className="h-8 w-8 text-purple-400" />
+                </div>
+              </div>
+              <div className="h-1 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" />
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 mb-6 leading-tight">
+              {ctaTitle}
+            </h2>
+            
+            <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed mb-12">
+              {ctaDescription}
+            </p>
+
+            {/* Enhanced CTA Button */}
             <CtaButton
               href={applyUrl || "/accelerator#apply"}
-              className="group relative inline-flex items-center gap-4 text-2xl px-16 py-8 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-bold shadow-2xl shadow-purple-900/40 border-none transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50 overflow-hidden"
+              className="group relative inline-flex items-center gap-3 text-xl px-12 py-6 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-bold shadow-2xl shadow-purple-900/30 border-none transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/40 overflow-hidden"
               target="_blank"
               rel="noopener noreferrer"
             >
               {/* Animated background */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              {/* Pulse effect */}
-              <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:animate-ping" />
+              {/* Subtle pulse effect */}
+              <div className="absolute inset-0 bg-white/10 rounded-2xl opacity-0 group-hover:animate-ping" />
               
-              <div className="relative flex items-center gap-4">
-                <Rocket className="h-8 w-8 group-hover:rotate-12 transition-transform duration-300" />
-                Apply to {title.split(' ')[0]} Accelerator
-                <ArrowRight className="h-8 w-8 group-hover:translate-x-2 transition-transform duration-300" />
+              <div className="relative flex items-center gap-3">
+                <Rocket className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
+                Apply Now
+                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </CtaButton>
             
