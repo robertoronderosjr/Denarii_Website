@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { ArrowRight, Handshake, Users, Rocket, FileText, Shield, Building, CreditCard, BarChart3, UserCheck, Wrench, HardDrive, Briefcase, Calculator, Lock, Link, Scale, Code, Server, TrendingUp, Repeat, Palette, Cpu, Star, CheckCircle, Globe, Zap, Network } from 'lucide-react';
+import { ArrowRight, Handshake, Users, Rocket, FileText, Shield, Building, CreditCard, BarChart3, UserCheck, Wrench, HardDrive, Briefcase, Calculator, Lock, Link as LinkIcon, Scale, Code, Server, TrendingUp, Repeat, Palette, Cpu, Star, CheckCircle, Globe, Zap, Network } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SectionWrapper } from '@/components/common/section-wrapper';
 import { CtaButton } from '@/components/common/cta-button';
@@ -124,7 +124,7 @@ const partnerCategories = {
   },
   "chains": {
     name: "Chains / L1s / L2s",
-    icon: Link,
+    icon: LinkIcon,
     color: "from-purple-500 to-indigo-500",
     description: "Blockchain networks and layer solutions",
     partners: [
