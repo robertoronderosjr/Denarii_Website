@@ -208,7 +208,7 @@ export default function AcceleratorTemplate({
 
       {/* Program Overview and Details Section */}
       <SectionWrapper className="py-32">
-        <div className="grid gap-20 lg:grid-cols-3 items-stretch">
+        <div className="grid gap-20 lg:grid-cols-3 items-start">
           {/* Overview and Tags */}
           <div className="lg:col-span-2 h-full flex flex-col">
             <Card className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 h-full flex flex-col">
@@ -217,52 +217,52 @@ export default function AcceleratorTemplate({
                   Program Overview
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-between space-y-6">
-                <div>
+              <CardContent className="flex-1 flex flex-col">
+                <div className="flex-1">
                   <p className="whitespace-pre-line text-foreground/90 leading-relaxed text-lg md:text-xl mb-8">
                     {overview}
                   </p>
                   
                   {/* Enhanced Types of Projects Section */}
-                  <div className="border-t border-primary/20 pt-8">
+                  <div className="border-t border-primary/20 pt-6">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10">
-                        <Rocket className="h-7 w-7 text-purple-400" />
+                        <Rocket className="h-6 w-6 text-purple-400" />
                       </div>
-                      <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600">
+                      <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-600">
                         Types of Projects We're Looking For
                       </h3>
                     </div>
                     
-                    <div className="grid gap-4">
+                    <div className="grid gap-3">
                       {projectTypes.map((project, idx) => (
                         <motion.div
                           key={idx}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1 }}
-                          className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-6 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+                          className="group relative overflow-hidden rounded-lg border border-white/10 bg-gradient-to-r from-gray-900/50 to-gray-800/50 p-4 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
                         >
                           {/* Background gradient overlay */}
                           <div className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`} />
                           
-                          <div className="relative flex items-start gap-4">
+                          <div className="relative flex items-start gap-3">
                             {/* Icon */}
-                            <div className={`flex-shrink-0 p-3 rounded-xl bg-gradient-to-r ${project.color} bg-opacity-20 group-hover:scale-110 transition-transform duration-300`}>
-                              <project.icon className="h-6 w-6 text-white" />
+                            <div className={`flex-shrink-0 p-2 rounded-lg bg-gradient-to-r ${project.color} bg-opacity-20 group-hover:scale-110 transition-transform duration-300`}>
+                              <project.icon className="h-5 w-5 text-white" />
                             </div>
                             
                             {/* Content */}
                             <div className="flex-1 min-w-0">
-                              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
+                              <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                                 <Badge 
-                                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${project.color} text-white font-semibold text-sm shadow-md border-0 whitespace-nowrap`}
+                                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${project.color} text-white font-semibold text-sm shadow-md border-0 whitespace-nowrap w-fit`}
                                 >
-                                  <CheckCircle className="h-4 w-4" />
+                                  <CheckCircle className="h-3 w-3" />
                                   {project.tag}
                                 </Badge>
                               </div>
-                              <p className="text-foreground/70 text-base leading-relaxed">
+                              <p className="text-foreground/70 text-sm leading-relaxed">
                                 {project.desc}
                               </p>
                             </div>
