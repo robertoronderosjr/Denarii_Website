@@ -192,7 +192,7 @@ export default function AcceleratorTemplate({
                         Types of Projects We're Looking For
                       </h3>
                     </div>
-                    <div className="grid gap-4 p-4 rounded-xl bg-gradient-to-br from-purple-900/10 via-background to-indigo-900/10 shadow-inner border border-primary/10">
+                    <div className="grid gap-5">
                       {/* Map tags to their descriptions for Wire Network */}
                       {title.includes('Wire') ? ([
                         { tag: 'AI Agent-based Projects', desc: 'Platforms for autonomous transactions' },
