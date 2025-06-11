@@ -493,60 +493,45 @@ export default function AcceleratorTemplate({
         </div>
       </SectionWrapper>
 
-      {/* Optimized CTA Section - Better Design, Same Size */}
-      <SectionWrapper className="py-24 relative overflow-hidden">
+      {/* Compact CTA Section */}
+      <SectionWrapper className="py-16 relative overflow-hidden">
         {/* Subtle Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-transparent to-indigo-900/10" />
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/5 via-transparent to-indigo-900/5" />
         
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="space-y-6"
           >
-            {/* Header */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl blur-lg opacity-50" />
-                <div className="relative p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20">
-                  <Target className="h-8 w-8 text-purple-400" />
-                </div>
-              </div>
-              <div className="h-1 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full" />
+            {/* Compact Header */}
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Target className="h-6 w-6 text-purple-400" />
+              <div className="h-px w-12 bg-gradient-to-r from-purple-500 to-indigo-500" />
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 leading-tight">
               {ctaTitle}
             </h2>
             
-            <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed mb-12">
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               {ctaDescription}
             </p>
 
-            {/* Enhanced CTA Button */}
+            {/* Compact CTA Button */}
             <CtaButton
               href={applyUrl || "/accelerator#apply"}
-              className="group relative inline-flex items-center gap-3 text-xl px-12 py-6 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-bold shadow-2xl shadow-purple-900/30 border-none transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/40 overflow-hidden"
+              className="group inline-flex items-center gap-2 text-lg px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold shadow-lg shadow-purple-900/30 border-none transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/40"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {/* Animated background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Subtle pulse effect */}
-              <div className="absolute inset-0 bg-white/10 rounded-2xl opacity-0 group-hover:animate-ping" />
-              
-              <div className="relative flex items-center gap-3">
-                <Rocket className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-                Apply Now
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
+              <Rocket className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              Apply Now
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </CtaButton>
             
-            <p className="text-foreground/60 mt-6 max-w-2xl mx-auto">
+            <p className="text-foreground/60 text-sm max-w-xl mx-auto">
               Join the next cohort of successful Web3 startups. Application review begins immediately.
             </p>
           </motion.div>
