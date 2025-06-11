@@ -108,28 +108,28 @@ export default function AcceleratorTemplate({
             <div className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[300px] lg:h-[300px]">
               {title.includes('Avalanche') && (
                 <img 
-                  src="/sponsors/avalanchelogo.png" 
+                  src="/Sponsors/avalanchelogo.png" 
                   alt="Avalanche Logo" 
                   className="w-full h-full object-contain"
                 />
               )}
               {title.includes('Wire') && (
                 <img 
-                  src="/sponsors/wirelogo.png" 
+                  src="/Sponsors/wirelogo.png" 
                   alt="Wire Network Logo" 
                   className="w-full h-full object-contain"
                 />
               )}
               {title.includes('XION') && (
                 <img 
-                  src="/chains/xion.png" 
+                  src="/Chains/xion.png" 
                   alt="XION Logo" 
                   className="w-full h-full object-contain"
                 />
               )}
               {title.includes('F Ecosystem') && (
                 <img 
-                  src="/chains/fchain.png" 
+                  src="/Chains/fchain.png" 
                   alt="F Ecosystem Logo" 
                   className="w-full h-full object-contain"
                 />
@@ -138,7 +138,7 @@ export default function AcceleratorTemplate({
             <div className="h-[2px] w-[200px] sm:h-[250px] sm:w-[2px] lg:h-[300px] bg-gradient-to-r sm:bg-gradient-to-b from-purple-500/50 via-pink-500/50 to-indigo-500/50" />
             <div className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[300px] lg:h-[300px]">
               <img 
-                src="/logo/Denarii-Logo_Stacked-Vertical -white.svg" 
+                src="/Logo/Denarii-Logo_Stacked-Vertical -white.svg" 
                 alt="Denarii Logo" 
                 className="w-full h-full object-contain"
               />
