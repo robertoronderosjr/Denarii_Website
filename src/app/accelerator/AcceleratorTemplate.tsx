@@ -47,6 +47,7 @@ interface ProgramDetail {
   className: string;
 }
 
+
 export default function AcceleratorTemplate({
   title,
   description,
