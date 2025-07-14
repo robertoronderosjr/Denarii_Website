@@ -1,10 +1,10 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ElementType } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SectionWrapperProps extends HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }
 
 export function SectionWrapper({ children, className, as: Component = 'section', ...props }: SectionWrapperProps) {
