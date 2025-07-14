@@ -39,8 +39,15 @@ async function handleAuth(request: NextRequest) {
   const formData = await request.formData();
   const password = formData.get('password');
   
-  // Set your desired password here (you can change this)
-  const correctPassword = 'denarii2024';
+  // Get password from environment variable
+  const correctPassword = process.env.SITE_PASSWORD;
+  
+  // If no password is set in environment, deny access
+  if (!correctPassword) {
+    const url = new URL(request.url);
+    url.searchParams.set('error', 'config');
+    return NextResponse.redirect(url);
+  }
   
   if (password === correctPassword) {
     // Set authentication cookie and redirect
@@ -146,6 +153,7 @@ function showLoginPage(request: NextRequest) {
             <button type="submit">Access Preview</button>
           </form>
           ${error === 'invalid' ? '<div class="error">Invalid access code. Please try again.</div>' : ''}
+          ${error === 'config' ? '<div class="error">Site configuration error. Please contact administrator.</div>' : ''}
         </div>
       </body>
     </html>
