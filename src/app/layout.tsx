@@ -1,55 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
-import { SITE_NAME } from "@/lib/constants";
+import AuthWrapper from "@/components/auth-wrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: {
-    default: SITE_NAME,
-    template: `%s | ${SITE_NAME}`,
-  },
-  description:
-    "Pioneering the future of decentralized technologies. Denarii Labs offers accelerator programs, tokenomics consulting, and research insights.",
-  icons: {
-    icon: "/Logo/Denarii-Logo_Icon-Black.svg",
-  },
+  title: "Denarii Labs - Tokenomics & Blockchain Consulting",
+  description: "Expert tokenomics consulting and blockchain advisory services",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-foreground`}
-      >
-        <div className="min-h-screen flex flex-col">
-          {/* Background grid pattern */}
-          <div className="fixed inset-0 bg-[url('/grid.svg')] bg-[length:60px_60px] bg-fixed bg-top bg-repeat opacity-10 pointer-events-none z-0"></div>
-
-          <div className="relative z-10 flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow bg-gray-950">{children}</main>
-            <Footer />
-          </div>
-
+    <html lang="en">
+      <body className={inter.className}>
+        <AuthWrapper>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
           <Toaster />
-        </div>
+        </AuthWrapper>
       </body>
     </html>
   );
