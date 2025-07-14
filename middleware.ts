@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
+  console.log('🔒 Middleware executed for:', request.nextUrl.pathname);
+  
   // Allow access to public assets and API routes
   if (
     request.nextUrl.pathname.startsWith('/_next') ||
@@ -12,15 +14,18 @@ export function middleware(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/People') ||
     request.nextUrl.pathname.startsWith('/Sponsors') ||
     request.nextUrl.pathname.startsWith('/blog') ||
-    request.nextUrl.pathname.startsWith('/contact-bg.jpg') ||
-    request.nextUrl.pathname.startsWith('/grid.svg') ||
-    request.nextUrl.pathname.match(/\.(jpg|jpeg|png|svg|gif|ico|css|js|woff|woff2|ttf|eot)$/i)
+    request.nextUrl.pathname.endsWith('.svg') ||
+    request.nextUrl.pathname.endsWith('.png') ||
+    request.nextUrl.pathname.endsWith('.jpg') ||
+    request.nextUrl.pathname.endsWith('.jpeg') ||
+    request.nextUrl.pathname.endsWith('.gif') ||
+    request.nextUrl.pathname.endsWith('.ico')
   ) {
     return NextResponse.next();
   }
 
   // Handle authentication form submission
-  if (request.method === 'POST') {
+  if (request.method === 'POST' && request.nextUrl.pathname === '/auth') {
     return handleAuth(request);
   }
 
@@ -32,26 +37,27 @@ export function middleware(request: NextRequest) {
     return showLoginPage(request);
   }
 
+  // User is authenticated, continue
   return NextResponse.next();
 }
 
 async function handleAuth(request: NextRequest) {
   const formData = await request.formData();
-  const password = formData.get('password');
-  
-  // Get password from environment variable
+  const password = formData.get('password') as string;
   const correctPassword = process.env.SITE_PASSWORD;
-  
-  // If no password is set in environment, deny access
+
+  console.log('🔐 Authentication attempt');
+
   if (!correctPassword) {
+    console.log('❌ No password configured');
     const url = new URL(request.url);
     url.searchParams.set('error', 'config');
     return NextResponse.redirect(url);
   }
-  
+
   if (password === correctPassword) {
-    // Set authentication cookie and redirect
-    const response = NextResponse.redirect(request.url);
+    console.log('✅ Authentication successful');
+    const response = NextResponse.redirect(new URL('/', request.url));
     response.cookies.set('auth-token', 'denarii-labs-preview', {
       maxAge: 60 * 60 * 24 * 7, // 7 days
       httpOnly: true,
@@ -60,7 +66,7 @@ async function handleAuth(request: NextRequest) {
     });
     return response;
   } else {
-    // Redirect back with error
+    console.log('❌ Authentication failed');
     const url = new URL(request.url);
     url.searchParams.set('error', 'invalid');
     return NextResponse.redirect(url);
@@ -78,8 +84,14 @@ function showLoginPage(request: NextRequest) {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Denarii Labs - Private Preview</title>
+        <title>Access Required - Denarii Labs</title>
         <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
           body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -87,73 +99,123 @@ function showLoginPage(request: NextRequest) {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0;
-            padding: 20px;
           }
-          .login-container {
+          
+          .container {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
             max-width: 400px;
-            width: 100%;
+            width: 90%;
           }
+          
           .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 10px;
-          }
-          .subtitle {
-            color: #666;
+            text-align: center;
             margin-bottom: 30px;
           }
-          input {
+          
+          .logo h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+          }
+          
+          .logo p {
+            color: #64748b;
+            font-size: 14px;
+          }
+          
+          .form-group {
+            margin-bottom: 20px;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-weight: 500;
+          }
+          
+          input[type="password"] {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e1e5e9;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
             border-radius: 8px;
             font-size: 16px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
+            transition: border-color 0.2s;
           }
-          input:focus {
+          
+          input[type="password"]:focus {
             outline: none;
             border-color: #667eea;
           }
-          button {
+          
+          .submit-btn {
             width: 100%;
-            padding: 12px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
+            padding: 12px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: opacity 0.2s;
           }
-          button:hover {
-            transform: translateY(-2px);
+          
+          .submit-btn:hover {
+            opacity: 0.9;
           }
+          
           .error {
-            color: #e74c3c;
-            margin-top: 10px;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+          }
+          
+          .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
             font-size: 14px;
           }
         </style>
       </head>
       <body>
-        <div class="login-container">
-          <div class="logo">🚀 Denarii Labs</div>
-          <div class="subtitle">Private Preview Access</div>
-          <form method="POST">
-            <input type="password" name="password" placeholder="Enter access code" required>
-            <button type="submit">Access Preview</button>
-          </form>
+        <div class="container">
+          <div class="logo">
+            <h1>Denarii Labs</h1>
+            <p>Web3 Accelerator & Consulting</p>
+          </div>
+          
           ${error === 'invalid' ? '<div class="error">Invalid access code. Please try again.</div>' : ''}
           ${error === 'config' ? '<div class="error">Site configuration error. Please contact administrator.</div>' : ''}
+          
+          <form method="POST" action="/auth">
+            <div class="form-group">
+              <label for="password">Enter your access code:</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              Access Website
+            </button>
+          </form>
+          
+          <div class="footer">
+            <p>This is a private preview. Access is restricted to authorized users only.</p>
+          </div>
         </div>
       </body>
     </html>
@@ -168,6 +230,7 @@ function showLoginPage(request: NextRequest) {
 }
 
 export const config = {
+  runtime: 'nodejs',  // Use Node.js runtime
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
