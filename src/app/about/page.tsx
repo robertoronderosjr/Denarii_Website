@@ -370,6 +370,10 @@ export default function AboutPage() {
                       blur = "none",
                       width = 320,
                       bg = "#fff";
+                    
+                    // Safe window access for responsive sizing
+                    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
+                    
                     if (pos === 0) {
                       scale = 1.08;
                       rotate = 0;
@@ -380,8 +384,8 @@ export default function AboutPage() {
                         "0 10px 36px 0 rgba(80,0,120,0.16), 0 2px 8px 0 rgba(80,0,120,0.10)";
                       border = "2px solid rgba(168,85,247,0.18)";
                       width = 320; // mobile default
-                      if (window.innerWidth >= 640) width = 360;
-                      if (window.innerWidth >= 1024) width = 380;
+                      if (windowWidth >= 640) width = 360;
+                      if (windowWidth >= 1024) width = 380;
                       bg = "#fff";
                     } else if (pos === -1) {
                       scale = 0.92;
@@ -393,8 +397,8 @@ export default function AboutPage() {
                       border = "1.5px solid rgba(168,85,247,0.10)";
                       blur = "blur(1px)";
                       width = 220;
-                      if (window.innerWidth >= 640) width = 260;
-                      if (window.innerWidth >= 1024) width = 320;
+                      if (windowWidth >= 640) width = 260;
+                      if (windowWidth >= 1024) width = 320;
                       bg = "#fff";
                     } else if (pos === 1) {
                       scale = 0.92;
@@ -406,8 +410,8 @@ export default function AboutPage() {
                       border = "1.5px solid rgba(168,85,247,0.10)";
                       blur = "blur(1px)";
                       width = 220;
-                      if (window.innerWidth >= 640) width = 260;
-                      if (window.innerWidth >= 1024) width = 320;
+                      if (windowWidth >= 640) width = 260;
+                      if (windowWidth >= 1024) width = 320;
                       bg = "#fff";
                     } else if (pos === -2) {
                       scale = 0.8;
@@ -419,8 +423,8 @@ export default function AboutPage() {
                       border = "1px solid rgba(168,85,247,0.08)";
                       blur = "blur(2px)";
                       width = 120;
-                      if (window.innerWidth >= 640) width = 180;
-                      if (window.innerWidth >= 1024) width = 220;
+                      if (windowWidth >= 640) width = 180;
+                      if (windowWidth >= 1024) width = 220;
                       bg = "#fff";
                     } else if (pos === 2) {
                       scale = 0.8;
@@ -432,8 +436,8 @@ export default function AboutPage() {
                       border = "1px solid rgba(168,85,247,0.08)";
                       blur = "blur(2px)";
                       width = 120;
-                      if (window.innerWidth >= 640) width = 180;
-                      if (window.innerWidth >= 1024) width = 220;
+                      if (windowWidth >= 640) width = 180;
+                      if (windowWidth >= 1024) width = 220;
                       bg = "#fff";
                     } else if (pos === -3) {
                       scale = 0.65;
@@ -445,8 +449,8 @@ export default function AboutPage() {
                       border = "1px solid rgba(168,85,247,0.04)";
                       blur = "blur(3px)";
                       width = 60;
-                      if (window.innerWidth >= 640) width = 100;
-                      if (window.innerWidth >= 1024) width = 120;
+                      if (windowWidth >= 640) width = 100;
+                      if (windowWidth >= 1024) width = 120;
                       bg = "#fff";
                     } else if (pos === 3) {
                       scale = 0.65;
@@ -458,8 +462,8 @@ export default function AboutPage() {
                       border = "1px solid rgba(168,85,247,0.04)";
                       blur = "blur(3px)";
                       width = 60;
-                      if (window.innerWidth >= 640) width = 100;
-                      if (window.innerWidth >= 1024) width = 120;
+                      if (windowWidth >= 640) width = 100;
+                      if (windowWidth >= 1024) width = 120;
                       bg = "#fff";
                     }
 
