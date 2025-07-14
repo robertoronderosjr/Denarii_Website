@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CalendarDays, Users, Target, DivideIcon as LucideIcon, Sparkles, Zap, Network, DollarSign, CheckCircle, ArrowRight, Star, Rocket, Shield, Code, Clock, MapPin, CircleCheck, TrendingUp, Award, Globe, Timer } from "lucide-react";
+import { ArrowLeft, CalendarDays, Users, Target, Sparkles, Zap, Network, DollarSign, CheckCircle, ArrowRight, Star, Rocket, Shield, Code, Clock, MapPin, CircleCheck, TrendingUp, Award, Globe, Timer, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CtaButton } from "@/components/common/cta-button";
